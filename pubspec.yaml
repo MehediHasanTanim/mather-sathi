@@ -36,6 +36,7 @@ dependencies:
   flutter_tts: ^4.2.5
   cloud_firestore: ^6.10.0
   tflite_flutter: ^0.12.1
+  firebase_messaging: ^16.7.0
 
 dev_dependencies:
   flutter_test:

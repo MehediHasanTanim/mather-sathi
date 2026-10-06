@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "_comment": "ALL THRESHOLDS ARE PLACEHOLDERS owned by a plant pathologist (plan task K6). Rules stay `draft` and are not evaluated in stg/prod until reviewed and set to `published`.",
+  "rules": [
+    {
+      "id": "fungal_humid_rain",
+      "status": "draft",
+      "crops": ["rice", "potato", "tomato", "brinjal"],
+      "when": { "humidity_gte": 85, "rain_prob_gte": 60 },
+      "level": "watch",
+      "message_bn": "আগামী ৩ দিনে বৃষ্টি ও আর্দ্রতা বেশি থাকবে। ক্ষেত পর্যবেক্ষণে রাখুন।"
+    },
+    {
+      "id": "cool_humid_blight",
+      "status": "draft",
+      "crops": ["potato", "tomato"],
+      "when": { "humidity_gte": 90, "tmax_lte": 22 },
+      "level": "high",
+      "message_bn": "ঠান্ডা ও কুয়াশাচ্ছন্ন আবহাওয়ায় রোগের ঝুঁকি বেশি। ক্ষেত নিয়মিত দেখুন।"
+    }
+  ]
+}

@@ -6,7 +6,7 @@ export interface TxLike {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   get(ref: any): Promise<{ get(field: string): unknown }>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  set(ref: any, data: Record<string, unknown>): unknown;
+  set(ref: any, data: Record<string, unknown>, options?: { merge?: boolean }): unknown;
 }
 export interface DbLike {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

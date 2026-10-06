@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "test": "node --test --test-concurrency=1 test/*.test.js",
+    "test:e2e": "npx --yes firebase-tools@latest emulators:exec --only functions,firestore,auth --project demo-krishi \"node test/e2e/alerts_e2e.js\"",
     "test:emulated": "npx --yes firebase-tools@latest emulators:exec --only firestore,storage --project demo-krishi \"npm test\""
   },
   "devDependencies": {

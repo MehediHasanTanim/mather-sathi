@@ -10,7 +10,8 @@ export class FakeDb implements DbLike {
   doc(path: string) {
     return {
       path,
-      get: async () => ({ data: () => this.docs.get(path), get: (f: string) => this.docs.get(path)?.[f] }),
+      set: async (data: Record<string, unknown>) => void this.docs.set(path, data),
+      get: async () => ({ data: () => this.docs.get(path), get: (f: string) => this.docs.get(path)?.[f], exists: this.docs.has(path) }),
     };
   }
 
@@ -18,7 +19,8 @@ export class FakeDb implements DbLike {
     const writes: [string, Record<string, unknown>][] = [];
     const tx: TxLike = {
       get: async (ref: { path: string }) => ({ get: (f: string) => this.docs.get(ref.path)?.[f] }),
-      set: (ref: { path: string }, data) => void writes.push([ref.path, data]),
+      set: (ref: { path: string }, data, options) =>
+        void writes.push([ref.path, options?.merge ? { ...(this.docs.get(ref.path) ?? {}), ...data } : data]),
     };
     const out = await fn(tx);
     for (const [p, d] of writes) this.docs.set(p, d);
@@ -32,9 +34,9 @@ export const kbFixture = () =>
     version: "test",
     seq: 7,
     entries: [
-      { id: "rice_blast", crop: "rice", name_en: "Rice blast", ai_hint_en: "Eye-shaped lesions." },
-      { id: "rice_brown_spot", crop: "rice", name_en: "Rice brown spot", ai_hint_en: "Small brown spots." },
-      { id: "potato_late_blight", crop: "potato", name_en: "Potato late blight", ai_hint_en: "Water-soaked patches." },
+      { id: "rice_blast", crop: "rice", name_en: "Rice blast", name_bn: "ধানের ব্লাস্ট রোগ", ai_hint_en: "Eye-shaped lesions." },
+      { id: "rice_brown_spot", crop: "rice", name_en: "Rice brown spot", name_bn: "ধানের বাদামি দাগ", ai_hint_en: "Small brown spots." },
+      { id: "potato_late_blight", crop: "potato", name_en: "Potato late blight", name_bn: "আলুর লেট ব্লাইট", ai_hint_en: "Water-soaked patches." },
     ],
   });
 
@@ -62,3 +64,14 @@ export class FakeClient implements MessagesClient {
 
 /** Smallest thing that passes the JPEG magic-byte check. */
 export const jpegBase64 = (bytes = 2000) => Buffer.concat([Buffer.from([0xff, 0xd8, 0xff, 0xe0]), Buffer.alloc(bytes)]).toString("base64");
+
+import type { PushMessage, PushSender } from "../../src/notify";
+
+export class FakeSender implements PushSender {
+  sent: PushMessage[] = [];
+  fail = false;
+  async send(m: PushMessage): Promise<void> {
+    if (this.fail) throw new Error("fcm down");
+    this.sent.push(m);
+  }
+}

@@ -100,3 +100,10 @@ against a Python reference (JPEG decode bit-identical to PIL; both resize modes 
 (lazy and single-flight load, retry after a failed load, memory-pressure release), the fallback matrix with the real classifier, and the
 offline label/caveat on the result screen. **Not verified:** the TFLite native library, real inference, latency, the 32-bit device, APK size.
 `tflite_flutter` was added to `pubspec.yaml`; it has not been built for Android here, so a Gradle problem is possible.
+
+## Phase 7 — alerts, weather, notifications
+
+- Server: `aggregateReports` (Firestore trigger on `reports/*`, visible at >= `ALERT_THRESHOLD` distinct installs, default 3, one push per alert) and `refreshWeather` (scheduled 06:00 and 14:00 Asia/Dhaka).
+- Emulator end-to-end: `npm run test:e2e --prefix firebase` (run with proxy env vars unset in restricted sandboxes).
+- NOT verified: real FCM delivery, the live Open-Meteo API (host blocked in the dev sandbox; parser written from the documented shape), Android channel/permission changes on a device.
+- Open: Open-Meteo free tier is non-commercial (plan O6, check terms or move to a paid plan). All shipped weather rules are `draft` with placeholder thresholds and stay inactive until the agronomist signs them off (K6).

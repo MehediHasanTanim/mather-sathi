@@ -404,4 +404,44 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get offlineCaveat => 'ইন্টারনেট চালু করে আরও নিখুঁত ফলাফল পান';
+
+  @override
+  String alertsDistrict(String district) {
+    return '$district জেলা';
+  }
+
+  @override
+  String get alertsEmpty => 'আপনার জেলায় এখন কোনো সতর্কতা নেই';
+
+  @override
+  String get alertsNoDistrict => 'সতর্কতা দেখতে সেটিংসে আপনার জেলা বেছে নিন';
+
+  @override
+  String alertUpazila(String upazila) {
+    return '$upazila উপজেলা';
+  }
+
+  @override
+  String alertReporters(String count) {
+    return '$count জন কৃষক রিপোর্ট করেছেন';
+  }
+
+  @override
+  String get agoJustNow => 'এইমাত্র';
+
+  @override
+  String agoHours(String n) {
+    return '$n ঘণ্টা আগে';
+  }
+
+  @override
+  String agoDays(String n) {
+    return '$n দিন আগে';
+  }
+
+  @override
+  String get weatherDismiss => 'বন্ধ করুন';
+
+  @override
+  String get pushOpen => 'খুলুন';
 }

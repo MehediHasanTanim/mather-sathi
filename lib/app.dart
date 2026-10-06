@@ -6,6 +6,7 @@ import 'dart:async';
 import 'core/l10n/gen/app_localizations.dart';
 import 'core/router/app_router.dart';
 import 'core/theme/app_theme.dart';
+import 'features/notifications/push_handler.dart';
 import 'features/sync/sync_providers.dart';
 
 class KrishiApp extends ConsumerWidget {
@@ -15,8 +16,12 @@ class KrishiApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // Back online: push whatever is waiting (history, reports).
     ref.listen<AsyncValue<bool>>(connectivityProvider, (prev, next) {
-      if (next.value == true && prev?.value != true) unawaited(ref.read(syncServiceProvider).flush());
+      if (next.value == true && prev?.value != true)
+        unawaited(ref.read(syncServiceProvider).flush());
     });
+    ref.watch(
+      pushHandlerProvider,
+    ); // deep links and foreground banners for pushes
     return MaterialApp.router(
       onGenerateTitle: (c) => AppLocalizations.of(c).appName,
       theme: buildAppTheme(),
@@ -24,7 +29,8 @@ class KrishiApp extends ConsumerWidget {
       locale: const Locale('bn', 'BD'),
       supportedLocales: AppLocalizations.supportedLocales,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
-      builder: clampTextScale,
+      builder: (context, child) =>
+          PushBannerHost(child: clampTextScale(context, child)),
     );
   }
 }

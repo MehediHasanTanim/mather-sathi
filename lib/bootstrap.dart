@@ -19,6 +19,7 @@ import 'core/utils/cold_start.dart';
 import 'features/kb/kb_provider.dart';
 import 'features/offline/memory_guard.dart';
 import 'features/offline/model_assets.dart';
+import 'features/notifications/topic_sync.dart';
 import 'features/sync/sync_providers.dart';
 import 'features/profile/providers/profile_provider.dart';
 import 'providers/core_providers.dart';
@@ -29,7 +30,10 @@ enum Flavor { dev, stg, prod }
 /// `flutter run --flavor dev -t lib/main_dev.dart --dart-define=USE_EMULATORS=true --dart-define=EMULATOR_HOST=<lan ip>`
 /// (10.0.2.2 reaches the host from an Android emulator; use the machine's LAN IP for a physical phone).
 const _useEmulators = bool.fromEnvironment('USE_EMULATORS');
-const _emulatorHost = String.fromEnvironment('EMULATOR_HOST', defaultValue: '10.0.2.2');
+const _emulatorHost = String.fromEnvironment(
+  'EMULATOR_HOST',
+  defaultValue: '10.0.2.2',
+);
 
 /// Shared startup for the three flavor entry points.
 ///
@@ -45,20 +49,28 @@ Future<void> bootstrap(Flavor flavor, FirebaseOptions options) async {
   unawaited(_activateAppCheck(flavor));
   _setUpCrashReporting();
   if (flavor == Flavor.dev && _useEmulators) {
-    FirebaseFunctions.instanceFor(region: 'asia-south1').useFunctionsEmulator(_emulatorHost, 5001);
+    FirebaseFunctions.instanceFor(region: 'asia-south1')
+        .useFunctionsEmulator(_emulatorHost, 5001);
     await FirebaseAuth.instance.useAuthEmulator(_emulatorHost, 9099);
   }
 
   final db = await AppDatabase.open();
-  final modelAssets = await ModelAssets.probe(rootBundle, CrashlyticsErrorReporter());
+  final modelAssets = await ModelAssets.probe(
+    rootBundle,
+    CrashlyticsErrorReporter(),
+  );
   final container = ProviderContainer(
     overrides: [
       databaseProvider.overrideWithValue(db),
-      modelAssetsProvider.overrideWithValue(modelAssets), // null: no usable offline model, cloud-only behaviour
+      modelAssetsProvider.overrideWithValue(
+        modelAssets,
+      ), // null: no usable offline model, cloud-only behaviour
     ],
   );
   if (modelAssets != null) {
-    WidgetsBinding.instance.addObserver(MemoryPressureGuard(() => container.read(localClassifierProvider)));
+    WidgetsBinding.instance.addObserver(
+      MemoryPressureGuard(() => container.read(localClassifierProvider)),
+    );
   }
   await Future.wait([
     container.read(profileProvider.future),
@@ -67,10 +79,19 @@ Future<void> bootstrap(Flavor flavor, FirebaseOptions options) async {
   unawaited(container.read(remoteFlagsProvider.notifier).refresh());
 
   await initializeDateFormatting('bn');
-  unawaited(container.read(syncServiceProvider).flush()); // app start: push anything left from last time
+  unawaited(
+    container.read(syncServiceProvider).flush(),
+  ); // app start: push anything left from last time
+  unawaited(
+    container
+        .read(topicSyncProvider)
+        .sync(container.read(profileProvider).requireValue),
+  ); // retry any failed topic change
 
   ColdStart.logOnFirstFrame();
-  runApp(UncontrolledProviderScope(container: container, child: const KrishiApp()));
+  runApp(
+    UncontrolledProviderScope(container: container, child: const KrishiApp()),
+  );
 }
 
 Future<void> _activateAppCheck(Flavor flavor) async {

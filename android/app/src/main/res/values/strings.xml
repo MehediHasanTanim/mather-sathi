@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Notification channels (created in MainActivity); ids match the Functions: alerts, weather -->
+    <string name="channel_alerts">এলাকার রোগ সতর্কতা</string>
+    <string name="channel_weather">আবহাওয়া সতর্কতা</string>
+</resources>

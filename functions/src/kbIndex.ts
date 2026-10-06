@@ -4,6 +4,7 @@ export interface KbEntry {
   id: string;
   crop: string;
   name_en: string;
+  name_bn: string;
   ai_hint_en: string;
 }
 
@@ -32,6 +33,9 @@ export class KbIndex {
   }
   has(id: string): boolean {
     return this.data.entries.some((e) => e.id === id);
+  }
+  nameBn(id: string): string | undefined {
+    return this.data.entries.find((e) => e.id === id)?.name_bn;
   }
   isValid(crop: string, diseaseId: string): boolean {
     return this.data.entries.some((e) => e.crop === crop && e.id === diseaseId);

@@ -10,6 +10,7 @@ import '../../capture/domain/crop_selection.dart';
 import '../../capture/presentation/capture_actions.dart';
 import '../../capture/providers/capture_provider.dart';
 import '../../crops/crop.dart';
+import '../../weather/presentation/weather_banner.dart';
 
 /// Crop selection (8 launch crops + "other") and the entry to capture.
 class ScanHomeScreen extends ConsumerStatefulWidget {
@@ -54,11 +55,15 @@ class _ScanHomeScreenState extends ConsumerState<ScanHomeScreen> {
       appBar: AppBar(title: Text(l.appName)),
       body: Column(
         children: [
+          const WeatherBannerView(),
           Expanded(
             child: ListView(
               padding: const EdgeInsets.all(16),
               children: [
-                Text(l.selectCrop, style: Theme.of(context).textTheme.titleMedium),
+                Text(
+                  l.selectCrop,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
                 const SizedBox(height: 12),
                 GridView.count(
                   crossAxisCount: 2,
@@ -82,7 +87,9 @@ class _ScanHomeScreenState extends ConsumerState<ScanHomeScreen> {
                 _CropTile(
                   key: const Key('crop_other'),
                   emoji: '🌱',
-                  label: selection?.isOther == true ? selection!.label! : l.otherCrop,
+                  label: selection?.isOther == true
+                      ? selection!.label!
+                      : l.otherCrop,
                   selected: selection?.isOther == true,
                   onTap: _pickOther,
                 ),
@@ -144,27 +151,36 @@ class _CropTile extends StatelessWidget {
       button: true,
       selected: selected,
       child: Material(
-        color: selected ? scheme.primaryContainer : scheme.surfaceContainerHighest,
+        color: selected
+            ? scheme.primaryContainer
+            : scheme.surfaceContainerHighest,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
-          side: BorderSide(color: selected ? scheme.primary : Colors.transparent, width: 2),
+          side: BorderSide(
+            color: selected ? scheme.primary : Colors.transparent,
+            width: 2,
+          ),
         ),
         child: InkWell(
           borderRadius: BorderRadius.circular(12),
           onTap: onTap,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),
-            child: Row(children: [
-              Text(emoji, style: const TextStyle(fontSize: 28)),
-              const SizedBox(width: 10),
-              Expanded(
-                child: Text(label,
+            child: Row(
+              children: [
+                Text(emoji, style: const TextStyle(fontSize: 28)),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Text(
+                    label,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.titleMedium),
-              ),
-              if (selected) Icon(Icons.check_circle, color: scheme.primary),
-            ]),
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                ),
+                if (selected) Icon(Icons.check_circle, color: scheme.primary),
+              ],
+            ),
           ),
         ),
       ),
@@ -201,7 +217,10 @@ class _OtherCropDialogState extends State<_OtherCropDialog> {
         onChanged: (_) => setState(() {}),
       ),
       actions: [
-        TextButton(onPressed: () => Navigator.pop(context), child: Text(l.cancel)),
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: Text(l.cancel),
+        ),
         FilledButton(
           onPressed: CropSelection.isValidLabel(_c.text)
               ? () => Navigator.pop(context, _c.text.trim())

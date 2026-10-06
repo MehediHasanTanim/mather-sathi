@@ -4,24 +4,28 @@
       "ai_hint_en": "Round brown spots with concentric rings (target pattern) on older leaves first; leaves yellow and drop.",
       "crop": "potato",
       "id": "potato_early_blight",
+      "name_bn": "আলুর আর্লি ব্লাইট",
       "name_en": "Potato early blight"
     },
     {
       "ai_hint_en": "Water-soaked pale green patches on leaves turning brown-black quickly, white mould on the underside in humid weather, dark stem lesions, rotting tubers.",
       "crop": "potato",
       "id": "potato_late_blight",
+      "name_bn": "আলুর লেট ব্লাইট",
       "name_en": "Potato late blight"
     },
     {
       "ai_hint_en": "Eye- or spindle-shaped leaf lesions with grey centres and brown borders; nodes or the panicle neck may turn dark and break.",
       "crop": "rice",
       "id": "rice_blast",
+      "name_bn": "ধানের ব্লাস্ট রোগ",
       "name_en": "Rice blast"
     },
     {
       "ai_hint_en": "Many small oval brown spots on leaves, often with a yellow halo; discoloured, partly empty grains.",
       "crop": "rice",
       "id": "rice_brown_spot",
+      "name_bn": "ধানের বাদামি দাগ রোগ",
       "name_en": "Rice brown spot"
     }
   ],

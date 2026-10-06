@@ -180,7 +180,7 @@ function build({ srcDir, meta, env, labels }) {
   const kb = { schema: SCHEMA_VERSION, version: meta.version, seq: meta.seq, includes_drafts: includesDrafts, entries: included };
   const index = {
     schema: SCHEMA_VERSION, version: meta.version, seq: meta.seq,
-    entries: included.map(({ id, crop, name_en, ai_hint_en }) => ({ id, crop, name_en, ai_hint_en })),
+    entries: included.map(({ id, crop, name_en, name_bn, ai_hint_en }) => ({ id, crop, name_en, name_bn, ai_hint_en })),
   };
   const kbJson = stringify(kb);
   return {

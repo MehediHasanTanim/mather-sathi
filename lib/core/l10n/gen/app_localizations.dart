@@ -849,6 +849,66 @@ abstract class AppLocalizations {
   /// In bn, this message translates to:
   /// **'ইন্টারনেট চালু করে আরও নিখুঁত ফলাফল পান'**
   String get offlineCaveat;
+
+  /// No description provided for @alertsDistrict.
+  ///
+  /// In bn, this message translates to:
+  /// **'{district} জেলা'**
+  String alertsDistrict(String district);
+
+  /// No description provided for @alertsEmpty.
+  ///
+  /// In bn, this message translates to:
+  /// **'আপনার জেলায় এখন কোনো সতর্কতা নেই'**
+  String get alertsEmpty;
+
+  /// No description provided for @alertsNoDistrict.
+  ///
+  /// In bn, this message translates to:
+  /// **'সতর্কতা দেখতে সেটিংসে আপনার জেলা বেছে নিন'**
+  String get alertsNoDistrict;
+
+  /// No description provided for @alertUpazila.
+  ///
+  /// In bn, this message translates to:
+  /// **'{upazila} উপজেলা'**
+  String alertUpazila(String upazila);
+
+  /// No description provided for @alertReporters.
+  ///
+  /// In bn, this message translates to:
+  /// **'{count} জন কৃষক রিপোর্ট করেছেন'**
+  String alertReporters(String count);
+
+  /// No description provided for @agoJustNow.
+  ///
+  /// In bn, this message translates to:
+  /// **'এইমাত্র'**
+  String get agoJustNow;
+
+  /// No description provided for @agoHours.
+  ///
+  /// In bn, this message translates to:
+  /// **'{n} ঘণ্টা আগে'**
+  String agoHours(String n);
+
+  /// No description provided for @agoDays.
+  ///
+  /// In bn, this message translates to:
+  /// **'{n} দিন আগে'**
+  String agoDays(String n);
+
+  /// No description provided for @weatherDismiss.
+  ///
+  /// In bn, this message translates to:
+  /// **'বন্ধ করুন'**
+  String get weatherDismiss;
+
+  /// No description provided for @pushOpen.
+  ///
+  /// In bn, this message translates to:
+  /// **'খুলুন'**
+  String get pushOpen;
 }
 
 class _AppLocalizationsDelegate

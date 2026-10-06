@@ -146,5 +146,50 @@
   "badgeWatch": "নজর রাখুন",
   "badgePrevent": "প্রতিরোধ",
   "offlineMode": "অফলাইন মোড",
-  "offlineCaveat": "ইন্টারনেট চালু করে আরও নিখুঁত ফলাফল পান"
+  "offlineCaveat": "ইন্টারনেট চালু করে আরও নিখুঁত ফলাফল পান",
+  "alertsDistrict": "{district} জেলা",
+  "@alertsDistrict": {
+    "placeholders": {
+      "district": {
+        "type": "String"
+      }
+    }
+  },
+  "alertsEmpty": "আপনার জেলায় এখন কোনো সতর্কতা নেই",
+  "alertsNoDistrict": "সতর্কতা দেখতে সেটিংসে আপনার জেলা বেছে নিন",
+  "alertUpazila": "{upazila} উপজেলা",
+  "@alertUpazila": {
+    "placeholders": {
+      "upazila": {
+        "type": "String"
+      }
+    }
+  },
+  "alertReporters": "{count} জন কৃষক রিপোর্ট করেছেন",
+  "@alertReporters": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "agoJustNow": "এইমাত্র",
+  "agoHours": "{n} ঘণ্টা আগে",
+  "@agoHours": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "agoDays": "{n} দিন আগে",
+  "@agoDays": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherDismiss": "বন্ধ করুন",
+  "pushOpen": "খুলুন"
 }
