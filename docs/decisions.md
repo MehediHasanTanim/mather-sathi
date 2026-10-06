@@ -15,3 +15,8 @@
 The plan (Track M) needs real, expert-labelled **field** photos, split by field/farm and date. An in-house
 dataset assembled from public or lab-condition images will not give trustworthy accuracy or confidence thresholds.
 Until a labelled field set exists, ship cloud-only (v1.1 offline), as the contingency table already allows.
+
+## Data provenance: `assets/data/districts.json` (task O2 / 1.4)
+Generated from the open `nuhil/bangladesh-geocode` dataset (64 districts, 494 upazilas, Bangla and English names, reference lat/lon).
+**Must be validated against the official Bangladesh administrative list before release** (the national total is about 495 upazilas;
+names and spellings can lag official changes). Slugs are used for FCM topics (`d_<slug>`).
