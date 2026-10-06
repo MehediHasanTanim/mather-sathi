@@ -2,12 +2,15 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/l10n/gen/app_localizations.dart';
 import '../../crops/crop.dart';
 import '../../diagnosis/domain/image_issue.dart';
 import '../data/photo_picker.dart';
 import '../providers/capture_provider.dart';
+import '../../diagnosis/presentation/diagnosis_result_screen.dart';
+import '../../diagnosis/providers/diagnosis_providers.dart';
 import 'capture_actions.dart';
 
 /// Shows the prepared photo, or a specific tip and a retake button.
@@ -41,6 +44,10 @@ class PreviewScreen extends ConsumerWidget {
             CaptureStatus.ready => _Ready(
                 jpeg: state.prepared!.jpeg!,
                 cropLabel: cropLabel,
+                onAnalyze: () {
+                  ref.read(diagnosisFlowProvider.notifier).submit(state.prepared!.jpeg!, selection!);
+                  context.push(kDiagnosisRoute);
+                },
                 onRetake: () => startCapture(context, ref, PhotoSource.camera, pushPreview: false),
               ),
             CaptureStatus.retake => _Retake(
@@ -71,10 +78,11 @@ String issueTip(AppLocalizations l, ImageIssue issue, String cropLabel) => switc
     };
 
 class _Ready extends StatelessWidget {
-  const _Ready({required this.jpeg, required this.cropLabel, required this.onRetake});
+  const _Ready({required this.jpeg, required this.cropLabel, required this.onRetake, required this.onAnalyze});
   final Uint8List jpeg;
   final String cropLabel;
   final VoidCallback onRetake;
+  final VoidCallback onAnalyze;
 
   @override
   Widget build(BuildContext context) {
@@ -106,9 +114,7 @@ class _Ready extends StatelessWidget {
             Expanded(
               child: FilledButton.icon(
                 key: const Key('analyze'),
-                // Phase 3 wires this to diagnosisFlowProvider.submit(prepared, crop).
-                onPressed: () => ScaffoldMessenger.of(context)
-                    .showSnackBar(SnackBar(content: Text(l.comingSoon))),
+                onPressed: onAnalyze,
                 icon: const Icon(Icons.search),
                 label: Text(l.analyze),
               ),

@@ -495,6 +495,120 @@ abstract class AppLocalizations {
   /// In bn, this message translates to:
   /// **'এটি {crop} বলে মনে হচ্ছে না — ফসল ঠিক আছে?'**
   String tipWrongCrop(String crop);
+
+  /// No description provided for @analyzing.
+  ///
+  /// In bn, this message translates to:
+  /// **'বিশ্লেষণ করা হচ্ছে…'**
+  String get analyzing;
+
+  /// No description provided for @resultTitle.
+  ///
+  /// In bn, this message translates to:
+  /// **'ফলাফল'**
+  String get resultTitle;
+
+  /// No description provided for @resultHealthy.
+  ///
+  /// In bn, this message translates to:
+  /// **'আপনার ফসলে কোনো পরিচিত রোগ দেখা যায়নি 🌿'**
+  String get resultHealthy;
+
+  /// No description provided for @resultUnknown.
+  ///
+  /// In bn, this message translates to:
+  /// **'নিশ্চিত হওয়া যায়নি'**
+  String get resultUnknown;
+
+  /// No description provided for @resultUnknownHint.
+  ///
+  /// In bn, this message translates to:
+  /// **'ছবিটি ভালো মানের হলে আবার চেষ্টা করুন, অথবা কৃষি কর্মকর্তার সাথে যোগাযোগ করুন'**
+  String get resultUnknownHint;
+
+  /// No description provided for @confHigh.
+  ///
+  /// In bn, this message translates to:
+  /// **'নিশ্চিতমাত্রা বেশি ✅'**
+  String get confHigh;
+
+  /// No description provided for @confMedium.
+  ///
+  /// In bn, this message translates to:
+  /// **'সম্ভাব্য রোগ ⚠️ — বিশেষজ্ঞকে দেখান'**
+  String get confMedium;
+
+  /// No description provided for @confLow.
+  ///
+  /// In bn, this message translates to:
+  /// **'ছবি থেকে নিশ্চিত হওয়া যায়নি — আরও কাছ থেকে ছবি তুলুন'**
+  String get confLow;
+
+  /// No description provided for @urgentTreatment.
+  ///
+  /// In bn, this message translates to:
+  /// **'জরুরি চিকিৎসা দরকার'**
+  String get urgentTreatment;
+
+  /// No description provided for @sectionDescription.
+  ///
+  /// In bn, this message translates to:
+  /// **'রোগের বিবরণ'**
+  String get sectionDescription;
+
+  /// No description provided for @sectionSymptoms.
+  ///
+  /// In bn, this message translates to:
+  /// **'লক্ষণসমূহ'**
+  String get sectionSymptoms;
+
+  /// No description provided for @sectionPrevention.
+  ///
+  /// In bn, this message translates to:
+  /// **'প্রতিরোধ'**
+  String get sectionPrevention;
+
+  /// No description provided for @seeExpert.
+  ///
+  /// In bn, this message translates to:
+  /// **'কৃষি কর্মকর্তার পরামর্শ নিন'**
+  String get seeExpert;
+
+  /// No description provided for @aiDisclaimer.
+  ///
+  /// In bn, this message translates to:
+  /// **'এটি এআই-ভিত্তিক পরামর্শ; চূড়ান্ত সিদ্ধান্তের আগে কৃষি কর্মকর্তার সাথে কথা বলুন'**
+  String get aiDisclaimer;
+
+  /// No description provided for @draftKbBanner.
+  ///
+  /// In bn, this message translates to:
+  /// **'এটি পরীক্ষামূলক ও যাচাই না করা তথ্য। এর ভিত্তিতে কোনো ওষুধ প্রয়োগ করবেন না।'**
+  String get draftKbBanner;
+
+  /// No description provided for @needsInternet.
+  ///
+  /// In bn, this message translates to:
+  /// **'এই ফসলের জন্য ইন্টারনেট দরকার'**
+  String get needsInternet;
+
+  /// No description provided for @offlineModelMissing.
+  ///
+  /// In bn, this message translates to:
+  /// **'ইন্টারনেট চালু করে আবার চেষ্টা করুন'**
+  String get offlineModelMissing;
+
+  /// No description provided for @dailyCapReached.
+  ///
+  /// In bn, this message translates to:
+  /// **'আজকের সীমা শেষ — আগামীকাল আবার চেষ্টা করুন'**
+  String get dailyCapReached;
+
+  /// No description provided for @diagnosisFailed.
+  ///
+  /// In bn, this message translates to:
+  /// **'বিশ্লেষণ করা যায়নি। আবার চেষ্টা করুন'**
+  String get diagnosisFailed;
 }
 
 class _AppLocalizationsDelegate

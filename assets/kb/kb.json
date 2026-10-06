@@ -1,0 +1,156 @@
+{
+  "entries": [
+    {
+      "ai_hint_en": "Round brown spots with concentric rings (target pattern) on older leaves first; leaves yellow and drop.",
+      "cause_bn": "অল্টারনারিয়া নামের ছত্রাক। গাছ দুর্বল হলে ও পুষ্টির অভাব থাকলে রোগ বাড়ে।",
+      "crop": "potato",
+      "description_bn": "আর্লি ব্লাইট আলুর পাতায় বাদামি দাগ তৈরি করে। পুরোনো পাতা আগে আক্রান্ত হয়।",
+      "id": "potato_early_blight",
+      "immediate_bn": [
+        "আক্রান্ত পাতা সরিয়ে ফেলুন"
+      ],
+      "medicine": [
+        {
+          "active_ingredient": "<verified>",
+          "dose_bn": "<verified dose>",
+          "interval_bn": "<verified interval>",
+          "name_bn": "<অনুমোদিত নাম>",
+          "pre_harvest_interval_days": null
+        }
+      ],
+      "name_bn": "আলুর আর্লি ব্লাইট",
+      "name_en": "Potato early blight",
+      "prevention_bn": [
+        "ফসলের পর্যায়ক্রম মেনে চাষ করুন",
+        "সুষম সার ও পর্যাপ্ত সেচ দিন"
+      ],
+      "reviewed_at": "",
+      "reviewed_by": "",
+      "see_expert": false,
+      "source": "DEV SEED: not reviewed, never ship",
+      "status": "draft",
+      "symptoms_bn": [
+        "পুরোনো পাতায় গোল বাদামি দাগ",
+        "দাগের ভেতরে বৃত্তের মতো ছাপ",
+        "আক্রান্ত পাতা হলুদ হয়ে ঝরে পড়ে"
+      ],
+      "urgency": "medium"
+    },
+    {
+      "ai_hint_en": "Water-soaked pale green patches on leaves turning brown-black quickly, white mould on the underside in humid weather, dark stem lesions, rotting tubers.",
+      "cause_bn": "ফাইটোফথোরা নামের জীবাণু। বেশি আর্দ্রতা ও কুয়াশায় দ্রুত ছড়ায়।",
+      "crop": "potato",
+      "description_bn": "লেট ব্লাইট আলুর সবচেয়ে ক্ষতিকর রোগ। ঠান্ডা ও মেঘলা আবহাওয়ায় কয়েক দিনেই পুরো ক্ষেত নষ্ট হতে পারে।",
+      "id": "potato_late_blight",
+      "immediate_bn": [
+        "আক্রান্ত গাছ তুলে ক্ষেত থেকে দূরে পুঁতে ফেলুন",
+        "দ্রুত কৃষি কর্মকর্তার সাথে যোগাযোগ করুন"
+      ],
+      "medicine": [
+        {
+          "active_ingredient": "<verified>",
+          "dose_bn": "<verified dose>",
+          "interval_bn": "<verified interval>",
+          "name_bn": "<অনুমোদিত নাম>",
+          "pre_harvest_interval_days": null
+        }
+      ],
+      "name_bn": "আলুর লেট ব্লাইট",
+      "name_en": "Potato late blight",
+      "prevention_bn": [
+        "রোগমুক্ত বীজ আলু ব্যবহার করুন",
+        "ক্ষেতে পানি জমতে দেবেন না",
+        "আবহাওয়া মেঘলা হলে ক্ষেত নিয়মিত দেখুন"
+      ],
+      "reviewed_at": "",
+      "reviewed_by": "",
+      "see_expert": true,
+      "source": "DEV SEED: not reviewed, never ship",
+      "status": "draft",
+      "symptoms_bn": [
+        "পাতায় পানিভেজা ফ্যাকাশে সবুজ দাগ, যা দ্রুত বাদামি-কালো হয়",
+        "পাতার নিচে সাদা ছত্রাকের মতো আবরণ",
+        "কাণ্ডে কালো দাগ ও আলু পচে যাওয়া"
+      ],
+      "urgency": "high"
+    },
+    {
+      "ai_hint_en": "Eye- or spindle-shaped leaf lesions with grey centres and brown borders; nodes or the panicle neck may turn dark and break.",
+      "cause_bn": "ম্যাগনাপোর্থে নামের ছত্রাক। মেঘলা আবহাওয়া, বেশি আর্দ্রতা ও অতিরিক্ত ইউরিয়া সারে রোগ বাড়ে।",
+      "crop": "rice",
+      "description_bn": "ব্লাস্ট ধানের একটি ছত্রাকজনিত রোগ। এটি পাতা, গিঁট ও ছড়ায় আক্রমণ করে এবং ফলন অনেক কমিয়ে দিতে পারে।",
+      "id": "rice_blast",
+      "immediate_bn": [
+        "আক্রান্ত জমিতে ইউরিয়া সার দেওয়া বন্ধ রাখুন",
+        "কৃষি কর্মকর্তার পরামর্শ নিন"
+      ],
+      "medicine": [
+        {
+          "active_ingredient": "<verified>",
+          "dose_bn": "<verified dose>",
+          "interval_bn": "<verified interval>",
+          "name_bn": "<অনুমোদিত নাম>",
+          "pre_harvest_interval_days": null
+        }
+      ],
+      "name_bn": "ধানের ব্লাস্ট রোগ",
+      "name_en": "Rice blast",
+      "prevention_bn": [
+        "রোগ সহনশীল জাতের বীজ ব্যবহার করুন",
+        "সুষম মাত্রায় সার দিন",
+        "জমি আগাছামুক্ত রাখুন"
+      ],
+      "reviewed_at": "",
+      "reviewed_by": "",
+      "see_expert": true,
+      "source": "DEV SEED: not reviewed, never ship",
+      "status": "draft",
+      "symptoms_bn": [
+        "পাতায় চোখের মতো বা টাকুর আকৃতির দাগ, মাঝখান ধূসর ও কিনারা বাদামি",
+        "গিঁট বা ছড়ার গোড়া কালো হয়ে ভেঙে যেতে পারে",
+        "মারাত্মক আক্রমণে পুরো পাতা শুকিয়ে যায়"
+      ],
+      "urgency": "high"
+    },
+    {
+      "ai_hint_en": "Many small oval brown spots on leaves, often with a yellow halo; discoloured, partly empty grains.",
+      "cause_bn": "হেলমিনথোস্পোরিয়াম নামের ছত্রাক। পুষ্টির ঘাটতি ও পানির অভাবে রোগ বাড়ে।",
+      "crop": "rice",
+      "description_bn": "বাদামি দাগ রোগে ধানের পাতায় ছোট ছোট বাদামি দাগ পড়ে। মাটিতে পুষ্টির অভাব থাকলে রোগ বেশি হয়।",
+      "id": "rice_brown_spot",
+      "immediate_bn": [
+        "জমিতে যেন পানির ঘাটতি না হয় তা দেখুন"
+      ],
+      "medicine": [
+        {
+          "active_ingredient": "<verified>",
+          "dose_bn": "<verified dose>",
+          "interval_bn": "<verified interval>",
+          "name_bn": "<অনুমোদিত নাম>",
+          "pre_harvest_interval_days": null
+        }
+      ],
+      "name_bn": "ধানের বাদামি দাগ রোগ",
+      "name_en": "Rice brown spot",
+      "prevention_bn": [
+        "সুস্থ ও পরিষ্কার বীজ ব্যবহার করুন",
+        "মাটি পরীক্ষা করে সুষম সার দিন"
+      ],
+      "reviewed_at": "",
+      "reviewed_by": "",
+      "see_expert": false,
+      "source": "DEV SEED: not reviewed, never ship",
+      "status": "draft",
+      "symptoms_bn": [
+        "পাতায় ডিমের মতো ছোট বাদামি দাগ",
+        "দাগের চারপাশে হলদে বলয়",
+        "আক্রান্ত দানা বিবর্ণ ও চিটা হয়"
+      ],
+      "urgency": "medium"
+    }
+  ],
+  "includes_drafts": true,
+  "schema": 1,
+  "seq": 1,
+  "version": "0.1.0-dev"
+}

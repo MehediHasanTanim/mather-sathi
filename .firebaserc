@@ -1,1 +1,1 @@
-{ "projects": { "dev": "krishi-dev-fdea4", "stg": "krishi-stg", "prod": "krishi-prod" } }
+{ "projects": { "default": "krishi-dev-fdea4", "dev": "krishi-dev-fdea4", "stg": "krishi-stg", "prod": "krishi-prod" } }

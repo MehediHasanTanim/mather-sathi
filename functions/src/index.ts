@@ -1,2 +1,5 @@
-// Functions are added in Phase 3 (diagnose), 5, 7 and 8. Region for all: asia-south1.
-export {};
+import { initializeApp } from "firebase-admin/app";
+
+initializeApp();
+
+export { diagnose } from "./diagnose";

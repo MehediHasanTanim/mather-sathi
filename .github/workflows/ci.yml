@@ -7,7 +7,12 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - run: node tools/kb_build/build.js --validate --env stg
+      - run: node --test tools/kb_build/test/*.test.js
+      # dev may contain drafts; stg and prod must validate with drafts excluded
+      - run: node tools/kb_build/build.js --env dev --check
+      - run: node tools/kb_build/build.js --env stg --validate
+      - run: node tools/kb_build/build.js --env prod --validate
+      - run: node tools/sync_functions_data.js --check
   dart:
     runs-on: ubuntu-latest
     steps:

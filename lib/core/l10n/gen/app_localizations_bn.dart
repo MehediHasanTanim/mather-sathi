@@ -219,4 +219,65 @@ class AppLocalizationsBn extends AppLocalizations {
   String tipWrongCrop(String crop) {
     return 'এটি $crop বলে মনে হচ্ছে না — ফসল ঠিক আছে?';
   }
+
+  @override
+  String get analyzing => 'বিশ্লেষণ করা হচ্ছে…';
+
+  @override
+  String get resultTitle => 'ফলাফল';
+
+  @override
+  String get resultHealthy => 'আপনার ফসলে কোনো পরিচিত রোগ দেখা যায়নি 🌿';
+
+  @override
+  String get resultUnknown => 'নিশ্চিত হওয়া যায়নি';
+
+  @override
+  String get resultUnknownHint =>
+      'ছবিটি ভালো মানের হলে আবার চেষ্টা করুন, অথবা কৃষি কর্মকর্তার সাথে যোগাযোগ করুন';
+
+  @override
+  String get confHigh => 'নিশ্চিতমাত্রা বেশি ✅';
+
+  @override
+  String get confMedium => 'সম্ভাব্য রোগ ⚠️ — বিশেষজ্ঞকে দেখান';
+
+  @override
+  String get confLow =>
+      'ছবি থেকে নিশ্চিত হওয়া যায়নি — আরও কাছ থেকে ছবি তুলুন';
+
+  @override
+  String get urgentTreatment => 'জরুরি চিকিৎসা দরকার';
+
+  @override
+  String get sectionDescription => 'রোগের বিবরণ';
+
+  @override
+  String get sectionSymptoms => 'লক্ষণসমূহ';
+
+  @override
+  String get sectionPrevention => 'প্রতিরোধ';
+
+  @override
+  String get seeExpert => 'কৃষি কর্মকর্তার পরামর্শ নিন';
+
+  @override
+  String get aiDisclaimer =>
+      'এটি এআই-ভিত্তিক পরামর্শ; চূড়ান্ত সিদ্ধান্তের আগে কৃষি কর্মকর্তার সাথে কথা বলুন';
+
+  @override
+  String get draftKbBanner =>
+      'এটি পরীক্ষামূলক ও যাচাই না করা তথ্য। এর ভিত্তিতে কোনো ওষুধ প্রয়োগ করবেন না।';
+
+  @override
+  String get needsInternet => 'এই ফসলের জন্য ইন্টারনেট দরকার';
+
+  @override
+  String get offlineModelMissing => 'ইন্টারনেট চালু করে আবার চেষ্টা করুন';
+
+  @override
+  String get dailyCapReached => 'আজকের সীমা শেষ — আগামীকাল আবার চেষ্টা করুন';
+
+  @override
+  String get diagnosisFailed => 'বিশ্লেষণ করা যায়নি। আবার চেষ্টা করুন';
 }

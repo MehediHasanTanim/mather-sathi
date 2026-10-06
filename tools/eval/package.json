@@ -1,0 +1,7 @@
+{
+  "name": "krishi-eval",
+  "private": true,
+  "scripts": { "eval": "ts-node cloud_eval.ts" },
+  "dependencies": { "@anthropic-ai/sdk": "^0.131.0" },
+  "devDependencies": { "@types/node": "^22.0.0", "ts-node": "^10.9.2", "typescript": "^5.5.4" }
+}

@@ -1,11 +1,44 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "KB entry (full validator arrives in task 3.1)",
+  "title": "KB entry (Design §5.2)",
   "type": "object",
-  "required": ["id", "crop", "status", "name_bn", "name_en", "ai_hint_en", "urgency", "see_expert"],
+  "additionalProperties": false,
+  "required": [
+    "id", "crop", "status", "name_bn", "name_en", "ai_hint_en", "description_bn",
+    "symptoms_bn", "cause_bn", "urgency", "immediate_bn", "medicine", "prevention_bn",
+    "see_expert", "source", "reviewed_by", "reviewed_at"
+  ],
   "properties": {
-    "id": { "type": "string" }, "crop": { "type": "string" },
+    "id": { "type": "string", "pattern": "^(?!healthy$|unknown$|general_advice$)[a-z][a-z0-9_]*$" },
+    "crop": { "enum": ["rice", "jute", "potato", "tomato", "brinjal", "chili", "onion", "mustard"] },
     "status": { "enum": ["draft", "published"] },
-    "urgency": { "enum": ["high", "medium", "low"] }
+    "name_bn": { "type": "string", "minLength": 1 },
+    "name_en": { "type": "string", "minLength": 1 },
+    "ai_hint_en": { "type": "string", "minLength": 1 },
+    "description_bn": { "type": "string", "minLength": 1 },
+    "symptoms_bn": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+    "cause_bn": { "type": "string", "minLength": 1 },
+    "urgency": { "enum": ["high", "medium", "low"] },
+    "immediate_bn": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "medicine": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name_bn", "active_ingredient", "dose_bn", "interval_bn", "pre_harvest_interval_days"],
+        "properties": {
+          "name_bn": { "type": "string" },
+          "active_ingredient": { "type": "string" },
+          "dose_bn": { "type": "string" },
+          "interval_bn": { "type": "string" },
+          "pre_harvest_interval_days": { "type": ["integer", "null"], "minimum": 0 }
+        }
+      }
+    },
+    "prevention_bn": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "see_expert": { "type": "boolean" },
+    "source": { "type": "string" },
+    "reviewed_by": { "type": "string" },
+    "reviewed_at": { "type": "string" }
   }
 }

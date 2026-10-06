@@ -59,3 +59,11 @@ coverage/
 android/key.properties
 .env*
 build/symbols/
+tools/eval/reports/
+tools/eval/testset/
+functions/.secret.local
+functions/.env.local
+firebase-debug.log
+ui-debug.log
+firestore-debug.log
+functions/lib/
