@@ -8,7 +8,7 @@ Specs live in `docs/` (feature spec, technical design, implementation plan).
 `tools/` kb_build and eval · `firebase/` rules, indexes, rules tests · `assets/` bundled data.
 
 ## Local setup
-- Flutter app: install Flutter, then run `flutter create . --platforms=android --org bd.krishisahay --project-name krishi_sahay`
+- Flutter app: install Flutter, then run `flutter create . --platforms=android --org com.nextgenai --project-name mather_sathi`
   once to generate `android/`, then add the flavors from the plan (Phase 0, task 0.3). `flutter pub get && flutter test`.
 - Functions: `npm ci --prefix functions && npm test --prefix functions`
 - KB: `node tools/kb_build/build.js --validate --env stg`

@@ -1,15 +1,17 @@
 # Decision Record (Task 0.1)
 
-**Status: DRAFT, not signed off.** Gate G0 requires a named KB reviewer. No work past Phase 2 starts without one.
-Only dev-seed KB content may be used until then, and never in a pilot or production build.
+**Status: Recorded from product-owner answers, 2026-10-06.**
 
-| # | Decision | Options | Choice | Owner / date |
-|---|---|---|---|---|
-| 1 | KB reviewer (agronomist) and start date | DAE/BARI/BRRI, university, consultant | **OPEN** | |
-| 2 | Offline model in v1.0 or v1.1 | v1.0 if field dataset ready by end of Phase 4, else v1.1 | **OPEN** (default: v1.1, cloud-only first) | |
-| 3 | Distribution | Play only / also sideload (App Check caveat, Design §15.1) | **OPEN** (default: Play) | |
-| 4 | Sponsored content | None in diagnosis (spec principle) | No sponsored advice | |
-| 5 | Firestore location | `asia-south1`; cannot be changed later | `asia-south1` (confirm latency) | |
-| 6 | Android package id | `bd.krishisahay.app` (+ `.dev`, `.stg`) | proposed | |
+| # | Decision | Choice | Notes |
+|---|---|---|---|
+| 1 | KB reviewer (agronomist) | **Deferred for development** | Dev-seed KB (`status: draft`) only. Draft entries are excluded from `stg`/`prod` builds (task 3.2). **A named reviewer is still required before any pilot or production build.** |
+| 2 | Offline model | **v1.0 if the field dataset is ready by end of Phase 4, else v1.1.** Dataset to be prepared in-house | See caveat below. |
+| 3 | Distribution | **Google Play only** | App Check (Play Integrity) can be enforced after monitor mode. |
+| 4 | Sponsored content | **None** | No sponsored advice in diagnosis. |
+| 5 | Firestore location | `asia-south1` | Cannot be changed later. |
+| 6 | Android package id | `com.nextgenai.mather_sathi` (+ `.dev`, `.stg` suffixes for flavors) | Requested `com.nextgenai.mather-sathi` is invalid: Android application IDs allow only letters, digits and underscores per segment, so the hyphen became an underscore. |
 
-Sign-off: ____________  Date: ________
+## Caveat on decision 2
+The plan (Track M) needs real, expert-labelled **field** photos, split by field/farm and date. An in-house
+dataset assembled from public or lab-condition images will not give trustworthy accuracy or confidence thresholds.
+Until a labelled field set exists, ship cloud-only (v1.1 offline), as the contingency table already allows.
