@@ -44,5 +44,41 @@
   "banglaCheckTitle": "বাংলা লেখা পরীক্ষা",
   "banglaCheckSample": "ক্ষেত্র, শস্য, দৃষ্টি, বৃষ্টি, ধ্বংস, কর্তৃপক্ষ, গ্রন্থ, ব্রাহ্মণবাড়িয়া, স্প্রে, ঝাঁঝালো",
   "banglaCheckDigits": "সংখ্যা: {digits}",
-  "@banglaCheckDigits": { "placeholders": { "digits": { "type": "String" } } }
+  "@banglaCheckDigits": {
+    "placeholders": {
+      "digits": {
+        "type": "String"
+      }
+    }
+  },
+  "takePhoto": "ছবি তুলুন",
+  "pickFromGallery": "গ্যালারি থেকে নিন",
+  "otherCrop": "অন্যান্য ফসল",
+  "otherCropHint": "ফসলের নাম লিখুন",
+  "cancel": "বাতিল",
+  "ok": "ঠিক আছে",
+  "guidanceTitle": "ছবি তুলুন",
+  "guidanceClose": "পাতার কাছ থেকে তুলুন",
+  "guidanceLight": "আলো যেন ভালো থাকে",
+  "guidanceFrame": "রোগাক্রান্ত অংশ ফ্রেমে রাখুন",
+  "guidanceBlur": "ঝাপসা ছবি দেবেন না",
+  "previewTitle": "ছবি দেখুন",
+  "preparing": "ছবি প্রস্তুত করা হচ্ছে…",
+  "retake": "আবার তুলুন",
+  "analyze": "বিশ্লেষণ করুন",
+  "selectCropFirst": "আগে ফসল বেছে নিন",
+  "photoReady": "ছবি ঠিক আছে",
+  "pickError": "ছবি নেওয়া যায়নি। আবার চেষ্টা করুন",
+  "tipBlurry": "ছবিটি একটু ঝাপসা — আবার চেষ্টা করুন",
+  "tipTooDark": "আলো কম — আলোতে গিয়ে আবার ছবি তুলুন",
+  "tipTooSmall": "ছবির মান কম — আরও কাছ থেকে তুলুন",
+  "tipNotAPlant": "এটি গাছের ছবি বলে মনে হচ্ছে না — রোগাক্রান্ত পাতা ফ্রেমে রাখুন",
+  "tipWrongCrop": "এটি {crop} বলে মনে হচ্ছে না — ফসল ঠিক আছে?",
+  "@tipWrongCrop": {
+    "placeholders": {
+      "crop": {
+        "type": "String"
+      }
+    }
+  }
 }

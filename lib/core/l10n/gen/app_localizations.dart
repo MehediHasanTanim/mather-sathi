@@ -357,6 +357,144 @@ abstract class AppLocalizations {
   /// In bn, this message translates to:
   /// **'সংখ্যা: {digits}'**
   String banglaCheckDigits(String digits);
+
+  /// No description provided for @takePhoto.
+  ///
+  /// In bn, this message translates to:
+  /// **'ছবি তুলুন'**
+  String get takePhoto;
+
+  /// No description provided for @pickFromGallery.
+  ///
+  /// In bn, this message translates to:
+  /// **'গ্যালারি থেকে নিন'**
+  String get pickFromGallery;
+
+  /// No description provided for @otherCrop.
+  ///
+  /// In bn, this message translates to:
+  /// **'অন্যান্য ফসল'**
+  String get otherCrop;
+
+  /// No description provided for @otherCropHint.
+  ///
+  /// In bn, this message translates to:
+  /// **'ফসলের নাম লিখুন'**
+  String get otherCropHint;
+
+  /// No description provided for @cancel.
+  ///
+  /// In bn, this message translates to:
+  /// **'বাতিল'**
+  String get cancel;
+
+  /// No description provided for @ok.
+  ///
+  /// In bn, this message translates to:
+  /// **'ঠিক আছে'**
+  String get ok;
+
+  /// No description provided for @guidanceTitle.
+  ///
+  /// In bn, this message translates to:
+  /// **'ছবি তুলুন'**
+  String get guidanceTitle;
+
+  /// No description provided for @guidanceClose.
+  ///
+  /// In bn, this message translates to:
+  /// **'পাতার কাছ থেকে তুলুন'**
+  String get guidanceClose;
+
+  /// No description provided for @guidanceLight.
+  ///
+  /// In bn, this message translates to:
+  /// **'আলো যেন ভালো থাকে'**
+  String get guidanceLight;
+
+  /// No description provided for @guidanceFrame.
+  ///
+  /// In bn, this message translates to:
+  /// **'রোগাক্রান্ত অংশ ফ্রেমে রাখুন'**
+  String get guidanceFrame;
+
+  /// No description provided for @guidanceBlur.
+  ///
+  /// In bn, this message translates to:
+  /// **'ঝাপসা ছবি দেবেন না'**
+  String get guidanceBlur;
+
+  /// No description provided for @previewTitle.
+  ///
+  /// In bn, this message translates to:
+  /// **'ছবি দেখুন'**
+  String get previewTitle;
+
+  /// No description provided for @preparing.
+  ///
+  /// In bn, this message translates to:
+  /// **'ছবি প্রস্তুত করা হচ্ছে…'**
+  String get preparing;
+
+  /// No description provided for @retake.
+  ///
+  /// In bn, this message translates to:
+  /// **'আবার তুলুন'**
+  String get retake;
+
+  /// No description provided for @analyze.
+  ///
+  /// In bn, this message translates to:
+  /// **'বিশ্লেষণ করুন'**
+  String get analyze;
+
+  /// No description provided for @selectCropFirst.
+  ///
+  /// In bn, this message translates to:
+  /// **'আগে ফসল বেছে নিন'**
+  String get selectCropFirst;
+
+  /// No description provided for @photoReady.
+  ///
+  /// In bn, this message translates to:
+  /// **'ছবি ঠিক আছে'**
+  String get photoReady;
+
+  /// No description provided for @pickError.
+  ///
+  /// In bn, this message translates to:
+  /// **'ছবি নেওয়া যায়নি। আবার চেষ্টা করুন'**
+  String get pickError;
+
+  /// No description provided for @tipBlurry.
+  ///
+  /// In bn, this message translates to:
+  /// **'ছবিটি একটু ঝাপসা — আবার চেষ্টা করুন'**
+  String get tipBlurry;
+
+  /// No description provided for @tipTooDark.
+  ///
+  /// In bn, this message translates to:
+  /// **'আলো কম — আলোতে গিয়ে আবার ছবি তুলুন'**
+  String get tipTooDark;
+
+  /// No description provided for @tipTooSmall.
+  ///
+  /// In bn, this message translates to:
+  /// **'ছবির মান কম — আরও কাছ থেকে তুলুন'**
+  String get tipTooSmall;
+
+  /// No description provided for @tipNotAPlant.
+  ///
+  /// In bn, this message translates to:
+  /// **'এটি গাছের ছবি বলে মনে হচ্ছে না — রোগাক্রান্ত পাতা ফ্রেমে রাখুন'**
+  String get tipNotAPlant;
+
+  /// No description provided for @tipWrongCrop.
+  ///
+  /// In bn, this message translates to:
+  /// **'এটি {crop} বলে মনে হচ্ছে না — ফসল ঠিক আছে?'**
+  String tipWrongCrop(String crop);
 }
 
 class _AppLocalizationsDelegate

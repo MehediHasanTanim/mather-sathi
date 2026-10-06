@@ -147,4 +147,76 @@ class AppLocalizationsBn extends AppLocalizations {
   String banglaCheckDigits(String digits) {
     return 'সংখ্যা: $digits';
   }
+
+  @override
+  String get takePhoto => 'ছবি তুলুন';
+
+  @override
+  String get pickFromGallery => 'গ্যালারি থেকে নিন';
+
+  @override
+  String get otherCrop => 'অন্যান্য ফসল';
+
+  @override
+  String get otherCropHint => 'ফসলের নাম লিখুন';
+
+  @override
+  String get cancel => 'বাতিল';
+
+  @override
+  String get ok => 'ঠিক আছে';
+
+  @override
+  String get guidanceTitle => 'ছবি তুলুন';
+
+  @override
+  String get guidanceClose => 'পাতার কাছ থেকে তুলুন';
+
+  @override
+  String get guidanceLight => 'আলো যেন ভালো থাকে';
+
+  @override
+  String get guidanceFrame => 'রোগাক্রান্ত অংশ ফ্রেমে রাখুন';
+
+  @override
+  String get guidanceBlur => 'ঝাপসা ছবি দেবেন না';
+
+  @override
+  String get previewTitle => 'ছবি দেখুন';
+
+  @override
+  String get preparing => 'ছবি প্রস্তুত করা হচ্ছে…';
+
+  @override
+  String get retake => 'আবার তুলুন';
+
+  @override
+  String get analyze => 'বিশ্লেষণ করুন';
+
+  @override
+  String get selectCropFirst => 'আগে ফসল বেছে নিন';
+
+  @override
+  String get photoReady => 'ছবি ঠিক আছে';
+
+  @override
+  String get pickError => 'ছবি নেওয়া যায়নি। আবার চেষ্টা করুন';
+
+  @override
+  String get tipBlurry => 'ছবিটি একটু ঝাপসা — আবার চেষ্টা করুন';
+
+  @override
+  String get tipTooDark => 'আলো কম — আলোতে গিয়ে আবার ছবি তুলুন';
+
+  @override
+  String get tipTooSmall => 'ছবির মান কম — আরও কাছ থেকে তুলুন';
+
+  @override
+  String get tipNotAPlant =>
+      'এটি গাছের ছবি বলে মনে হচ্ছে না — রোগাক্রান্ত পাতা ফ্রেমে রাখুন';
+
+  @override
+  String tipWrongCrop(String crop) {
+    return 'এটি $crop বলে মনে হচ্ছে না — ফসল ঠিক আছে?';
+  }
 }

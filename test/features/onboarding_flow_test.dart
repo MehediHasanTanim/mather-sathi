@@ -1,34 +1,11 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mather_sathi/app.dart';
 import 'package:mather_sathi/core/router/app_router.dart';
-import 'package:mather_sathi/features/geo/data/districts_repository.dart';
 import 'package:mather_sathi/features/onboarding/providers/onboarding_draft.dart';
 import 'package:mather_sathi/features/profile/domain/user_profile.dart';
-import 'package:mather_sathi/providers/core_providers.dart';
 
-import '../support/fakes.dart';
-
-Future<FakeProfileStore> pumpApp(WidgetTester tester, {UserProfile? saved}) async {
-  tester.view.physicalSize = const Size(1080, 2200);
-  tester.view.devicePixelRatio = 2.75;
-  addTearDown(tester.view.reset);
-  final store = FakeProfileStore(saved);
-  await tester.pumpWidget(ProviderScope(
-    overrides: [
-      profileStoreProvider.overrideWithValue(store),
-      // Read the real file synchronously: rootBundle I/O does not settle under pumpAndSettle.
-      districtsProvider.overrideWith((_) =>
-          parseDistricts(File('assets/data/districts.json').readAsStringSync())),
-    ],
-    child: const KrishiApp(),
-  ));
-  await tester.pumpAndSettle();
-  return store;
-}
+import '../support/pump_app.dart';
 
 void main() {
   group('onboardingRedirect', () {
@@ -118,7 +95,7 @@ void main() {
     await pumpApp(tester,
         saved: const UserProfile(district: 'dhaka', upazila: '1', defaultCrop: 'rice', onboardingDone: true));
 
-    expect(find.text('ছবি তুলে রোগ শনাক্ত করুন'), findsOneWidget);
+    expect(find.byKey(const Key('take_photo')), findsOneWidget);
     expect(find.text('স্বাগতম! ফসলের রোগ এখন ঘরে বসেই শনাক্ত করুন'), findsNothing);
 
     for (final label in ['ইতিহাস', 'সতর্কতা', 'সেটিংস', 'রোগ শনাক্ত']) {
@@ -126,6 +103,6 @@ void main() {
           of: find.byType(NavigationBar), matching: find.text(label)));
       await tester.pumpAndSettle();
     }
-    expect(find.text('ছবি তুলে রোগ শনাক্ত করুন'), findsOneWidget);
+    expect(find.byKey(const Key('take_photo')), findsOneWidget);
   });
 }
