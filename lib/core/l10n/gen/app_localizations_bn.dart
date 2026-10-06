@@ -398,4 +398,10 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get badgePrevent => 'প্রতিরোধ';
+
+  @override
+  String get offlineMode => 'অফলাইন মোড';
+
+  @override
+  String get offlineCaveat => 'ইন্টারনেট চালু করে আরও নিখুঁত ফলাফল পান';
 }

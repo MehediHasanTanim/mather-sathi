@@ -86,3 +86,17 @@ Then confirm in the console that **Firestore → Rules** and **Storage → Rules
 Sign-in plus the cloud call share one 8-second budget (`DiagnosisService.cloudBudget`), because "connected" is not "reachable". When it runs
 out the result is a `CloudTimeout`, which falls back to the on-device model when one exists (Phase 6). Rejected-service problems and unexpected
 errors are logged to Crashlytics through `ErrorReporter`; timeouts and the daily cap are expected and are not.
+
+---
+
+# Phase 6 notes: offline model
+
+**No trained model exists yet, so the app is still cloud-only.** Everything around the model is built and tested; the model itself is
+the open dependency (field dataset, M1-M7 in the plan). See `docs/model-handoff.md` for the file contract, how to validate a handoff,
+and the device checklist.
+
+What was verified here, without a model: the file contract and validators, crop-masked scoring on fixed vectors, preprocessing parity
+against a Python reference (JPEG decode bit-identical to PIL; both resize modes within one 8-bit step), the classifier with a fake runner
+(lazy and single-flight load, retry after a failed load, memory-pressure release), the fallback matrix with the real classifier, and the
+offline label/caveat on the result screen. **Not verified:** the TFLite native library, real inference, latency, the 32-bit device, APK size.
+`tflite_flutter` was added to `pubspec.yaml`; it has not been built for Android here, so a Gradle problem is possible.

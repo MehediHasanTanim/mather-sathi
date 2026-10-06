@@ -93,8 +93,21 @@ class DiagnosisService {
   Future<void> _log(Object e, String reason, [StackTrace? st]) async => reporter?.record(e, st, reason: reason);
 
   Future<DiagnosisOutcome> _onDevice(Uint8List jpeg, String cropId) async {
-    final r = await local.classify(jpeg, cropId);
-    return _classifiedOrRetake(r, jpeg);
+    final DiagnosisResult r;
+    try {
+      r = await local.classify(jpeg, cropId);
+    } on DiagnosisFailure {
+      rethrow;
+    } catch (e, st) {
+      unawaited(_log(e, 'on-device classification crashed', st));
+      throw const OfflineModelMissing();
+    }
+    // A model label the KB does not know (model and KB out of step) must never reach the result screen.
+    final known = !r.isDisease || kb()[r.diseaseId] != null;
+    return _classifiedOrRetake(
+      known ? r : DiagnosisResult(diseaseId: kUnknown, confidence: Confidence.low, source: r.source, imageIssue: r.imageIssue, kbSeq: r.kbSeq),
+      jpeg,
+    );
   }
 
   DiagnosisOutcome _fromCloud(CloudResponse r, Uint8List jpeg, KnowledgeBase knowledge) {

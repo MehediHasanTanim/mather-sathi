@@ -837,6 +837,18 @@ abstract class AppLocalizations {
   /// In bn, this message translates to:
   /// **'প্রতিরোধ'**
   String get badgePrevent;
+
+  /// No description provided for @offlineMode.
+  ///
+  /// In bn, this message translates to:
+  /// **'অফলাইন মোড'**
+  String get offlineMode;
+
+  /// No description provided for @offlineCaveat.
+  ///
+  /// In bn, this message translates to:
+  /// **'ইন্টারনেট চালু করে আরও নিখুঁত ফলাফল পান'**
+  String get offlineCaveat;
 }
 
 class _AppLocalizationsDelegate

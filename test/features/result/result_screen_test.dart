@@ -37,10 +37,10 @@ Map<String, Object?> entry(String id, String crop, String name, String urgency,
 KnowledgeBase kbOf(List<Map<String, Object?>> entries, {int seq = 5, bool drafts = false}) =>
     KnowledgeBase.parse(kbJson(seq: seq, drafts: drafts, entries: entries));
 
-DiagnosisRecord rec(String? diseaseId, {String confidence = 'high', int? kbSeq = 5, String crop = 'rice', String? name, String? advice, String? label}) =>
+DiagnosisRecord rec(String? diseaseId, {String confidence = 'high', int? kbSeq = 5, String crop = 'rice', String? name, String? advice, String? label, String source = 'cloud'}) =>
     DiagnosisRecord(
       id: 'r1', cropType: crop, cropLabel: label, diseaseId: diseaseId, diseaseNameBn: name, kbSeq: kbSeq,
-      confidence: confidence, source: 'cloud', photoPath: '/no/such/file.jpg', diagnosedAt: DateTime.utc(2026), adviceJson: advice,
+      confidence: confidence, source: source, photoPath: '/no/such/file.jpg', diagnosedAt: DateTime.utc(2026), adviceJson: advice,
     );
 
 final _std = [
@@ -147,6 +147,31 @@ void main() {
     testWidgets('an unknown id (not in the KB, no snapshot) does not crash', (tester) async {
       await open(tester, rec('mystery'));
       expect(find.byKey(const Key('kb_gone')), findsOneWidget);
+    });
+  });
+
+  group('offline results (task 6.4)', () {
+    testWidgets('an on-device result is labelled অফলাইন মোড; high confidence has no caveat', (tester) async {
+      await open(tester, rec('rice_blast', source: 'on_device'));
+      expect(find.byKey(const Key('offline_chip')), findsOneWidget);
+      expect(find.text('অফলাইন মোড'), findsOneWidget);
+      expect(find.byKey(const Key('offline_caveat')), findsNothing);
+    });
+
+    testWidgets('a low-confidence offline result says how to get a better one', (tester) async {
+      await open(tester, rec('rice_blast', confidence: 'low', source: 'on_device'));
+      expect(textOf(tester, 'offline_caveat'), 'ℹ️ ইন্টারনেট চালু করে আরও নিখুঁত ফলাফল পান');
+    });
+
+    testWidgets('an offline "unknown" also gets the caveat', (tester) async {
+      await open(tester, rec('unknown', confidence: 'high', source: 'on_device'));
+      expect(find.byKey(const Key('offline_caveat')), findsOneWidget);
+    });
+
+    testWidgets('a cloud result never shows the offline label', (tester) async {
+      await open(tester, rec('rice_blast', confidence: 'low'));
+      expect(find.byKey(const Key('offline_chip')), findsNothing);
+      expect(find.byKey(const Key('offline_caveat')), findsNothing);
     });
   });
 

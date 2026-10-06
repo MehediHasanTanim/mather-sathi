@@ -6,15 +6,19 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 import 'app.dart';
 import 'core/db/app_database.dart';
+import 'core/errors/error_reporter.dart';
 import 'core/flags/remote_flags.dart';
 import 'core/utils/cold_start.dart';
 import 'features/kb/kb_provider.dart';
+import 'features/offline/memory_guard.dart';
+import 'features/offline/model_assets.dart';
 import 'features/sync/sync_providers.dart';
 import 'features/profile/providers/profile_provider.dart';
 import 'providers/core_providers.dart';
@@ -46,9 +50,16 @@ Future<void> bootstrap(Flavor flavor, FirebaseOptions options) async {
   }
 
   final db = await AppDatabase.open();
+  final modelAssets = await ModelAssets.probe(rootBundle, CrashlyticsErrorReporter());
   final container = ProviderContainer(
-    overrides: [databaseProvider.overrideWithValue(db)],
+    overrides: [
+      databaseProvider.overrideWithValue(db),
+      modelAssetsProvider.overrideWithValue(modelAssets), // null: no usable offline model, cloud-only behaviour
+    ],
   );
+  if (modelAssets != null) {
+    WidgetsBinding.instance.addObserver(MemoryPressureGuard(() => container.read(localClassifierProvider)));
+  }
   await Future.wait([
     container.read(profileProvider.future),
     container.read(kbProvider.future),

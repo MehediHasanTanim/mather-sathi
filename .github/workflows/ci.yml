@@ -13,6 +13,8 @@ jobs:
       - run: node tools/kb_build/build.js --env stg --validate
       - run: node tools/kb_build/build.js --env prod --validate
       - run: node tools/sync_functions_data.js --check
+      - run: node --test tools/model_check/test/*.test.js
+      - run: node tools/model_check/check.js
   dart:
     runs-on: ubuntu-latest
     steps:

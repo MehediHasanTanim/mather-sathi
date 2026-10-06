@@ -85,6 +85,7 @@ class _Body extends ConsumerWidget {
       padding: const EdgeInsets.all(16),
       children: [
         _Photo(path: record.photoPath),
+        if (record.source == 'on_device') _OfflineNotice(showCaveat: conf == Confidence.low || diseaseId == kUnknown),
         ...content,
         const SizedBox(height: 16),
         FeedbackRow(record: record, kb: kb),
@@ -226,6 +227,29 @@ class _Body extends ConsumerWidget {
       ListenButton(script: () => buildMessageScript(summary, prevention)),
       _Expert(),
     ];
+  }
+}
+
+/// Offline results are labelled, and a low-confidence one says how to get a better answer.
+class _OfflineNotice extends StatelessWidget {
+  const _OfflineNotice({required this.showCaveat});
+  final bool showCaveat;
+
+  @override
+  Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context);
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        Chip(
+          key: const Key('offline_chip'),
+          avatar: const Icon(Icons.cloud_off, size: 18),
+          label: Text(l.offlineMode),
+          visualDensity: VisualDensity.compact,
+        ),
+        if (showCaveat) Text('ℹ️ ${l.offlineCaveat}', key: const Key('offline_caveat')),
+      ]),
+    );
   }
 }
 

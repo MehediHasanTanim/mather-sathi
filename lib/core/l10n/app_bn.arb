@@ -144,5 +144,7 @@
   "historyUnknown": "নিশ্চিত হওয়া যায়নি",
   "badgeUrgent": "জরুরি",
   "badgeWatch": "নজর রাখুন",
-  "badgePrevent": "প্রতিরোধ"
+  "badgePrevent": "প্রতিরোধ",
+  "offlineMode": "অফলাইন মোড",
+  "offlineCaveat": "ইন্টারনেট চালু করে আরও নিখুঁত ফলাফল পান"
 }

@@ -8,6 +8,7 @@ import '../../../core/errors/error_reporter.dart';
 import '../../../core/flags/remote_flags.dart';
 import '../../capture/domain/crop_selection.dart';
 import '../../history/providers/history_provider.dart';
+import '../../offline/model_assets.dart';
 import '../../sync/sync_providers.dart';
 import '../../kb/kb_provider.dart';
 import '../data/cloud_client.dart';
@@ -33,7 +34,6 @@ class FirebaseAuthGate implements AuthGate {
 final connectivityCheckerProvider = Provider<ConnectivityChecker>((ref) => PlusConnectivityChecker());
 final authGateProvider = Provider<AuthGate>((ref) => FirebaseAuthGate());
 final cloudClientProvider = Provider<CloudDiagnosisClient>((ref) => CloudDiagnosisClient(firebaseCallable()));
-final localClassifierProvider = Provider<LocalClassifier>((ref) => const NoLocalClassifier());
 
 final diagnosisServiceProvider = Provider<DiagnosisService>((ref) => DiagnosisService(
       cloud: ref.watch(cloudClientProvider),
