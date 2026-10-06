@@ -1,0 +1,23 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{db}/documents {
+    function signedIn() { return request.auth != null; }
+
+    match /users/{uid}/history/{id} {
+      allow read, write: if signedIn() && request.auth.uid == uid;
+    }
+    match /reports/{id} {
+      allow create: if signedIn()
+        && id.matches(request.auth.uid + '_.*')
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.keys().hasOnly(
+             ['uid','district','upazila','crop','diseaseId','week','createdAt','expireAt']);
+      allow read, update, delete: if false;
+    }
+    match /alerts/{id}     { allow read: if signedIn(); }
+    match /weather/{d}     { allow read: if signedIn(); }
+    match /kb_versions/{d} { allow read: if signedIn(); }
+    // everything else (quotas, config, reporters) is denied by default
+  }
+}

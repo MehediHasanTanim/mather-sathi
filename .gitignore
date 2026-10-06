@@ -1,0 +1,24 @@
+# Flutter / Dart
+.dart_tool/
+.packages
+build/
+.flutter-plugins*
+*.iml
+.idea/
+android/local.properties
+android/key.properties
+*.jks
+*.keystore
+lib/firebase/options_*.dart
+google-services.json
+# Node
+node_modules/
+functions/lib/
+coverage/
+# Firebase
+.firebase/
+*-debug.log
+.runtimeconfig.json
+# Secrets / symbols
+.env*
+build/symbols/

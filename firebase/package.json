@@ -1,0 +1,5 @@
+{
+  "name": "krishi-rules-tests",
+  "private": true,
+  "scripts": { "test": "node --test test/*.test.js" }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KB entry (full validator arrives in task 3.1)",
+  "type": "object",
+  "required": ["id", "crop", "status", "name_bn", "name_en", "ai_hint_en", "urgency", "see_expert"],
+  "properties": {
+    "id": { "type": "string" }, "crop": { "type": "string" },
+    "status": { "enum": ["draft", "published"] },
+    "urgency": { "enum": ["high", "medium", "low"] }
+  }
+}
