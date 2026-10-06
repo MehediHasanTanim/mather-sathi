@@ -1,20 +1,29 @@
-name: krishi_sahay
-description: AI crop disease diagnosis for Bangladeshi farmers.
-publish_to: none
+name: mather_sathi
+description: AI crop disease diagnosis for Bangladeshi farmers (Krishi Sahay).
+publish_to: 'none'
 version: 0.1.0+1
 
 environment:
-  sdk: ">=3.3.0 <4.0.0"
+  sdk: ^3.13.2
 
 dependencies:
-  flutter: { sdk: flutter }
-  flutter_localizations: { sdk: flutter }
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
   flutter_riverpod: ^2.5.1
   intl: ^0.19.0
+  # Firebase (Phase 0, task 0.4). Versions follow the design doc; run
+  # `flutter pub upgrade --major-versions` and commit pubspec.lock.
+  firebase_core: ^3.3.0
+  firebase_auth: ^5.1.4
+  firebase_app_check: ^0.3.0
 
 dev_dependencies:
-  flutter_test: { sdk: flutter }
-  flutter_lints: ^4.0.0
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
 
 flutter:
   uses-material-design: true
