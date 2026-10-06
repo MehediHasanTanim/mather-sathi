@@ -21,7 +21,7 @@ Specs live in `docs/` (feature spec, technical design, implementation plan).
 ## Task 0.4: FlutterFire per flavor
 Enable Anonymous sign-in in each Firebase project, then run (use the real project ids):
 ```bash
-flutterfire configure --project=krishi-dev  --platforms=android --android-package-name=com.nextgenai.mather_sathi.dev --out=lib/firebase/options_dev.dart  --android-out=android/app/src/dev/google-services.json  --yes
+flutterfire configure --project=krishi-dev-fdea4  --platforms=android --android-package-name=com.nextgenai.mather_sathi.dev --out=lib/firebase/options_dev.dart  --android-out=android/app/src/dev/google-services.json  --yes
 flutterfire configure --project=krishi-stg  --platforms=android --android-package-name=com.nextgenai.mather_sathi.stg --out=lib/firebase/options_stg.dart  --android-out=android/app/src/stg/google-services.json  --yes
 flutterfire configure --project=krishi-prod --platforms=android --android-package-name=com.nextgenai.mather_sathi     --out=lib/firebase/options_prod.dart --android-out=android/app/src/prod/google-services.json --yes
 ```
