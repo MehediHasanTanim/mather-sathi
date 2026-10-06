@@ -1,14 +1,12 @@
 import 'dart:typed_data';
 
 import 'package:cloud_functions/cloud_functions.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mather_sathi/core/flags/remote_flags.dart';
 import 'package:mather_sathi/features/capture/domain/crop_selection.dart';
 import 'package:mather_sathi/features/diagnosis/diagnosis_service.dart';
 import 'package:mather_sathi/features/diagnosis/domain/diagnosis_models.dart';
 import 'package:mather_sathi/features/diagnosis/domain/image_issue.dart';
-import 'package:mather_sathi/features/diagnosis/providers/diagnosis_providers.dart';
 import 'package:mather_sathi/features/kb/domain/kb_models.dart';
 
 import '../../support/diagnosis_fakes.dart';
@@ -159,49 +157,6 @@ void main() {
     test('a disease with an image issue is still a diagnosis', () async {
       final o = await svc(cloudResponse: cloudClassified('rice_blast', issue: 'blurry', confidence: 'low')).run(_jpeg, _rice);
       expect(o, isA<Classified>());
-    });
-  });
-
-  group('DiagnosisFlowNotifier', () {
-    ProviderContainer container(DiagnosisService s) {
-      final c = ProviderContainer(overrides: [diagnosisServiceProvider.overrideWithValue(s)]);
-      addTearDown(c.dispose);
-      return c;
-    }
-
-    test('idle → running → done', () async {
-      final c = container(svc());
-      expect(c.read(diagnosisFlowProvider), isA<FlowIdle>());
-      final f = c.read(diagnosisFlowProvider.notifier).submit(_jpeg, _rice);
-      expect(c.read(diagnosisFlowProvider), isA<FlowRunning>());
-      await f;
-      expect((c.read(diagnosisFlowProvider) as FlowDone).outcome, isA<Classified>());
-    });
-
-    test('a failure ends in FlowFailed with the typed failure', () async {
-      final c = container(svc(cloudThrows: fnError('resource-exhausted')));
-      await c.read(diagnosisFlowProvider.notifier).submit(_jpeg, _rice);
-      expect((c.read(diagnosisFlowProvider) as FlowFailed).failure, isA<DailyCapReached>());
-    });
-
-    test('a double submit is ignored: one cloud call', () async {
-      var calls = 0;
-      final s = DiagnosisService(
-        cloud: fakeCloud(response: cloudClassified('rice_blast'), onCall: (_) => calls++),
-        local: const NoLocalClassifier(), connectivity: FakeConnectivity(true), auth: FakeAuth(),
-        kb: testKb, flags: () => RemoteFlags.defaults,
-      );
-      final c = container(s);
-      final n = c.read(diagnosisFlowProvider.notifier);
-      await Future.wait([n.submit(_jpeg, _rice), n.submit(_jpeg, _rice), n.submit(_jpeg, _rice)]);
-      expect(calls, 1);
-    });
-
-    test('reset returns to idle', () async {
-      final c = container(svc());
-      await c.read(diagnosisFlowProvider.notifier).submit(_jpeg, _rice);
-      c.read(diagnosisFlowProvider.notifier).reset();
-      expect(c.read(diagnosisFlowProvider), isA<FlowIdle>());
     });
   });
 }

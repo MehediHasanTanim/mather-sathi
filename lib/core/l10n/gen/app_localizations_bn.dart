@@ -280,4 +280,104 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get diagnosisFailed => 'বিশ্লেষণ করা যায়নি। আবার চেষ্টা করুন';
+
+  @override
+  String get listen => 'শুনুন';
+
+  @override
+  String get pauseListening => 'থামান';
+
+  @override
+  String get resumeListening => 'আবার শুনুন';
+
+  @override
+  String get stopListening => 'বন্ধ করুন';
+
+  @override
+  String get ttsUnavailableTitle => 'বাংলা কণ্ঠস্বর পাওয়া যাচ্ছে না';
+
+  @override
+  String get ttsUnavailableBody =>
+      'শুনতে হলে ফোনের সেটিংসে ‘Google টেক্সট-টু-স্পিচ’ অ্যাপে বাংলা ভাষার ভয়েস ডাউনলোড করুন।';
+
+  @override
+  String get ttsDiseaseName => 'রোগের নাম';
+
+  @override
+  String get ttsImmediate => 'এখনই যা করবেন';
+
+  @override
+  String get sectionTreatment => 'চিকিৎসা';
+
+  @override
+  String get immediateLabel => 'এখনই করুন';
+
+  @override
+  String get medicineLabel => 'ওষুধ';
+
+  @override
+  String get doseLabel => 'মাত্রা';
+
+  @override
+  String get intervalLabel => 'কতদিন পর পর';
+
+  @override
+  String get preHarvestLabel => 'ফসল তোলার আগে বিরতি';
+
+  @override
+  String preHarvestDays(String days) {
+    return '$days দিন';
+  }
+
+  @override
+  String get safetyLine =>
+      'স্প্রের সময় মাস্ক ও গ্লাভস পরুন, ওষুধের মোড়কের নির্দেশনা পড়ুন';
+
+  @override
+  String get urgencyMedium => 'দ্রুত নজর দিন';
+
+  @override
+  String get urgencyLow => 'প্রতিরোধমূলক ব্যবস্থা নিন';
+
+  @override
+  String get wasCorrect => 'ফলাফলটি কি সঠিক ছিল?';
+
+  @override
+  String get yes => 'হ্যাঁ';
+
+  @override
+  String get no => 'না';
+
+  @override
+  String get whatWasIt => 'আসল রোগ কী ছিল?';
+
+  @override
+  String get dontKnow => 'জানি না';
+
+  @override
+  String get feedbackThanks => 'ধন্যবাদ, আপনার মতামত সংরক্ষিত হয়েছে';
+
+  @override
+  String get kbUpdated => 'তথ্য হালনাগাদ হয়েছে';
+
+  @override
+  String get kbEntryGone => 'এই রোগের বিস্তারিত তথ্য আর পাওয়া যাচ্ছে না';
+
+  @override
+  String get callExpert => 'কর্মকর্তার নম্বর';
+
+  @override
+  String get changeCrop => 'ফসল বদলান';
+
+  @override
+  String get healthyTipsTitle => 'প্রতিরোধের পরামর্শ';
+
+  @override
+  String get resultNotFound => 'ফলাফল পাওয়া যায়নি';
+
+  @override
+  String get generalAdviceTitle => 'সাধারণ পরামর্শ';
+
+  @override
+  String get savingResult => 'ফলাফল সংরক্ষণ করা হচ্ছে…';
 }

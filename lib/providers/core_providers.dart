@@ -12,4 +12,4 @@ final profileStoreProvider =
     Provider<ProfileStore>((ref) => ProfileDao(ref.watch(databaseProvider)));
 
 final historyDaoProvider =
-    Provider<HistoryDao>((ref) => HistoryDao(ref.watch(databaseProvider)));
+    Provider<HistoryStore>((ref) => HistoryDao(ref.watch(databaseProvider)));

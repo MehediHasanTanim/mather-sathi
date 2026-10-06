@@ -609,6 +609,198 @@ abstract class AppLocalizations {
   /// In bn, this message translates to:
   /// **'বিশ্লেষণ করা যায়নি। আবার চেষ্টা করুন'**
   String get diagnosisFailed;
+
+  /// No description provided for @listen.
+  ///
+  /// In bn, this message translates to:
+  /// **'শুনুন'**
+  String get listen;
+
+  /// No description provided for @pauseListening.
+  ///
+  /// In bn, this message translates to:
+  /// **'থামান'**
+  String get pauseListening;
+
+  /// No description provided for @resumeListening.
+  ///
+  /// In bn, this message translates to:
+  /// **'আবার শুনুন'**
+  String get resumeListening;
+
+  /// No description provided for @stopListening.
+  ///
+  /// In bn, this message translates to:
+  /// **'বন্ধ করুন'**
+  String get stopListening;
+
+  /// No description provided for @ttsUnavailableTitle.
+  ///
+  /// In bn, this message translates to:
+  /// **'বাংলা কণ্ঠস্বর পাওয়া যাচ্ছে না'**
+  String get ttsUnavailableTitle;
+
+  /// No description provided for @ttsUnavailableBody.
+  ///
+  /// In bn, this message translates to:
+  /// **'শুনতে হলে ফোনের সেটিংসে ‘Google টেক্সট-টু-স্পিচ’ অ্যাপে বাংলা ভাষার ভয়েস ডাউনলোড করুন।'**
+  String get ttsUnavailableBody;
+
+  /// No description provided for @ttsDiseaseName.
+  ///
+  /// In bn, this message translates to:
+  /// **'রোগের নাম'**
+  String get ttsDiseaseName;
+
+  /// No description provided for @ttsImmediate.
+  ///
+  /// In bn, this message translates to:
+  /// **'এখনই যা করবেন'**
+  String get ttsImmediate;
+
+  /// No description provided for @sectionTreatment.
+  ///
+  /// In bn, this message translates to:
+  /// **'চিকিৎসা'**
+  String get sectionTreatment;
+
+  /// No description provided for @immediateLabel.
+  ///
+  /// In bn, this message translates to:
+  /// **'এখনই করুন'**
+  String get immediateLabel;
+
+  /// No description provided for @medicineLabel.
+  ///
+  /// In bn, this message translates to:
+  /// **'ওষুধ'**
+  String get medicineLabel;
+
+  /// No description provided for @doseLabel.
+  ///
+  /// In bn, this message translates to:
+  /// **'মাত্রা'**
+  String get doseLabel;
+
+  /// No description provided for @intervalLabel.
+  ///
+  /// In bn, this message translates to:
+  /// **'কতদিন পর পর'**
+  String get intervalLabel;
+
+  /// No description provided for @preHarvestLabel.
+  ///
+  /// In bn, this message translates to:
+  /// **'ফসল তোলার আগে বিরতি'**
+  String get preHarvestLabel;
+
+  /// No description provided for @preHarvestDays.
+  ///
+  /// In bn, this message translates to:
+  /// **'{days} দিন'**
+  String preHarvestDays(String days);
+
+  /// No description provided for @safetyLine.
+  ///
+  /// In bn, this message translates to:
+  /// **'স্প্রের সময় মাস্ক ও গ্লাভস পরুন, ওষুধের মোড়কের নির্দেশনা পড়ুন'**
+  String get safetyLine;
+
+  /// No description provided for @urgencyMedium.
+  ///
+  /// In bn, this message translates to:
+  /// **'দ্রুত নজর দিন'**
+  String get urgencyMedium;
+
+  /// No description provided for @urgencyLow.
+  ///
+  /// In bn, this message translates to:
+  /// **'প্রতিরোধমূলক ব্যবস্থা নিন'**
+  String get urgencyLow;
+
+  /// No description provided for @wasCorrect.
+  ///
+  /// In bn, this message translates to:
+  /// **'ফলাফলটি কি সঠিক ছিল?'**
+  String get wasCorrect;
+
+  /// No description provided for @yes.
+  ///
+  /// In bn, this message translates to:
+  /// **'হ্যাঁ'**
+  String get yes;
+
+  /// No description provided for @no.
+  ///
+  /// In bn, this message translates to:
+  /// **'না'**
+  String get no;
+
+  /// No description provided for @whatWasIt.
+  ///
+  /// In bn, this message translates to:
+  /// **'আসল রোগ কী ছিল?'**
+  String get whatWasIt;
+
+  /// No description provided for @dontKnow.
+  ///
+  /// In bn, this message translates to:
+  /// **'জানি না'**
+  String get dontKnow;
+
+  /// No description provided for @feedbackThanks.
+  ///
+  /// In bn, this message translates to:
+  /// **'ধন্যবাদ, আপনার মতামত সংরক্ষিত হয়েছে'**
+  String get feedbackThanks;
+
+  /// No description provided for @kbUpdated.
+  ///
+  /// In bn, this message translates to:
+  /// **'তথ্য হালনাগাদ হয়েছে'**
+  String get kbUpdated;
+
+  /// No description provided for @kbEntryGone.
+  ///
+  /// In bn, this message translates to:
+  /// **'এই রোগের বিস্তারিত তথ্য আর পাওয়া যাচ্ছে না'**
+  String get kbEntryGone;
+
+  /// No description provided for @callExpert.
+  ///
+  /// In bn, this message translates to:
+  /// **'কর্মকর্তার নম্বর'**
+  String get callExpert;
+
+  /// No description provided for @changeCrop.
+  ///
+  /// In bn, this message translates to:
+  /// **'ফসল বদলান'**
+  String get changeCrop;
+
+  /// No description provided for @healthyTipsTitle.
+  ///
+  /// In bn, this message translates to:
+  /// **'প্রতিরোধের পরামর্শ'**
+  String get healthyTipsTitle;
+
+  /// No description provided for @resultNotFound.
+  ///
+  /// In bn, this message translates to:
+  /// **'ফলাফল পাওয়া যায়নি'**
+  String get resultNotFound;
+
+  /// No description provided for @generalAdviceTitle.
+  ///
+  /// In bn, this message translates to:
+  /// **'সাধারণ পরামর্শ'**
+  String get generalAdviceTitle;
+
+  /// No description provided for @savingResult.
+  ///
+  /// In bn, this message translates to:
+  /// **'ফলাফল সংরক্ষণ করা হচ্ছে…'**
+  String get savingResult;
 }
 
 class _AppLocalizationsDelegate

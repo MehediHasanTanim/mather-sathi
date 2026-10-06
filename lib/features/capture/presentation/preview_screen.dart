@@ -9,7 +9,7 @@ import '../../crops/crop.dart';
 import '../../diagnosis/domain/image_issue.dart';
 import '../data/photo_picker.dart';
 import '../providers/capture_provider.dart';
-import '../../diagnosis/presentation/diagnosis_result_screen.dart';
+import '../../diagnosis/presentation/analyzing_screen.dart';
 import '../../diagnosis/providers/diagnosis_providers.dart';
 import 'capture_actions.dart';
 
@@ -46,7 +46,7 @@ class PreviewScreen extends ConsumerWidget {
                 cropLabel: cropLabel,
                 onAnalyze: () {
                   ref.read(diagnosisFlowProvider.notifier).submit(state.prepared!.jpeg!, selection!);
-                  context.push(kDiagnosisRoute);
+                  context.push(kAnalyzingRoute);
                 },
                 onRetake: () => startCapture(context, ref, PhotoSource.camera, pushPreview: false),
               ),

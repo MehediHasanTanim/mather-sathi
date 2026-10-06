@@ -4,7 +4,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/alerts/presentation/alerts_screen.dart';
 import '../../features/capture/presentation/preview_screen.dart';
-import '../../features/diagnosis/presentation/diagnosis_result_screen.dart';
+import '../../features/diagnosis/presentation/analyzing_screen.dart';
+import '../../features/result/presentation/result_screen.dart';
 import '../../features/history/presentation/history_screen.dart';
 import '../../features/home/presentation/home_shell.dart';
 import '../../features/home/presentation/scan_home_screen.dart';
@@ -35,7 +36,11 @@ final routerProvider = Provider<GoRouter>((ref) {
     ),
     routes: [
       GoRoute(path: '/onboarding', builder: (_, _) => const OnboardingScreen()),
-      GoRoute(path: kDiagnosisRoute, builder: (_, _) => const DiagnosisResultScreen()),
+      GoRoute(path: kAnalyzingRoute, builder: (_, _) => const AnalyzingScreen()),
+      GoRoute(
+        path: '/result/:id',
+        builder: (_, s) => ResultScreen(id: s.pathParameters['id']!),
+      ),
       GoRoute(path: '/capture/preview', builder: (_, _) => const PreviewScreen()),
       StatefulShellRoute.indexedStack(
         builder: (_, _, shell) => HomeShell(shell: shell),
