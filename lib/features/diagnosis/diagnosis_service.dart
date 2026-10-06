@@ -1,5 +1,7 @@
+import 'dart:async';
 import 'dart:typed_data';
 
+import '../../core/errors/error_reporter.dart';
 import '../../core/flags/remote_flags.dart';
 import '../capture/domain/crop_selection.dart';
 import '../kb/domain/kb_models.dart';
@@ -13,8 +15,8 @@ abstract interface class ConnectivityChecker {
 }
 
 abstract interface class AuthGate {
-  /// Signs in anonymously if needed. Lazy: never called at app start.
-  Future<void> ensureSignedIn();
+  /// Signs in anonymously if needed and returns the uid. Lazy: never called at app start.
+  Future<String> ensureSignedIn();
 }
 
 /// On-device classifier. Unavailable until Phase 6.
@@ -41,6 +43,8 @@ class DiagnosisService {
     required this.auth,
     required this.kb,
     required this.flags,
+    this.reporter,
+    this.cloudBudget = const Duration(seconds: 8),
   });
 
   final CloudDiagnosisClient cloud;
@@ -50,6 +54,13 @@ class DiagnosisService {
   final KnowledgeBase Function() kb;
   final RemoteFlags Function() flags;
 
+  /// Where unexpected cloud problems (App Check or auth rejections) are logged for the developers.
+  final ErrorReporter? reporter;
+
+  /// Total time allowed for sign-in plus the cloud call, then the on-device fallback takes over.
+  /// Needed because "connected" is not "reachable" (zero data balance, captive portals).
+  final Duration cloudBudget;
+
   Future<DiagnosisOutcome> run(Uint8List preparedJpeg, CropSelection crop) async {
     final knowledge = kb();
     final isLaunchCrop = !crop.isOther && knowledge.supportsCrop(crop.id);
@@ -57,13 +68,19 @@ class DiagnosisService {
 
     if (cloudAllowed) {
       try {
-        await auth.ensureSignedIn();
-        return _fromCloud(await cloud.diagnose(preparedJpeg, crop.param), preparedJpeg, knowledge);
-      } on DiagnosisFailure {
+        final response = await (() async {
+          await auth.ensureSignedIn();
+          return cloud.diagnose(preparedJpeg, crop.param);
+        })()
+            .timeout(cloudBudget, onTimeout: () => throw const CloudTimeout());
+        return _fromCloud(response, preparedJpeg, knowledge);
+      } on DiagnosisFailure catch (f) {
+        if (f is ServiceRejected) unawaited(_log(f, 'cloud call rejected (App Check or auth)'));
         if (isLaunchCrop && local.isAvailable) return _onDevice(preparedJpeg, crop.id);
         rethrow; // other crop, or nothing to fall back to: surface the failure
-      } catch (_) {
+      } catch (e, st) {
         // Auth or any unexpected error behaves like a service problem, never a crash.
+        unawaited(_log(e, 'unexpected cloud error', st));
         if (isLaunchCrop && local.isAvailable) return _onDevice(preparedJpeg, crop.id);
         throw const ServerError('unexpected');
       }
@@ -72,6 +89,8 @@ class DiagnosisService {
     if (!local.isAvailable) throw const OfflineModelMissing();
     return _onDevice(preparedJpeg, crop.id);
   }
+
+  Future<void> _log(Object e, String reason, [StackTrace? st]) async => reporter?.record(e, st, reason: reason);
 
   Future<DiagnosisOutcome> _onDevice(Uint8List jpeg, String cropId) async {
     final r = await local.classify(jpeg, cropId);

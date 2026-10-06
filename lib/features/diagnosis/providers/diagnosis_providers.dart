@@ -4,9 +4,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/errors/error_reporter.dart';
 import '../../../core/flags/remote_flags.dart';
 import '../../capture/domain/crop_selection.dart';
 import '../../history/providers/history_provider.dart';
+import '../../sync/sync_providers.dart';
 import '../../kb/kb_provider.dart';
 import '../data/cloud_client.dart';
 import '../diagnosis_service.dart';
@@ -21,9 +23,10 @@ class PlusConnectivityChecker implements ConnectivityChecker {
 
 class FirebaseAuthGate implements AuthGate {
   @override
-  Future<void> ensureSignedIn() async {
+  Future<String> ensureSignedIn() async {
     final auth = FirebaseAuth.instance;
-    if (auth.currentUser == null) await auth.signInAnonymously();
+    final user = auth.currentUser ?? (await auth.signInAnonymously()).user!;
+    return user.uid;
   }
 }
 
@@ -39,6 +42,7 @@ final diagnosisServiceProvider = Provider<DiagnosisService>((ref) => DiagnosisSe
       auth: ref.watch(authGateProvider),
       kb: () => ref.read(kbProvider).requireValue,
       flags: () => ref.read(remoteFlagsProvider),
+      reporter: ref.watch(errorReporterProvider),
     ));
 
 enum FlowStage { analyzing, saving }
@@ -104,6 +108,7 @@ class DiagnosisFlowNotifier extends Notifier<DiagnosisFlow> {
         case Classified() || GeneralAdvice():
           state = const FlowRunning(FlowStage.saving);
           final id = await ref.read(historyProvider.notifier).saveOutcome(outcome, crop);
+          requestSync(ref); // history backup and regional report; never waited on
           if (!stale()) state = FlowDone(id);
       }
     } on DiagnosisFailure catch (f) {

@@ -801,6 +801,42 @@ abstract class AppLocalizations {
   /// In bn, this message translates to:
   /// **'ফলাফল সংরক্ষণ করা হচ্ছে…'**
   String get savingResult;
+
+  /// No description provided for @historyEmpty.
+  ///
+  /// In bn, this message translates to:
+  /// **'এখনও কোনো ছবি পরীক্ষা করা হয়নি'**
+  String get historyEmpty;
+
+  /// No description provided for @historyHealthy.
+  ///
+  /// In bn, this message translates to:
+  /// **'সুস্থ'**
+  String get historyHealthy;
+
+  /// No description provided for @historyUnknown.
+  ///
+  /// In bn, this message translates to:
+  /// **'নিশ্চিত হওয়া যায়নি'**
+  String get historyUnknown;
+
+  /// No description provided for @badgeUrgent.
+  ///
+  /// In bn, this message translates to:
+  /// **'জরুরি'**
+  String get badgeUrgent;
+
+  /// No description provided for @badgeWatch.
+  ///
+  /// In bn, this message translates to:
+  /// **'নজর রাখুন'**
+  String get badgeWatch;
+
+  /// No description provided for @badgePrevent.
+  ///
+  /// In bn, this message translates to:
+  /// **'প্রতিরোধ'**
+  String get badgePrevent;
 }
 
 class _AppLocalizationsDelegate

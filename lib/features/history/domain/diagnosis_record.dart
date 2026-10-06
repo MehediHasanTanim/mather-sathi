@@ -60,6 +60,11 @@ class DiagnosisRecord {
         'photo_synced': photoSynced ? 1 : 0,
       };
 
+  /// What is pushed to `users/{uid}/history/{id}`: metadata and feedback only. No photo bytes or local paths,
+  /// and none of the local sync flags.
+  Map<String, Object?> toFirestore() => toMap()
+    ..removeWhere((k, _) => const {'photo_path', 'is_synced', 'report_state', 'photo_synced'}.contains(k));
+
   factory DiagnosisRecord.fromMap(Map<String, Object?> m) => DiagnosisRecord(
         id: m['id']! as String,
         cropType: m['crop_type']! as String,

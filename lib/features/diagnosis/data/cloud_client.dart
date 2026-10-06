@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
 
@@ -80,13 +81,18 @@ CallableInvoke firebaseCallable({Duration timeout = const Duration(seconds: 8)})
 }
 
 class CloudDiagnosisClient {
-  CloudDiagnosisClient(this._invoke);
+  CloudDiagnosisClient(this._invoke, {this.timeout = const Duration(seconds: 8)});
   final CallableInvoke _invoke;
+
+  /// Hard client-side limit, in addition to the callable's own timeout.
+  final Duration timeout;
 
   /// [crop] is a KB crop id, or `other:<free text>`.
   Future<CloudResponse> diagnose(Uint8List jpeg, String crop) async {
     try {
-      return parseCloudResponse(await _invoke({'image': base64Encode(jpeg), 'crop': crop}));
+      return parseCloudResponse(await _invoke({'image': base64Encode(jpeg), 'crop': crop}).timeout(timeout));
+    } on TimeoutException {
+      throw const CloudTimeout();
     } on FirebaseFunctionsException catch (e) {
       throw mapFunctionsCode(e.code);
     } on FormatException {

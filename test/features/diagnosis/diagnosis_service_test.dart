@@ -1,9 +1,12 @@
+import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:cloud_functions/cloud_functions.dart';
+import 'package:fake_async/fake_async.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mather_sathi/core/flags/remote_flags.dart';
 import 'package:mather_sathi/features/capture/domain/crop_selection.dart';
+import 'package:mather_sathi/features/diagnosis/data/cloud_client.dart';
 import 'package:mather_sathi/features/diagnosis/diagnosis_service.dart';
 import 'package:mather_sathi/features/diagnosis/domain/diagnosis_models.dart';
 import 'package:mather_sathi/features/diagnosis/domain/image_issue.dart';
@@ -159,4 +162,101 @@ void main() {
       expect(o, isA<Classified>());
     });
   });
+
+  group('time budget and logging (plan task 5.3 case 11, Design §6.5)', () {
+    DiagnosisService hanging({bool localAvailable = true, AuthGate? auth, FakeReporter? reporter}) => DiagnosisService(
+          cloud: CloudDiagnosisClient((_) => Completer<Map<String, dynamic>>().future, timeout: const Duration(seconds: 30)),
+          local: FakeLocal(available: localAvailable, result: _local('rice_blast')),
+          connectivity: FakeConnectivity(true),
+          auth: auth ?? FakeAuth(),
+          kb: testKb,
+          flags: () => RemoteFlags.defaults,
+          reporter: reporter,
+        );
+
+    test('11: "online" but unreachable (no data balance): on-device result within about 8 s', () {
+      fakeAsync((fake) {
+        Object? out;
+        hanging().run(_jpeg, _rice).then((o) => out = o);
+        fake.elapse(const Duration(seconds: 7));
+        expect(out, isNull, reason: 'still waiting inside the budget');
+        fake.elapse(const Duration(seconds: 2));
+        expect((out! as Classified).result.source, DiagnosisSource.onDevice);
+      });
+    });
+
+    test('without an on-device model the same hang becomes a CloudTimeout after 8 s', () {
+      fakeAsync((fake) {
+        Object? err;
+        hanging(localAvailable: false).run(_jpeg, _rice).then<void>((_) {}, onError: (Object e) {
+          err = e;
+        });
+        fake.elapse(const Duration(seconds: 9));
+        expect(err, isA<CloudTimeout>());
+      });
+    });
+
+    test('a hanging anonymous sign-in counts against the same budget', () {
+      fakeAsync((fake) {
+        Object? err;
+        hanging(localAvailable: false, auth: _HangingAuth()).run(_jpeg, _rice).then<void>((_) {}, onError: (Object e) {
+          err = e;
+        });
+        fake.elapse(const Duration(seconds: 9));
+        expect(err, isA<CloudTimeout>());
+      });
+    });
+
+    test('the client enforces its own timeout too', () {
+      fakeAsync((fake) {
+        Object? err;
+        CloudDiagnosisClient((_) => Completer<Map<String, dynamic>>().future, timeout: const Duration(seconds: 8))
+            .diagnose(_jpeg, 'rice')
+            .then<void>((_) {}, onError: (Object e) {
+          err = e;
+        });
+        fake.elapse(const Duration(seconds: 9));
+        expect(err, isA<CloudTimeout>());
+      });
+    });
+
+    test('a rejected service (App Check / auth) is logged for the developers, then falls back', () async {
+      final reporter = FakeReporter();
+      final s = DiagnosisService(
+        cloud: fakeCloud(throws: fnError('permission-denied')), local: FakeLocal(available: true, result: _local('rice_blast')),
+        connectivity: FakeConnectivity(true), auth: FakeAuth(), kb: testKb, flags: () => RemoteFlags.defaults, reporter: reporter,
+      );
+      final o = await s.run(_jpeg, _rice);
+      expect((o as Classified).result.source, DiagnosisSource.onDevice);
+      expect(reporter.reports.single, contains('rejected'));
+    });
+
+    test('plain timeouts and the daily cap are expected, not logged', () async {
+      final reporter = FakeReporter();
+      for (final code in ['deadline-exceeded', 'resource-exhausted', 'unavailable']) {
+        final s = DiagnosisService(
+          cloud: fakeCloud(throws: fnError(code)), local: const NoLocalClassifier(), connectivity: FakeConnectivity(true),
+          auth: FakeAuth(), kb: testKb, flags: () => RemoteFlags.defaults, reporter: reporter,
+        );
+        await outcome(s.run(_jpeg, _rice));
+      }
+      expect(reporter.reports, isEmpty);
+    });
+
+    test('an unexpected error (e.g. sign-in crash) is logged and surfaces as a server error', () async {
+      final reporter = FakeReporter();
+      final s = DiagnosisService(
+        cloud: fakeCloud(response: cloudClassified('rice_blast')), local: const NoLocalClassifier(),
+        connectivity: FakeConnectivity(true), auth: FakeAuth()..throws = StateError('boom'), kb: testKb,
+        flags: () => RemoteFlags.defaults, reporter: reporter,
+      );
+      expect(await outcome(s.run(_jpeg, _rice)), isA<ServerError>());
+      expect(reporter.reports, hasLength(1));
+    });
+  });
+}
+
+class _HangingAuth implements AuthGate {
+  @override
+  Future<String> ensureSignedIn() => Completer<String>().future;
 }

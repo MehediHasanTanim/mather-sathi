@@ -9,8 +9,11 @@ abstract interface class HistoryStore {
   Future<List<DiagnosisRecord>> list({int limit});
   Future<int> count();
   Future<List<DiagnosisRecord>> pending();
-  Future<void> markSynced(String id);
+  /// Marks the history doc as pushed, but only if the row still matches what was pushed: a feedback change
+  /// made while the push was in flight keeps `is_synced = 0` so the next flush sends it.
+  Future<void> markSynced(DiagnosisRecord pushed);
   Future<void> markReported(String id);
+  Future<void> setReportState(String id, int state);
   Future<void> markPhotoSynced(String id);
   Future<void> setFeedback(String id, String feedback, {String? actual});
   Future<List<String>> enforceRetention({int keep});
@@ -57,9 +60,24 @@ class HistoryDao implements HistoryStore {
   }
 
   @override
-  Future<void> markSynced(String id) => _set(id, {'is_synced': 1});
+  Future<void> markSynced(DiagnosisRecord pushed) {
+    // `IS` matches NULLs, but null cannot be a bound argument, so build the clause per value.
+    final where = StringBuffer('id = ?');
+    final args = <Object?>[pushed.id];
+    for (final (col, v) in [('feedback', pushed.feedback), ('feedback_actual', pushed.feedbackActual)]) {
+      if (v == null) {
+        where.write(' AND $col IS NULL');
+      } else {
+        where.write(' AND $col = ?');
+        args.add(v);
+      }
+    }
+    return _db.update('diagnosis_history', {'is_synced': 1}, where: where.toString(), whereArgs: args).then((_) {});
+  }
   @override
   Future<void> markReported(String id) => _set(id, {'report_state': 1});
+  @override
+  Future<void> setReportState(String id, int state) => _set(id, {'report_state': state});
   @override
   Future<void> markPhotoSynced(String id) => _set(id, {'photo_synced': 1});
 

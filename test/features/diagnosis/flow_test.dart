@@ -16,11 +16,13 @@ import 'package:mather_sathi/features/kb/domain/kb_models.dart';
 import 'package:mather_sathi/features/kb/kb_provider.dart';
 import 'package:mather_sathi/features/profile/domain/user_profile.dart';
 import 'package:mather_sathi/features/profile/providers/profile_provider.dart';
+import 'package:mather_sathi/features/sync/sync_providers.dart';
 import 'package:mather_sathi/providers/core_providers.dart';
 
 import '../../support/diagnosis_fakes.dart';
 import '../../support/fakes.dart';
 import '../../support/phase4_fakes.dart';
+import '../../support/pump_app.dart' show NoopSync;
 
 final _jpeg = Uint8List.fromList([1, 2, 3]);
 const _rice = CropSelection('rice');
@@ -37,7 +39,9 @@ class Env {
   Env(CloudDiagnosisClient cloud) {
     store = InMemoryHistoryStore();
     photos = FakePhotoStore();
+    sync = NoopSync();
     container = ProviderContainer(overrides: [
+      syncServiceProvider.overrideWithValue(sync),
       historyDaoProvider.overrideWithValue(store),
       photoStoreProvider.overrideWithValue(photos),
       profileStoreProvider.overrideWithValue(FakeProfileStore(const UserProfile(district: 'dhaka', onboardingDone: true))),
@@ -52,6 +56,7 @@ class Env {
   }
   late final InMemoryHistoryStore store;
   late final FakePhotoStore photos;
+  late final NoopSync sync;
   late final ProviderContainer container;
   late final List<DiagnosisFlow> states;
   DiagnosisFlowNotifier get flow => container.read(diagnosisFlowProvider.notifier);
@@ -78,6 +83,7 @@ void main() {
     final id = (e.state as FlowDone).historyId;
     expect((await e.store.byId(id))!.diseaseId, 'rice_blast');
     expect(e.photos.files, hasLength(1));
+    expect(e.sync.flushes, 1, reason: 'a successful save requests a background sync');
   });
 
   test('a retake request ends in FlowRetake and saves nothing', () async {
@@ -86,6 +92,7 @@ void main() {
     expect((e.state as FlowRetake).issue, ImageIssue.blurry);
     expect(e.store.rows, isEmpty);
     expect(e.photos.files, isEmpty);
+    expect(e.sync.flushes, 0);
   });
 
   test('a failure ends in FlowFailed with the typed failure and saves nothing', () async {

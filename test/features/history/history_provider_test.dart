@@ -147,7 +147,7 @@ void main() {
   test('feedback persists, re-arms sync, and keeps the farmer-supplied disease', () async {
     await setUpWith(_profile);
     final id = await save(Classified(_result('rice_blast'), _jpeg));
-    await c.read(historyDaoProvider).markSynced(id);
+    await c.read(historyDaoProvider).markSynced(await row(id));
     await c.read(historyProvider.notifier).setFeedback(id, correct: false, actual: 'rice_brown_spot');
     var r = await row(id);
     expect([r.feedback, r.feedbackActual, r.isSynced], ['incorrect', 'rice_brown_spot', false]);

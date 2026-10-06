@@ -46,9 +46,10 @@ class FakeAuth implements AuthGate {
   int calls = 0;
   Object? throws;
   @override
-  Future<void> ensureSignedIn() async {
+  Future<String> ensureSignedIn() async {
     calls++;
     if (throws != null) throw throws!;
+    return 'test-uid';
   }
 }
 

@@ -192,7 +192,7 @@ void main() {
     testWidgets('👍 is saved, shows thanks, re-arms sync, and is still selected on re-open', (tester) async {
       final r = rec('rice_blast');
       await open(tester, r);
-      await store.markSynced('r1');
+      await store.markSynced(store.rows['r1']!);
       await tester.ensureVisible(find.byKey(const Key('feedback_yes')));
       await tester.tap(find.byKey(const Key('feedback_yes')));
       await tester.pumpAndSettle();

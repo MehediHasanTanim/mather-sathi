@@ -27,9 +27,14 @@ class InMemoryHistoryStore implements HistoryStore {
   @override
   Future<List<DiagnosisRecord>> pending() async => rows.values.where((r) => !r.isSynced || r.reportState == 0 || !r.photoSynced).toList();
   @override
-  Future<void> markSynced(String id) async => _upd(id, isSynced: true);
+  Future<void> markSynced(DiagnosisRecord pushed) async {
+    final cur = rows[pushed.id];
+    if (cur != null && cur.feedback == pushed.feedback && cur.feedbackActual == pushed.feedbackActual) _upd(pushed.id, isSynced: true);
+  }
   @override
   Future<void> markReported(String id) async => _upd(id, reportState: 1);
+  @override
+  Future<void> setReportState(String id, int state) async => _upd(id, reportState: state);
   @override
   Future<void> markPhotoSynced(String id) async => _upd(id, photoSynced: true);
   @override

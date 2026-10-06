@@ -8,12 +8,14 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 import 'app.dart';
 import 'core/db/app_database.dart';
 import 'core/flags/remote_flags.dart';
 import 'core/utils/cold_start.dart';
 import 'features/kb/kb_provider.dart';
+import 'features/sync/sync_providers.dart';
 import 'features/profile/providers/profile_provider.dart';
 import 'providers/core_providers.dart';
 
@@ -52,6 +54,9 @@ Future<void> bootstrap(Flavor flavor, FirebaseOptions options) async {
     container.read(kbProvider.future),
   ]);
   unawaited(container.read(remoteFlagsProvider.notifier).refresh());
+
+  await initializeDateFormatting('bn');
+  unawaited(container.read(syncServiceProvider).flush()); // app start: push anything left from last time
 
   ColdStart.logOnFirstFrame();
   runApp(UncontrolledProviderScope(container: container, child: const KrishiApp()));

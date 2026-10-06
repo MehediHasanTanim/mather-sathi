@@ -380,4 +380,22 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get savingResult => 'ফলাফল সংরক্ষণ করা হচ্ছে…';
+
+  @override
+  String get historyEmpty => 'এখনও কোনো ছবি পরীক্ষা করা হয়নি';
+
+  @override
+  String get historyHealthy => 'সুস্থ';
+
+  @override
+  String get historyUnknown => 'নিশ্চিত হওয়া যায়নি';
+
+  @override
+  String get badgeUrgent => 'জরুরি';
+
+  @override
+  String get badgeWatch => 'নজর রাখুন';
+
+  @override
+  String get badgePrevent => 'প্রতিরোধ';
 }

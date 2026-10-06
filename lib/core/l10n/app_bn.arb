@@ -138,5 +138,11 @@
   "healthyTipsTitle": "প্রতিরোধের পরামর্শ",
   "resultNotFound": "ফলাফল পাওয়া যায়নি",
   "generalAdviceTitle": "সাধারণ পরামর্শ",
-  "savingResult": "ফলাফল সংরক্ষণ করা হচ্ছে…"
+  "savingResult": "ফলাফল সংরক্ষণ করা হচ্ছে…",
+  "historyEmpty": "এখনও কোনো ছবি পরীক্ষা করা হয়নি",
+  "historyHealthy": "সুস্থ",
+  "historyUnknown": "নিশ্চিত হওয়া যায়নি",
+  "badgeUrgent": "জরুরি",
+  "badgeWatch": "নজর রাখুন",
+  "badgePrevent": "প্রতিরোধ"
 }

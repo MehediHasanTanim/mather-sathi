@@ -65,7 +65,7 @@ void main() {
 
     test('feedback re-arms sync; pending and mark helpers work', () async {
       await history.insert(rec(1));
-      await history.markSynced('id1');
+      await history.markSynced(rec(1));
       await history.markReported('id1');
       await history.markPhotoSynced('id1');
       expect(await history.pending(), isEmpty);

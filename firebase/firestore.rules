@@ -11,6 +11,9 @@ service cloud.firestore {
         && id.matches(request.auth.uid + '_.*')
         && request.resource.data.uid == request.auth.uid
         && request.resource.data.createdAt == request.time
+        // exactly these fields: none missing, none extra
+        && request.resource.data.keys().hasAll(
+             ['uid','district','upazila','crop','diseaseId','week','createdAt','expireAt'])
         && request.resource.data.keys().hasOnly(
              ['uid','district','upazila','crop','diseaseId','week','createdAt','expireAt']);
       allow read, update, delete: if false;

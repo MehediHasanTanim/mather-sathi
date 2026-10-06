@@ -37,4 +37,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - run: npm test --prefix firebase
+      - uses: actions/setup-java@v4   # the Firestore and Storage emulators run on the JVM
+        with: { distribution: temurin, java-version: 21 }
+      - run: npm install --prefix firebase
+      - run: npm run test:emulated --prefix firebase

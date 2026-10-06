@@ -57,3 +57,32 @@ Run `tools/eval` on real field photos before choosing a model (task 9.1).
 ## Verified locally (emulators, fake API key)
 No auth → `UNAUTHENTICATED`; non-JPEG / bad crop → `INVALID_ARGUMENT`; valid request reaches the provider (`UNAVAILABLE` with a fake key);
 31st call of the day → `RESOURCE_EXHAUSTED`; `config/runtime.cloudEnabled=false` → `UNAVAILABLE`. A real model call has **not** been exercised.
+
+---
+
+# Phase 5 notes: history, sync, rules
+
+## Sync (task 5.4, 5.5)
+`SyncService.flush()` pushes, per pending history row and in order: the history doc (`users/{uid}/history/{id}`, metadata only), then the
+regional report (`reports/{uid}_{week}_{crop}_{disease}`). It runs at app start, when connectivity returns, and after each saved diagnosis,
+never overlaps itself (a call during a run queues one more pass), never throws, and leaves failed rows pending. A repeat report in the same
+week is denied by the create-only rules; that denial is treated as "already reported". Photo upload (backup/contribution) arrives with 8.2.
+
+## Rules (task 5.6): run the emulator tests
+```bash
+npm install --prefix firebase
+npm run test:emulated --prefix firebase     # starts the Firestore + Storage emulators (needs Java), 31 tests
+```
+Writing the tests found two gaps, both fixed: report docs only had a `hasOnly` field check (so a report missing `week` was accepted;
+now `hasAll` too), and `contrib/` was not provably write-once (now `allow write: if resource == null && ...`).
+
+Deploy to staging (manual, needs the Blaze plan and `firebase login`):
+```bash
+firebase deploy --only firestore:rules,firestore:indexes,storage --project <stg-project-id>
+```
+Then confirm in the console that **Firestore → Rules** and **Storage → Rules** show today's version.
+
+## Failure handling and the 8 s budget (task 5.2, 5.3)
+Sign-in plus the cloud call share one 8-second budget (`DiagnosisService.cloudBudget`), because "connected" is not "reachable". When it runs
+out the result is a `CloudTimeout`, which falls back to the on-device model when one exists (Phase 6). Rejected-service problems and unexpected
+errors are logged to Crashlytics through `ErrorReporter`; timeouts and the daily cap are expected and are not.
