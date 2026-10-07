@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:flutter/widgets.dart';
+import 'package:mather_sathi/core/analytics/analytics.dart';
 import 'package:mather_sathi/core/l10n/gen/app_localizations.dart';
 import 'package:mather_sathi/features/expert/expert_providers.dart';
 import 'package:mather_sathi/features/privacy/data_deletion.dart';
@@ -60,4 +61,12 @@ class RecordingSync implements SyncRunner {
   Future<void> suspend() async => log.add('suspend');
   @override
   void resume() => log.add('resume');
+}
+
+class RecordingAnalytics implements Analytics {
+  final events = <({String name, Map<String, Object> params})>[];
+  @override
+  void log(String name, [Map<String, Object> params = const {}]) => events.add((name: name, params: params));
+  List<String> get names => [for (final e in events) e.name];
+  Map<String, Object> only(String name) => events.singleWhere((e) => e.name == name).params;
 }

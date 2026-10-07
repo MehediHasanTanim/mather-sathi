@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/l10n/gen/app_localizations.dart';
 import '../../core/router/app_router.dart';
+import '../../core/analytics/analytics.dart';
 
 class PushNotice {
   const PushNotice({this.title, this.body, this.route});
@@ -73,7 +74,10 @@ final pushHandlerProvider = Provider<void>((ref) {
 
   void open(PushNotice n) {
     final route = safePushRoute(n.route);
-    if (route != null) router.go(route);
+    if (route != null) {
+      Ev.alertOpened(ref.read(analyticsProvider));
+      router.go(route);
+    }
   }
 
   final subs = <StreamSubscription<PushNotice>>[

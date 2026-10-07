@@ -1,6 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { getFirestore } from "firebase-admin/firestore";
 import { defineSecret, defineString } from "firebase-functions/params";
+import { logger } from "firebase-functions/v2";
 import { HttpsError, onCall } from "firebase-functions/v2/https";
 import { classifyImage, type Classification } from "./classify";
 import { generalAdvice, type GeneralAdvice } from "./general";
@@ -106,11 +107,43 @@ export const diagnose = onCall(
     minInstances: 1, // avoids a 1-3 s cold start eating the client's 8 s budget
   },
   (req) =>
-    handleDiagnose(req.data, req.auth, {
-      db: getFirestore() as unknown as DbLike,
-      kb: loadKbIndex(),
-      client: new Anthropic({ apiKey: ANTHROPIC_API_KEY.value(), timeout: 6000, maxRetries: 0 }),
-      model: VISION_MODEL.value(),
-      dailyCap: parseInt(DAILY_CAP.value(), 10),
-    }),
+    logged(req.data, () =>
+      handleDiagnose(req.data, req.auth, {
+        db: getFirestore() as unknown as DbLike,
+        kb: loadKbIndex(),
+        client: new Anthropic({ apiKey: ANTHROPIC_API_KEY.value(), timeout: 6000, maxRetries: 0 }),
+        model: VISION_MODEL.value(),
+        dailyCap: parseInt(DAILY_CAP.value(), 10),
+      }),
+    ),
 );
+
+export interface DiagnoseLog { event: "diagnose"; ok: boolean; mode?: string; crop?: string; code?: string; latency_ms: number }
+
+/** One structured line per call, for the error-rate and latency alerts (ops/). Never the image, the uid, or any user text. */
+export function diagnoseLogLine(data: unknown, outcome: { ok: true; mode: string } | { ok: false; code: string }, latencyMs: number): DiagnoseLog {
+  const crop = (data as { crop?: unknown } | null)?.crop;
+  return {
+    event: "diagnose",
+    ok: outcome.ok,
+    ...(outcome.ok ? { mode: outcome.mode } : { code: outcome.code }),
+    // A free-text "other:<label>" crop is typed by the farmer: only its kind is logged.
+    crop: typeof crop === "string" ? (crop.startsWith("other:") ? "other" : crop.slice(0, 20)) : undefined,
+    latency_ms: Math.round(latencyMs),
+  };
+}
+
+async function logged(data: unknown, run: () => Promise<DiagnoseResponse>): Promise<DiagnoseResponse> {
+  const t = Date.now();
+  try {
+    const res = await run();
+    logger.info("diagnose", diagnoseLogLine(data, { ok: true, mode: res.mode }, Date.now() - t));
+    return res;
+  } catch (e) {
+    const code = e instanceof HttpsError ? e.code : "internal";
+    // Expected refusals (bad input, daily cap, kill switch) are not errors to page anyone about.
+    const expected = ["invalid-argument", "resource-exhausted", "unauthenticated"].includes(code) || (code === "unavailable" && (e as HttpsError).message === "disabled");
+    (expected ? logger.info : logger.error)("diagnose", diagnoseLogLine(data, { ok: false, code }, Date.now() - t));
+    throw e;
+  }
+}

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:typed_data';
 
+import '../../core/analytics/analytics.dart';
 import '../../core/errors/error_reporter.dart';
 import '../../core/flags/remote_flags.dart';
 import '../capture/domain/crop_selection.dart';
@@ -44,6 +45,7 @@ class DiagnosisService {
     required this.kb,
     required this.flags,
     this.reporter,
+    this.analytics,
     this.cloudBudget = const Duration(seconds: 8),
   });
 
@@ -56,6 +58,7 @@ class DiagnosisService {
 
   /// Where unexpected cloud problems (App Check or auth rejections) are logged for the developers.
   final ErrorReporter? reporter;
+  final Analytics? analytics;
 
   /// Total time allowed for sign-in plus the cloud call, then the on-device fallback takes over.
   /// Needed because "connected" is not "reachable" (zero data balance, captive portals).
@@ -76,18 +79,31 @@ class DiagnosisService {
         return _fromCloud(response, preparedJpeg, knowledge);
       } on DiagnosisFailure catch (f) {
         if (f is ServiceRejected) unawaited(_log(f, 'cloud call rejected (App Check or auth)'));
-        if (isLaunchCrop && local.isAvailable) return _onDevice(preparedJpeg, crop.id);
+        if (isLaunchCrop && local.isAvailable) {
+          _fellBack(failureName(f));
+          return _onDevice(preparedJpeg, crop.id);
+        }
         rethrow; // other crop, or nothing to fall back to: surface the failure
       } catch (e, st) {
         // Auth or any unexpected error behaves like a service problem, never a crash.
         unawaited(_log(e, 'unexpected cloud error', st));
-        if (isLaunchCrop && local.isAvailable) return _onDevice(preparedJpeg, crop.id);
+        if (isLaunchCrop && local.isAvailable) {
+          _fellBack('unexpected');
+          return _onDevice(preparedJpeg, crop.id);
+        }
         throw const ServerError('unexpected');
       }
     }
     if (!isLaunchCrop) throw const NeedsInternet();
     if (!local.isAvailable) throw const OfflineModelMissing();
+    // Cloud was not even tried: offline or switched off remotely. Counted so the rollout can see how often it happens.
+    _fellBack(flags().cloudDiagnosisEnabled ? 'offline' : 'cloud_disabled');
     return _onDevice(preparedJpeg, crop.id);
+  }
+
+  void _fellBack(String reason) {
+    final a = analytics;
+    if (a != null) Ev.fallbackToOnDevice(a, reason: reason);
   }
 
   Future<void> _log(Object e, String reason, [StackTrace? st]) async => reporter?.record(e, st, reason: reason);
@@ -136,3 +152,13 @@ class DiagnosisService {
           ? NeedsRetake(r.imageIssue)
           : Classified(r, jpeg);
 }
+
+/// Stable, low-cardinality name of a failure, for analytics.
+String failureName(DiagnosisFailure f) => switch (f) {
+      NeedsInternet() => 'needs_internet',
+      OfflineModelMissing() => 'offline_model_missing',
+      CloudTimeout() => 'cloud_timeout',
+      DailyCapReached() => 'daily_cap',
+      ServiceRejected() => 'service_rejected',
+      ServerError() => 'server_error',
+    };

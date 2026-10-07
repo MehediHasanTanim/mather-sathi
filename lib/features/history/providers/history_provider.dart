@@ -14,6 +14,7 @@ import '../../profile/domain/user_profile.dart';
 import '../../profile/providers/profile_provider.dart';
 import '../data/photo_store.dart';
 import '../domain/diagnosis_record.dart';
+import '../../../core/analytics/analytics.dart';
 
 const kGeneralAdviceId = 'general_advice';
 
@@ -104,6 +105,10 @@ class HistoryNotifier extends AsyncNotifier<List<DiagnosisRecord>> {
   /// "Was this correct?" Re-arms the history sync (`is_synced = 0`). [actual] is the farmer's disease id when it was wrong.
   Future<void> setFeedback(String id, {required bool correct, String? actual}) async {
     await ref.read(historyDaoProvider).setFeedback(id, correct ? 'correct' : 'incorrect', actual: correct ? null : actual);
+    final rec = await ref.read(historyDaoProvider).byId(id);
+    if (rec != null) {
+      Ev.feedbackGiven(ref.read(analyticsProvider), correct: correct, source: rec.source, crop: rec.cropType);
+    }
     ref.invalidate(historyEntryProvider(id));
     state = AsyncData(await ref.read(historyDaoProvider).list());
   }

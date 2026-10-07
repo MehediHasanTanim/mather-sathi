@@ -7,6 +7,7 @@ import '../../core/flags/remote_flags.dart';
 import '../profile/providers/profile_provider.dart';
 import 'tts_engine.dart';
 import 'tts_script.dart';
+import '../../core/analytics/analytics.dart';
 
 enum TtsStatus { idle, speaking, paused, unavailable }
 
@@ -44,6 +45,7 @@ class TtsController extends Notifier<TtsStatus> {
   }
 
   Future<void> speak(String script) async {
+    Ev.ttsPlayed(ref.read(analyticsProvider));
     final gen = ++_gen;
     await _engine.stop();
     await _engine.configure(rate: _rate());

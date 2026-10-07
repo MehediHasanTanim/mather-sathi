@@ -108,3 +108,19 @@ describe("input parsing", () => {
     }
   });
 });
+
+describe("diagnoseLogLine", () => {
+  const { diagnoseLogLine } = jest.requireActual("../src/diagnose") as typeof import("../src/diagnose");
+  it("logs counts and codes only: no image, no uid, no free text", () => {
+    const line = diagnoseLogLine({ image: "AAAA", crop: "other:ধনেপাতা" }, { ok: true, mode: "general" }, 1234.6);
+    expect(line).toEqual({ event: "diagnose", ok: true, mode: "general", crop: "other", latency_ms: 1235 });
+    expect(JSON.stringify(line)).not.toContain("AAAA");
+    expect(JSON.stringify(line)).not.toContain("ধনে");
+  });
+  it("failures carry the code", () => {
+    expect(diagnoseLogLine({ crop: "rice" }, { ok: false, code: "unavailable" }, 90)).toEqual({ event: "diagnose", ok: false, code: "unavailable", crop: "rice", latency_ms: 90 });
+  });
+  it("tolerates garbage input", () => {
+    expect(diagnoseLogLine(null, { ok: false, code: "invalid-argument" }, 1).crop).toBeUndefined();
+  });
+});

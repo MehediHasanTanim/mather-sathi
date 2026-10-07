@@ -62,6 +62,7 @@ Future<void> bootstrap(Flavor flavor, FirebaseOptions options) async {
   final container = ProviderContainer(
     overrides: [
       databaseProvider.overrideWithValue(db),
+      allowDraftKbProvider.overrideWithValue(flavor == Flavor.dev),
       modelAssetsProvider.overrideWithValue(
         modelAssets,
       ), // null: no usable offline model, cloud-only behaviour
@@ -77,6 +78,7 @@ Future<void> bootstrap(Flavor flavor, FirebaseOptions options) async {
     container.read(kbProvider.future),
   ]);
   unawaited(container.read(remoteFlagsProvider.notifier).refresh());
+  unawaited(updateKb(container)); // newer reviewed KB, or a rollback of a bad entry
 
   await initializeDateFormatting('bn');
   unawaited(

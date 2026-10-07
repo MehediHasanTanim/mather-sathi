@@ -7,6 +7,7 @@ import '../../core/l10n/gen/app_localizations.dart';
 import '../history/providers/history_provider.dart' show clockProvider;
 import 'expert_providers.dart';
 import 'helpline_schedule.dart';
+import '../../core/analytics/analytics.dart';
 
 const kExpertRoute = '/expert';
 
@@ -52,6 +53,7 @@ class ExpertScreen extends ConsumerWidget {
                 FilledButton.icon(
                   key: const Key('helpline_call'),
                   onPressed: () async {
+                    Ev.expertCallTapped(ref.read(analyticsProvider));
                     final ok = await ref.read(dialerProvider).dial(flags.helplineNumber);
                     if (!ok && context.mounted) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(l.expertCallFailed(flags.helplineNumber))));

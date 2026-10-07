@@ -67,3 +67,11 @@ firebase-debug.log
 ui-debug.log
 firestore-debug.log
 functions/lib/
+
+# Release signing (docs/release/release-checklist.md)
+android/key.properties
+*.jks
+*.keystore
+
+# Obfuscation symbols: keep, but upload to Crashlytics, never commit
+build/symbols/

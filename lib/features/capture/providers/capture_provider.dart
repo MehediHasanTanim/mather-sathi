@@ -10,6 +10,7 @@ import '../data/image_prep_service.dart';
 import '../data/pending_capture_store.dart';
 import '../data/photo_picker.dart';
 import '../domain/crop_selection.dart';
+import '../../../core/analytics/analytics.dart';
 
 final photoPickerProvider = Provider<PhotoPicker>((ref) => ImagePickerPhotoPicker());
 final imageCompressorProvider =
@@ -110,6 +111,7 @@ class CaptureNotifier extends Notifier<CaptureState> {
     state = state.copyWith(status: CaptureStatus.preparing, clearPrepared: true);
     try {
       final prepared = await ref.read(imagePrepServiceProvider).prepare(photo);
+      if (!prepared.isReady) Ev.retakePrompted(ref.read(analyticsProvider), issue: prepared.issue.name);
       state = state.copyWith(
         status: prepared.isReady ? CaptureStatus.ready : CaptureStatus.retake,
         prepared: prepared,

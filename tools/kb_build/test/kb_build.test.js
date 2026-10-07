@@ -154,3 +154,32 @@ test('invalid JSON is reported as a schema error', () => {
   const r = build({ srcDir: dir, meta, env: 'dev' });
   assert.match(r.errors[0].message, /invalid JSON/);
 });
+
+// ---- over-the-air publish plan (task 9.4) ----
+const { planPublish } = require('../publish_lib');
+const kbOut = (over = {}) => JSON.stringify({ schema: 1, version: 'v2', seq: 5, includes_drafts: false, entries: [{ id: 'a', status: 'published' }], ...over });
+
+test('publish plan: pointer carries the sha256 of exactly the published bytes and the seq-named path', () => {
+  const json = kbOut();
+  const p = planPublish({ kbJson: json, env: 'prod', current: { seq: 4 }, now: new Date('2026-01-01T00:00:00Z') });
+  assert.deepStrictEqual(p.errors, []);
+  assert.strictEqual(p.pointer.sha256, require('node:crypto').createHash('sha256').update(json).digest('hex'));
+  assert.deepStrictEqual([p.pointer.seq, p.pointer.path, p.pointer.minAppSchema], [5, 'kb/kb_5.json', 1]);
+});
+test('publish plan: seq must strictly increase (rollback = a new, higher seq)', () => {
+  assert.match(planPublish({ kbJson: kbOut(), env: 'prod', current: { seq: 5 } }).errors[0], /not higher/);
+  assert.match(planPublish({ kbJson: kbOut({ seq: 3 }), env: 'prod', current: { seq: 5 } }).errors[0], /not higher/);
+  assert.deepStrictEqual(planPublish({ kbJson: kbOut(), env: 'prod', current: null }).errors, []);
+});
+test('publish plan: drafts never go to stg or prod, but may go to dev', () => {
+  for (const env of ['stg', 'prod']) {
+    assert.ok(planPublish({ kbJson: kbOut({ includes_drafts: true }), env, current: null }).errors.length, env);
+    assert.ok(planPublish({ kbJson: kbOut({ entries: [{ id: 'a', status: 'draft' }] }), env, current: null }).errors.length, env);
+  }
+  assert.deepStrictEqual(planPublish({ kbJson: kbOut({ includes_drafts: true, entries: [{ id: 'a', status: 'draft' }] }), env: 'dev', current: null }).errors, []);
+});
+test('publish plan: malformed or empty KBs are refused', () => {
+  assert.ok(planPublish({ kbJson: 'nope', env: 'dev', current: null }).errors[0].includes('not valid JSON'));
+  assert.ok(planPublish({ kbJson: kbOut({ entries: [] }), env: 'dev', current: null }).errors.length);
+  assert.ok(planPublish({ kbJson: kbOut({ seq: 'x' }), env: 'dev', current: null }).errors.length);
+});

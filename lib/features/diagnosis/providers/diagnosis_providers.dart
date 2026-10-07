@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/analytics/analytics.dart';
+
 import '../../../core/errors/error_reporter.dart';
 import '../../../core/flags/remote_flags.dart';
 import '../../capture/domain/crop_selection.dart';
@@ -43,6 +45,7 @@ final diagnosisServiceProvider = Provider<DiagnosisService>((ref) => DiagnosisSe
       kb: () => ref.read(kbProvider).requireValue,
       flags: () => ref.read(remoteFlagsProvider),
       reporter: ref.watch(errorReporterProvider),
+      analytics: ref.watch(analyticsProvider),
     ));
 
 enum FlowStage { analyzing, saving }
@@ -99,22 +102,39 @@ class DiagnosisFlowNotifier extends Notifier<DiagnosisFlow> {
     bool stale() => run != _run; // cancelled or superseded
 
     state = const FlowRunning(FlowStage.analyzing);
+    final analytics = ref.read(analyticsProvider);
+    final started = DateTime.now();
     try {
       final outcome = await ref.read(diagnosisServiceProvider).run(preparedJpeg, crop);
       if (stale()) return;
+      final latencyMs = DateTime.now().difference(started).inMilliseconds;
       switch (outcome) {
         case NeedsRetake(:final issue):
+          Ev.retakePrompted(analytics, issue: issue.name);
           state = FlowRetake(issue);
         case Classified() || GeneralAdvice():
+          switch (outcome) {
+            case Classified(:final result):
+              Ev.diagnosisCompleted(analytics,
+                  source: result.source == DiagnosisSource.cloud ? 'cloud' : 'on_device',
+                  crop: crop.isOther ? 'other' : crop.id,
+                  confidence: result.confidence.name,
+                  latencyMs: latencyMs,
+                  outcome: result.diseaseId == kHealthy ? 'healthy' : result.diseaseId == kUnknown ? 'unknown' : 'classified');
+            default:
+              Ev.diagnosisCompleted(analytics, source: 'cloud', crop: 'other', confidence: 'none', latencyMs: latencyMs, outcome: 'general');
+          }
           state = const FlowRunning(FlowStage.saving);
           final id = await ref.read(historyProvider.notifier).saveOutcome(outcome, crop);
           requestSync(ref); // history backup and regional report; never waited on
           if (!stale()) state = FlowDone(id);
       }
     } on DiagnosisFailure catch (f) {
+      Ev.diagnosisFailed(analytics, failure: failureName(f));
       if (!stale()) state = FlowFailed(f);
     } catch (e, st) {
       debugPrint('diagnosis crashed: $e\n$st');
+      Ev.diagnosisFailed(analytics, failure: 'crashed');
       if (!stale()) state = const FlowFailed(ServerError('unexpected'));
     }
   }

@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mather_sathi/core/analytics/analytics.dart';
 import 'package:mather_sathi/core/flags/remote_flags.dart';
 import 'package:mather_sathi/core/l10n/gen/app_localizations_bn.dart';
 import 'package:mather_sathi/features/expert/expert_providers.dart';
@@ -71,10 +72,12 @@ void main() {
   });
 
   group('expert screen (task 8.4)', () {
+    final analytics = RecordingAnalytics();
     Future<FakeDialer> open(WidgetTester tester, {Map<String, Object?> flags = const {}, DateTime? now, bool dialWorks = true}) async {
       final dialer = FakeDialer()..works = dialWorks;
       await pumpApp(tester, saved: doneProfile, overrides: [
         dialerProvider.overrideWithValue(dialer),
+        analyticsProvider.overrideWithValue(analytics),
         remoteFlagOverridesProvider.overrideWithValue(flags),
         clockProvider.overrideWithValue(() => now ?? DateTime.utc(2026, 10, 4, 5)),
       ]);
@@ -109,6 +112,7 @@ void main() {
       await tester.tap(find.byKey(const Key('helpline_call')));
       await tester.pumpAndSettle();
       expect(dialer.dialed, ['16123'], reason: 'the dialer gets the plain Latin-digit number');
+      expect(analytics.names, contains('expert_call_tapped'));
     });
 
     testWidgets('hours come from Remote Config: a different value changes the screen without a release', (tester) async {
@@ -308,6 +312,7 @@ void main() {
 
   group('share (task 8.5)', () {
     final kb = kbOf([entry('rice_blast', 'rice', 'ধানের ব্লাস্ট রোগ', 'high')]);
+    final shareAnalytics = RecordingAnalytics();
 
     test('text carries only KB content: name, first step, the first medicine, disclaimer', () {
       final text = ShareContent.fromDisease(l, kb['rice_blast']!).toText(l);
@@ -333,6 +338,7 @@ void main() {
         kbProvider.overrideWith(() => _Kb(kb)),
         ttsEngineProvider.overrideWithValue(FakeTtsEngine()),
         sharerProvider.overrideWithValue(sharer),
+        analyticsProvider.overrideWithValue(shareAnalytics),
         cardRendererProvider.overrideWithValue(renderer),
       ]);
       tester.view.physicalSize = const Size(1080, 9000);
@@ -348,6 +354,7 @@ void main() {
       expect(renderer.renders, 1);
       expect(sharer.shared.single.png, [1, 2, 3]);
       expect(sharer.shared.single.text, contains('ধানের ব্লাস্ট রোগ'));
+      expect(shareAnalytics.names, contains('share_tapped'));
     });
 
     testWidgets('if the card cannot be drawn the text is still shared', (tester) async {

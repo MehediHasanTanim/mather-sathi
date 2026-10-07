@@ -5,6 +5,7 @@ import '../../core/l10n/gen/app_localizations.dart';
 import '../kb/domain/kb_models.dart';
 import 'share_content.dart';
 import 'share_service.dart';
+import '../../core/analytics/analytics.dart';
 
 /// Shares the diagnosis as a card image plus text, through the system share sheet.
 class ShareButton extends ConsumerStatefulWidget {
@@ -22,6 +23,7 @@ class _ShareButtonState extends ConsumerState<ShareButton> {
     final l = AppLocalizations.of(context);
     final messenger = ScaffoldMessenger.of(context);
     final content = ShareContent.fromDisease(l, widget.disease);
+    Ev.shareTapped(ref.read(analyticsProvider));
     setState(() => _busy = true);
     try {
       final png = await ref.read(cardRendererProvider).render(context, content, l);
