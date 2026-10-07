@@ -1,0 +1,3112 @@
+[
+ {
+  "id": 28,
+  "slug": "bagerhat",
+  "name_bn": "বাগেরহাট",
+  "name_en": "Bagerhat",
+  "lat": 22.6516,
+  "lon": 89.7859,
+  "upazilas": [
+   {
+    "id": 215,
+    "name_bn": "ফকিরহাট",
+    "name_en": "Fakirhat"
+   },
+   {
+    "id": 216,
+    "name_bn": "বাগেরহাট সদর",
+    "name_en": "Bagerhat Sadar"
+   },
+   {
+    "id": 217,
+    "name_bn": "মোল্লাহাট",
+    "name_en": "Mollahat"
+   },
+   {
+    "id": 218,
+    "name_bn": "শরণখোলা",
+    "name_en": "Sarankhola"
+   },
+   {
+    "id": 219,
+    "name_bn": "রামপাল",
+    "name_en": "Rampal"
+   },
+   {
+    "id": 220,
+    "name_bn": "মোড়েলগঞ্জ",
+    "name_en": "Morrelganj"
+   },
+   {
+    "id": 221,
+    "name_bn": "কচুয়া",
+    "name_en": "Kachua"
+   },
+   {
+    "id": 222,
+    "name_bn": "মোংলা",
+    "name_en": "Mongla"
+   },
+   {
+    "id": 223,
+    "name_bn": "চিতলমারী",
+    "name_en": "Chitalmari"
+   }
+  ]
+ },
+ {
+  "id": 11,
+  "slug": "bandarban",
+  "name_bn": "বান্দরবান",
+  "name_en": "Bandarban",
+  "lat": 22.1953,
+  "lon": 92.2184,
+  "upazilas": [
+   {
+    "id": 97,
+    "name_bn": "বান্দরবান সদর",
+    "name_en": "Bandarban Sadar"
+   },
+   {
+    "id": 98,
+    "name_bn": "আলীকদম",
+    "name_en": "Alikadam"
+   },
+   {
+    "id": 99,
+    "name_bn": "নাইক্ষ্যংছড়ি",
+    "name_en": "Naikhongchhari"
+   },
+   {
+    "id": 100,
+    "name_bn": "রোয়াংছড়ি",
+    "name_en": "Rowangchhari"
+   },
+   {
+    "id": 101,
+    "name_bn": "লামা",
+    "name_en": "Lama"
+   },
+   {
+    "id": 102,
+    "name_bn": "রুমা",
+    "name_en": "Ruma"
+   },
+   {
+    "id": 103,
+    "name_bn": "থানচি",
+    "name_en": "Thanchi"
+   }
+  ]
+ },
+ {
+  "id": 35,
+  "slug": "barguna",
+  "name_bn": "বরগুনা",
+  "name_en": "Barguna",
+  "lat": 22.1592,
+  "lon": 90.1256,
+  "upazilas": [
+   {
+    "id": 266,
+    "name_bn": "আমতলী",
+    "name_en": "Amtali"
+   },
+   {
+    "id": 267,
+    "name_bn": "বরগুনা সদর",
+    "name_en": "Barguna Sadar"
+   },
+   {
+    "id": 268,
+    "name_bn": "বেতাগী",
+    "name_en": "Betagi"
+   },
+   {
+    "id": 269,
+    "name_bn": "বামনা",
+    "name_en": "Bamna"
+   },
+   {
+    "id": 270,
+    "name_bn": "পাথরঘাটা",
+    "name_en": "Pathorghata"
+   },
+   {
+    "id": 271,
+    "name_bn": "তালতলি",
+    "name_en": "Taltali"
+   }
+  ]
+ },
+ {
+  "id": 33,
+  "slug": "barisal",
+  "name_bn": "বরিশাল",
+  "name_en": "Barisal",
+  "lat": 22.7004,
+  "lon": 90.3732,
+  "upazilas": [
+   {
+    "id": 249,
+    "name_bn": "বরিশাল সদর",
+    "name_en": "Barisal Sadar"
+   },
+   {
+    "id": 250,
+    "name_bn": "বাকেরগঞ্জ",
+    "name_en": "Bakerganj"
+   },
+   {
+    "id": 251,
+    "name_bn": "বাবুগঞ্জ",
+    "name_en": "Babuganj"
+   },
+   {
+    "id": 252,
+    "name_bn": "উজিরপুর",
+    "name_en": "Wazirpur"
+   },
+   {
+    "id": 253,
+    "name_bn": "বানারীপাড়া",
+    "name_en": "Banaripara"
+   },
+   {
+    "id": 254,
+    "name_bn": "গৌরনদী",
+    "name_en": "Gournadi"
+   },
+   {
+    "id": 255,
+    "name_bn": "আগৈলঝাড়া",
+    "name_en": "Agailjhara"
+   },
+   {
+    "id": 256,
+    "name_bn": "মেহেন্দিগঞ্জ",
+    "name_en": "Mehendiganj"
+   },
+   {
+    "id": 257,
+    "name_bn": "মুলাদী",
+    "name_en": "Muladi"
+   },
+   {
+    "id": 258,
+    "name_bn": "হিজলা",
+    "name_en": "Hizla"
+   }
+  ]
+ },
+ {
+  "id": 34,
+  "slug": "bhola",
+  "name_bn": "ভোলা",
+  "name_en": "Bhola",
+  "lat": 22.6859,
+  "lon": 90.6482,
+  "upazilas": [
+   {
+    "id": 259,
+    "name_bn": "ভোলা সদর",
+    "name_en": "Bhola Sadar"
+   },
+   {
+    "id": 260,
+    "name_bn": "বোরহান উদ্দিন",
+    "name_en": "Borhan Sddin"
+   },
+   {
+    "id": 261,
+    "name_bn": "চরফ্যাশন",
+    "name_en": "Charfesson"
+   },
+   {
+    "id": 262,
+    "name_bn": "দৌলতখান",
+    "name_en": "Doulatkhan"
+   },
+   {
+    "id": 263,
+    "name_bn": "মনপুরা",
+    "name_en": "Monpura"
+   },
+   {
+    "id": 264,
+    "name_bn": "তজুমদ্দিন",
+    "name_en": "Tazumuddin"
+   },
+   {
+    "id": 265,
+    "name_bn": "লালমোহন",
+    "name_en": "Lalmohan"
+   }
+  ]
+ },
+ {
+  "id": 14,
+  "slug": "bogura",
+  "name_bn": "বগুড়া",
+  "name_en": "Bogura",
+  "lat": 24.8465,
+  "lon": 89.3778,
+  "upazilas": [
+   {
+    "id": 122,
+    "name_bn": "কাহালু",
+    "name_en": "Kahaloo"
+   },
+   {
+    "id": 123,
+    "name_bn": "বগুড়া সদর",
+    "name_en": "Bogra Sadar"
+   },
+   {
+    "id": 124,
+    "name_bn": "সারিয়াকান্দি",
+    "name_en": "Shariakandi"
+   },
+   {
+    "id": 125,
+    "name_bn": "শাজাহানপুর",
+    "name_en": "Shajahanpur"
+   },
+   {
+    "id": 126,
+    "name_bn": "দুপচাচিঁয়া",
+    "name_en": "Dupchanchia"
+   },
+   {
+    "id": 127,
+    "name_bn": "আদমদিঘি",
+    "name_en": "Adamdighi"
+   },
+   {
+    "id": 128,
+    "name_bn": "নন্দিগ্রাম",
+    "name_en": "Nondigram"
+   },
+   {
+    "id": 129,
+    "name_bn": "সোনাতলা",
+    "name_en": "Sonatala"
+   },
+   {
+    "id": 130,
+    "name_bn": "ধুনট",
+    "name_en": "Dhunot"
+   },
+   {
+    "id": 131,
+    "name_bn": "গাবতলী",
+    "name_en": "Gabtali"
+   },
+   {
+    "id": 132,
+    "name_bn": "শেরপুর",
+    "name_en": "Sherpur"
+   },
+   {
+    "id": 133,
+    "name_bn": "শিবগঞ্জ",
+    "name_en": "Shibganj"
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "slug": "brahmanbaria",
+  "name_bn": "ব্রাহ্মণবাড়িয়া",
+  "name_en": "Brahmanbaria",
+  "lat": 23.9571,
+  "lon": 91.1119,
+  "upazilas": [
+   {
+    "id": 24,
+    "name_bn": "ব্রাহ্মণবাড়িয়া সদর",
+    "name_en": "Brahmanbaria Sadar"
+   },
+   {
+    "id": 25,
+    "name_bn": "কসবা",
+    "name_en": "Kasba"
+   },
+   {
+    "id": 26,
+    "name_bn": "নাসিরনগর",
+    "name_en": "Nasirnagar"
+   },
+   {
+    "id": 27,
+    "name_bn": "সরাইল",
+    "name_en": "Sarail"
+   },
+   {
+    "id": 28,
+    "name_bn": "আশুগঞ্জ",
+    "name_en": "Ashuganj"
+   },
+   {
+    "id": 29,
+    "name_bn": "আখাউড়া",
+    "name_en": "Akhaura"
+   },
+   {
+    "id": 30,
+    "name_bn": "নবীনগর",
+    "name_en": "Nabinagar"
+   },
+   {
+    "id": 31,
+    "name_bn": "বাঞ্ছারামপুর",
+    "name_en": "Bancharampur"
+   },
+   {
+    "id": 32,
+    "name_bn": "বিজয়নগর",
+    "name_en": "Bijoynagar"
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "slug": "chandpur",
+  "name_bn": "চাঁদপুর",
+  "name_en": "Chandpur",
+  "lat": 23.2333,
+  "lon": 90.6713,
+  "upazilas": [
+   {
+    "id": 52,
+    "name_bn": "হাইমচর",
+    "name_en": "Haimchar"
+   },
+   {
+    "id": 53,
+    "name_bn": "কচুয়া",
+    "name_en": "Kachua"
+   },
+   {
+    "id": 54,
+    "name_bn": "শাহরাস্তি\t",
+    "name_en": "Shahrasti"
+   },
+   {
+    "id": 55,
+    "name_bn": "চাঁদপুর সদর",
+    "name_en": "Chandpur Sadar"
+   },
+   {
+    "id": 56,
+    "name_bn": "মতলব দক্ষিণ",
+    "name_en": "Matlab South"
+   },
+   {
+    "id": 57,
+    "name_bn": "হাজীগঞ্জ",
+    "name_en": "Hajiganj"
+   },
+   {
+    "id": 58,
+    "name_bn": "মতলব উত্তর",
+    "name_en": "Matlab North"
+   },
+   {
+    "id": 59,
+    "name_bn": "ফরিদগঞ্জ",
+    "name_en": "Faridgonj"
+   }
+  ]
+ },
+ {
+  "id": 18,
+  "slug": "chapainawabganj",
+  "name_bn": "চাঁপাইনবাবগঞ্জ",
+  "name_en": "Chapainawabganj",
+  "lat": 24.5965,
+  "lon": 88.2775,
+  "upazilas": [
+   {
+    "id": 155,
+    "name_bn": "চাঁপাইনবাবগঞ্জ সদর",
+    "name_en": "Chapainawabganj Sadar"
+   },
+   {
+    "id": 156,
+    "name_bn": "গোমস্তাপুর",
+    "name_en": "Gomostapur"
+   },
+   {
+    "id": 157,
+    "name_bn": "নাচোল",
+    "name_en": "Nachol"
+   },
+   {
+    "id": 158,
+    "name_bn": "ভোলাহাট",
+    "name_en": "Bholahat"
+   },
+   {
+    "id": 159,
+    "name_bn": "শিবগঞ্জ",
+    "name_en": "Shibganj"
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "slug": "chattogram",
+  "name_bn": "চট্টগ্রাম",
+  "name_en": "Chattogram",
+  "lat": 22.3351,
+  "lon": 91.8341,
+  "upazilas": [
+   {
+    "id": 65,
+    "name_bn": "রাঙ্গুনিয়া",
+    "name_en": "Rangunia"
+   },
+   {
+    "id": 66,
+    "name_bn": "সীতাকুন্ড",
+    "name_en": "Sitakunda"
+   },
+   {
+    "id": 67,
+    "name_bn": "মীরসরাই",
+    "name_en": "Mirsharai"
+   },
+   {
+    "id": 68,
+    "name_bn": "পটিয়া",
+    "name_en": "Patiya"
+   },
+   {
+    "id": 69,
+    "name_bn": "সন্দ্বীপ",
+    "name_en": "Sandwip"
+   },
+   {
+    "id": 70,
+    "name_bn": "বাঁশখালী",
+    "name_en": "Banshkhali"
+   },
+   {
+    "id": 71,
+    "name_bn": "বোয়ালখালী",
+    "name_en": "Boalkhali"
+   },
+   {
+    "id": 72,
+    "name_bn": "আনোয়ারা",
+    "name_en": "Anwara"
+   },
+   {
+    "id": 73,
+    "name_bn": "চন্দনাইশ",
+    "name_en": "Chandanaish"
+   },
+   {
+    "id": 74,
+    "name_bn": "সাতকানিয়া",
+    "name_en": "Satkania"
+   },
+   {
+    "id": 75,
+    "name_bn": "লোহাগাড়া",
+    "name_en": "Lohagara"
+   },
+   {
+    "id": 76,
+    "name_bn": "হাটহাজারী",
+    "name_en": "Hathazari"
+   },
+   {
+    "id": 77,
+    "name_bn": "ফটিকছড়ি",
+    "name_en": "Fatikchhari"
+   },
+   {
+    "id": 78,
+    "name_bn": "রাউজান",
+    "name_en": "Raozan"
+   },
+   {
+    "id": 79,
+    "name_bn": "কর্ণফুলী",
+    "name_en": "Karnafuli"
+   }
+  ]
+ },
+ {
+  "id": 24,
+  "slug": "chuadanga",
+  "name_bn": "চুয়াডাঙ্গা",
+  "name_en": "Chuadanga",
+  "lat": 23.6402,
+  "lon": 88.8418,
+  "upazilas": [
+   {
+    "id": 192,
+    "name_bn": "চুয়াডাঙ্গা সদর",
+    "name_en": "Chuadanga Sadar"
+   },
+   {
+    "id": 193,
+    "name_bn": "আলমডাঙ্গা",
+    "name_en": "Alamdanga"
+   },
+   {
+    "id": 194,
+    "name_bn": "দামুড়হুদা",
+    "name_en": "Damurhuda"
+   },
+   {
+    "id": 195,
+    "name_bn": "জীবননগর",
+    "name_en": "Jibannagar"
+   }
+  ]
+ },
+ {
+  "id": 1,
+  "slug": "comilla",
+  "name_bn": "কুমিল্লা",
+  "name_en": "Comilla",
+  "lat": 23.4683,
+  "lon": 91.1788,
+  "upazilas": [
+   {
+    "id": 1,
+    "name_bn": "দেবিদ্বার",
+    "name_en": "Debidwar"
+   },
+   {
+    "id": 2,
+    "name_bn": "বরুড়া",
+    "name_en": "Barura"
+   },
+   {
+    "id": 3,
+    "name_bn": "ব্রাহ্মণপাড়া",
+    "name_en": "Brahmanpara"
+   },
+   {
+    "id": 4,
+    "name_bn": "চান্দিনা",
+    "name_en": "Chandina"
+   },
+   {
+    "id": 5,
+    "name_bn": "চৌদ্দগ্রাম",
+    "name_en": "Chauddagram"
+   },
+   {
+    "id": 6,
+    "name_bn": "দাউদকান্দি",
+    "name_en": "Daudkandi"
+   },
+   {
+    "id": 7,
+    "name_bn": "হোমনা",
+    "name_en": "Homna"
+   },
+   {
+    "id": 8,
+    "name_bn": "লাকসাম",
+    "name_en": "Laksam"
+   },
+   {
+    "id": 9,
+    "name_bn": "মুরাদনগর",
+    "name_en": "Muradnagar"
+   },
+   {
+    "id": 10,
+    "name_bn": "নাঙ্গলকোট",
+    "name_en": "Nangalkot"
+   },
+   {
+    "id": 11,
+    "name_bn": "কুমিল্লা সদর",
+    "name_en": "Comilla Sadar"
+   },
+   {
+    "id": 12,
+    "name_bn": "মেঘনা",
+    "name_en": "Meghna"
+   },
+   {
+    "id": 13,
+    "name_bn": "মনোহরগঞ্জ",
+    "name_en": "Monohargonj"
+   },
+   {
+    "id": 14,
+    "name_bn": "সদর দক্ষিণ",
+    "name_en": "Sadarsouth"
+   },
+   {
+    "id": 15,
+    "name_bn": "তিতাস",
+    "name_en": "Titas"
+   },
+   {
+    "id": 16,
+    "name_bn": "বুড়িচং",
+    "name_en": "Burichang"
+   },
+   {
+    "id": 17,
+    "name_bn": "লালমাই",
+    "name_en": "Lalmai"
+   }
+  ]
+ },
+ {
+  "id": 9,
+  "slug": "coxsbazar",
+  "name_bn": "কক্সবাজার",
+  "name_en": "Coxsbazar",
+  "lat": 21.4432,
+  "lon": 91.9738,
+  "upazilas": [
+   {
+    "id": 80,
+    "name_bn": "কক্সবাজার সদর",
+    "name_en": "Coxsbazar Sadar"
+   },
+   {
+    "id": 81,
+    "name_bn": "চকরিয়া",
+    "name_en": "Chakaria"
+   },
+   {
+    "id": 82,
+    "name_bn": "কুতুবদিয়া",
+    "name_en": "Kutubdia"
+   },
+   {
+    "id": 83,
+    "name_bn": "উখিয়া",
+    "name_en": "Ukhiya"
+   },
+   {
+    "id": 84,
+    "name_bn": "মহেশখালী",
+    "name_en": "Moheshkhali"
+   },
+   {
+    "id": 85,
+    "name_bn": "পেকুয়া",
+    "name_en": "Pekua"
+   },
+   {
+    "id": 86,
+    "name_bn": "রামু",
+    "name_en": "Ramu"
+   },
+   {
+    "id": 87,
+    "name_bn": "টেকনাফ",
+    "name_en": "Teknaf"
+   },
+   {
+    "id": 492,
+    "name_bn": "ঈদগাঁও",
+    "name_en": "Eidgaon"
+   }
+  ]
+ },
+ {
+  "id": 47,
+  "slug": "dhaka",
+  "name_bn": "ঢাকা",
+  "name_en": "Dhaka",
+  "lat": 23.7115,
+  "lon": 90.4111,
+  "upazilas": [
+   {
+    "id": 365,
+    "name_bn": "সাভার",
+    "name_en": "Savar"
+   },
+   {
+    "id": 366,
+    "name_bn": "ধামরাই",
+    "name_en": "Dhamrai"
+   },
+   {
+    "id": 367,
+    "name_bn": "কেরাণীগঞ্জ",
+    "name_en": "Keraniganj"
+   },
+   {
+    "id": 368,
+    "name_bn": "নবাবগঞ্জ",
+    "name_en": "Nawabganj"
+   },
+   {
+    "id": 369,
+    "name_bn": "দোহার",
+    "name_en": "Dohar"
+   }
+  ]
+ },
+ {
+  "id": 54,
+  "slug": "dinajpur",
+  "name_bn": "দিনাজপুর",
+  "name_en": "Dinajpur",
+  "lat": 25.6217,
+  "lon": 88.6355,
+  "upazilas": [
+   {
+    "id": 404,
+    "name_bn": "নবাবগঞ্জ",
+    "name_en": "Nawabganj"
+   },
+   {
+    "id": 405,
+    "name_bn": "বীরগঞ্জ",
+    "name_en": "Birganj"
+   },
+   {
+    "id": 406,
+    "name_bn": "ঘোড়াঘাট",
+    "name_en": "Ghoraghat"
+   },
+   {
+    "id": 407,
+    "name_bn": "বিরামপুর",
+    "name_en": "Birampur"
+   },
+   {
+    "id": 408,
+    "name_bn": "পার্বতীপুর",
+    "name_en": "Parbatipur"
+   },
+   {
+    "id": 409,
+    "name_bn": "বোচাগঞ্জ",
+    "name_en": "Bochaganj"
+   },
+   {
+    "id": 410,
+    "name_bn": "কাহারোল",
+    "name_en": "Kaharol"
+   },
+   {
+    "id": 411,
+    "name_bn": "ফুলবাড়ী",
+    "name_en": "Fulbari"
+   },
+   {
+    "id": 412,
+    "name_bn": "দিনাজপুর সদর",
+    "name_en": "Dinajpur Sadar"
+   },
+   {
+    "id": 413,
+    "name_bn": "হাকিমপুর",
+    "name_en": "Hakimpur"
+   },
+   {
+    "id": 414,
+    "name_bn": "খানসামা",
+    "name_en": "Khansama"
+   },
+   {
+    "id": 415,
+    "name_bn": "বিরল",
+    "name_en": "Birol"
+   },
+   {
+    "id": 416,
+    "name_bn": "চিরিরবন্দর",
+    "name_en": "Chirirbandar"
+   }
+  ]
+ },
+ {
+  "id": 52,
+  "slug": "faridpur",
+  "name_bn": "ফরিদপুর",
+  "name_en": "Faridpur",
+  "lat": 23.6071,
+  "lon": 89.8429,
+  "upazilas": [
+   {
+    "id": 390,
+    "name_bn": "ফরিদপুর সদর",
+    "name_en": "Faridpur Sadar"
+   },
+   {
+    "id": 391,
+    "name_bn": "আলফাডাঙ্গা",
+    "name_en": "Alfadanga"
+   },
+   {
+    "id": 392,
+    "name_bn": "বোয়ালমারী",
+    "name_en": "Boalmari"
+   },
+   {
+    "id": 393,
+    "name_bn": "সদরপুর",
+    "name_en": "Sadarpur"
+   },
+   {
+    "id": 394,
+    "name_bn": "নগরকান্দা",
+    "name_en": "Nagarkanda"
+   },
+   {
+    "id": 395,
+    "name_bn": "ভাঙ্গা",
+    "name_en": "Bhanga"
+   },
+   {
+    "id": 396,
+    "name_bn": "চরভদ্রাসন",
+    "name_en": "Charbhadrasan"
+   },
+   {
+    "id": 397,
+    "name_bn": "মধুখালী",
+    "name_en": "Madhukhali"
+   },
+   {
+    "id": 398,
+    "name_bn": "সালথা",
+    "name_en": "Saltha"
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "slug": "feni",
+  "name_bn": "ফেনী",
+  "name_en": "Feni",
+  "lat": 23.0232,
+  "lon": 91.3841,
+  "upazilas": [
+   {
+    "id": 18,
+    "name_bn": "ছাগলনাইয়া",
+    "name_en": "Chhagalnaiya"
+   },
+   {
+    "id": 19,
+    "name_bn": "ফেনী সদর",
+    "name_en": "Feni Sadar"
+   },
+   {
+    "id": 20,
+    "name_bn": "সোনাগাজী",
+    "name_en": "Sonagazi"
+   },
+   {
+    "id": 21,
+    "name_bn": "ফুলগাজী",
+    "name_en": "Fulgazi"
+   },
+   {
+    "id": 22,
+    "name_bn": "পরশুরাম",
+    "name_en": "Parshuram"
+   },
+   {
+    "id": 23,
+    "name_bn": "দাগনভূঞা",
+    "name_en": "Daganbhuiyan"
+   }
+  ]
+ },
+ {
+  "id": 57,
+  "slug": "gaibandha",
+  "name_bn": "গাইবান্ধা",
+  "name_en": "Gaibandha",
+  "lat": 25.3288,
+  "lon": 89.5281,
+  "upazilas": [
+   {
+    "id": 428,
+    "name_bn": "সাদুল্লাপুর",
+    "name_en": "Sadullapur"
+   },
+   {
+    "id": 429,
+    "name_bn": "গাইবান্ধা সদর",
+    "name_en": "Gaibandha Sadar"
+   },
+   {
+    "id": 430,
+    "name_bn": "পলাশবাড়ী",
+    "name_en": "Palashbari"
+   },
+   {
+    "id": 431,
+    "name_bn": "সাঘাটা",
+    "name_en": "Saghata"
+   },
+   {
+    "id": 432,
+    "name_bn": "গোবিন্দগঞ্জ",
+    "name_en": "Gobindaganj"
+   },
+   {
+    "id": 433,
+    "name_bn": "সুন্দরগঞ্জ",
+    "name_en": "Sundarganj"
+   },
+   {
+    "id": 434,
+    "name_bn": "ফুলছড়ি",
+    "name_en": "Phulchari"
+   }
+  ]
+ },
+ {
+  "id": 41,
+  "slug": "gazipur",
+  "name_bn": "গাজীপুর",
+  "name_en": "Gazipur",
+  "lat": 24.0023,
+  "lon": 90.4264,
+  "upazilas": [
+   {
+    "id": 317,
+    "name_bn": "কালীগঞ্জ",
+    "name_en": "Kaliganj"
+   },
+   {
+    "id": 318,
+    "name_bn": "কালিয়াকৈর",
+    "name_en": "Kaliakair"
+   },
+   {
+    "id": 319,
+    "name_bn": "কাপাসিয়া",
+    "name_en": "Kapasia"
+   },
+   {
+    "id": 320,
+    "name_bn": "গাজীপুর সদর",
+    "name_en": "Gazipur Sadar"
+   },
+   {
+    "id": 321,
+    "name_bn": "শ্রীপুর",
+    "name_en": "Sreepur"
+   }
+  ]
+ },
+ {
+  "id": 51,
+  "slug": "gopalganj",
+  "name_bn": "গোপালগঞ্জ",
+  "name_en": "Gopalganj",
+  "lat": 23.0051,
+  "lon": 89.8266,
+  "upazilas": [
+   {
+    "id": 385,
+    "name_bn": "গোপালগঞ্জ সদর",
+    "name_en": "Gopalganj Sadar"
+   },
+   {
+    "id": 386,
+    "name_bn": "কাশিয়ানী",
+    "name_en": "Kashiani"
+   },
+   {
+    "id": 387,
+    "name_bn": "টুংগীপাড়া",
+    "name_en": "Tungipara"
+   },
+   {
+    "id": 388,
+    "name_bn": "কোটালীপাড়া",
+    "name_en": "Kotalipara"
+   },
+   {
+    "id": 389,
+    "name_bn": "মুকসুদপুর",
+    "name_en": "Muksudpur"
+   }
+  ]
+ },
+ {
+  "id": 38,
+  "slug": "habiganj",
+  "name_bn": "হবিগঞ্জ",
+  "name_en": "Habiganj",
+  "lat": 24.3749,
+  "lon": 91.4155,
+  "upazilas": [
+   {
+    "id": 292,
+    "name_bn": "নবীগঞ্জ",
+    "name_en": "Nabiganj"
+   },
+   {
+    "id": 293,
+    "name_bn": "বাহুবল",
+    "name_en": "Bahubal"
+   },
+   {
+    "id": 294,
+    "name_bn": "আজমিরীগঞ্জ",
+    "name_en": "Ajmiriganj"
+   },
+   {
+    "id": 295,
+    "name_bn": "বানিয়াচং",
+    "name_en": "Baniachong"
+   },
+   {
+    "id": 296,
+    "name_bn": "লাখাই",
+    "name_en": "Lakhai"
+   },
+   {
+    "id": 297,
+    "name_bn": "চুনারুঘাট",
+    "name_en": "Chunarughat"
+   },
+   {
+    "id": 298,
+    "name_bn": "হবিগঞ্জ সদর",
+    "name_en": "Habiganj Sadar"
+   },
+   {
+    "id": 299,
+    "name_bn": "মাধবপুর",
+    "name_en": "Madhabpur"
+   }
+  ]
+ },
+ {
+  "id": 63,
+  "slug": "jamalpur",
+  "name_bn": "জামালপুর",
+  "name_en": "Jamalpur",
+  "lat": 24.9375,
+  "lon": 89.9378,
+  "upazilas": [
+   {
+    "id": 475,
+    "name_bn": "জামালপুর সদর",
+    "name_en": "Jamalpur Sadar"
+   },
+   {
+    "id": 476,
+    "name_bn": "মেলান্দহ",
+    "name_en": "Melandah"
+   },
+   {
+    "id": 477,
+    "name_bn": "ইসলামপুর",
+    "name_en": "Islampur"
+   },
+   {
+    "id": 478,
+    "name_bn": "দেওয়ানগঞ্জ",
+    "name_en": "Dewangonj"
+   },
+   {
+    "id": 479,
+    "name_bn": "সরিষাবাড়ী",
+    "name_en": "Sarishabari"
+   },
+   {
+    "id": 480,
+    "name_bn": "মাদারগঞ্জ",
+    "name_en": "Madarganj"
+   },
+   {
+    "id": 481,
+    "name_bn": "বকশীগঞ্জ",
+    "name_en": "Bokshiganj"
+   }
+  ]
+ },
+ {
+  "id": 20,
+  "slug": "jashore",
+  "name_bn": "যশোর",
+  "name_en": "Jashore",
+  "lat": 23.1664,
+  "lon": 89.2081,
+  "upazilas": [
+   {
+    "id": 171,
+    "name_bn": "মণিরামপুর",
+    "name_en": "Manirampur"
+   },
+   {
+    "id": 172,
+    "name_bn": "অভয়নগর",
+    "name_en": "Abhaynagar"
+   },
+   {
+    "id": 173,
+    "name_bn": "বাঘারপাড়া",
+    "name_en": "Bagherpara"
+   },
+   {
+    "id": 174,
+    "name_bn": "চৌগাছা",
+    "name_en": "Chougachha"
+   },
+   {
+    "id": 175,
+    "name_bn": "ঝিকরগাছা",
+    "name_en": "Jhikargacha"
+   },
+   {
+    "id": 176,
+    "name_bn": "কেশবপুর",
+    "name_en": "Keshabpur"
+   },
+   {
+    "id": 177,
+    "name_bn": "যশোর সদর",
+    "name_en": "Jessore Sadar"
+   },
+   {
+    "id": 178,
+    "name_bn": "শার্শা",
+    "name_en": "Sharsha"
+   }
+  ]
+ },
+ {
+  "id": 30,
+  "slug": "jhalakathi",
+  "name_bn": "ঝালকাঠি",
+  "name_en": "Jhalakathi",
+  "lat": 22.6423,
+  "lon": 90.2004,
+  "upazilas": [
+   {
+    "id": 230,
+    "name_bn": "ঝালকাঠি সদর",
+    "name_en": "Jhalakathi Sadar"
+   },
+   {
+    "id": 231,
+    "name_bn": "কাঠালিয়া",
+    "name_en": "Kathalia"
+   },
+   {
+    "id": 232,
+    "name_bn": "নলছিটি",
+    "name_en": "Nalchity"
+   },
+   {
+    "id": 233,
+    "name_bn": "রাজাপুর",
+    "name_en": "Rajapur"
+   }
+  ]
+ },
+ {
+  "id": 29,
+  "slug": "jhenaidah",
+  "name_bn": "ঝিনাইদহ",
+  "name_en": "Jhenaidah",
+  "lat": 23.5448,
+  "lon": 89.1539,
+  "upazilas": [
+   {
+    "id": 224,
+    "name_bn": "ঝিনাইদহ সদর",
+    "name_en": "Jhenaidah Sadar"
+   },
+   {
+    "id": 225,
+    "name_bn": "শৈলকুপা",
+    "name_en": "Shailkupa"
+   },
+   {
+    "id": 226,
+    "name_bn": "হরিণাকুন্ডু",
+    "name_en": "Harinakundu"
+   },
+   {
+    "id": 227,
+    "name_bn": "কালীগঞ্জ",
+    "name_en": "Kaliganj"
+   },
+   {
+    "id": 228,
+    "name_bn": "কোটচাঁদপুর",
+    "name_en": "Kotchandpur"
+   },
+   {
+    "id": 229,
+    "name_bn": "মহেশপুর",
+    "name_en": "Moheshpur"
+   }
+  ]
+ },
+ {
+  "id": 17,
+  "slug": "joypurhat",
+  "name_bn": "জয়পুরহাট",
+  "name_en": "Joypurhat",
+  "lat": 25.0964,
+  "lon": 89.04,
+  "upazilas": [
+   {
+    "id": 150,
+    "name_bn": "আক্কেলপুর",
+    "name_en": "Akkelpur"
+   },
+   {
+    "id": 151,
+    "name_bn": "কালাই",
+    "name_en": "Kalai"
+   },
+   {
+    "id": 152,
+    "name_bn": "ক্ষেতলাল",
+    "name_en": "Khetlal"
+   },
+   {
+    "id": 153,
+    "name_bn": "পাঁচবিবি",
+    "name_en": "Panchbibi"
+   },
+   {
+    "id": 154,
+    "name_bn": "জয়পুরহাট সদর",
+    "name_en": "Joypurhat Sadar"
+   }
+  ]
+ },
+ {
+  "id": 10,
+  "slug": "khagrachhari",
+  "name_bn": "খাগড়াছড়ি",
+  "name_en": "Khagrachhari",
+  "lat": 23.1193,
+  "lon": 91.9847,
+  "upazilas": [
+   {
+    "id": 88,
+    "name_bn": "খাগড়াছড়ি সদর",
+    "name_en": "Khagrachhari Sadar"
+   },
+   {
+    "id": 89,
+    "name_bn": "দিঘীনালা",
+    "name_en": "Dighinala"
+   },
+   {
+    "id": 90,
+    "name_bn": "পানছড়ি",
+    "name_en": "Panchari"
+   },
+   {
+    "id": 91,
+    "name_bn": "লক্ষীছড়ি",
+    "name_en": "Laxmichhari"
+   },
+   {
+    "id": 92,
+    "name_bn": "মহালছড়ি",
+    "name_en": "Mohalchari"
+   },
+   {
+    "id": 93,
+    "name_bn": "মানিকছড়ি",
+    "name_en": "Manikchari"
+   },
+   {
+    "id": 94,
+    "name_bn": "রামগড়",
+    "name_en": "Ramgarh"
+   },
+   {
+    "id": 95,
+    "name_bn": "মাটিরাঙ্গা",
+    "name_en": "Matiranga"
+   },
+   {
+    "id": 96,
+    "name_bn": "গুইমারা",
+    "name_en": "Guimara"
+   }
+  ]
+ },
+ {
+  "id": 27,
+  "slug": "khulna",
+  "name_bn": "খুলনা",
+  "name_en": "Khulna",
+  "lat": 22.8158,
+  "lon": 89.5687,
+  "upazilas": [
+   {
+    "id": 206,
+    "name_bn": "পাইকগাছা",
+    "name_en": "Paikgasa"
+   },
+   {
+    "id": 207,
+    "name_bn": "ফুলতলা",
+    "name_en": "Fultola"
+   },
+   {
+    "id": 208,
+    "name_bn": "দিঘলিয়া",
+    "name_en": "Digholia"
+   },
+   {
+    "id": 209,
+    "name_bn": "রূপসা",
+    "name_en": "Rupsha"
+   },
+   {
+    "id": 210,
+    "name_bn": "তেরখাদা",
+    "name_en": "Terokhada"
+   },
+   {
+    "id": 211,
+    "name_bn": "ডুমুরিয়া",
+    "name_en": "Dumuria"
+   },
+   {
+    "id": 212,
+    "name_bn": "বটিয়াঘাটা",
+    "name_en": "Botiaghata"
+   },
+   {
+    "id": 213,
+    "name_bn": "দাকোপ",
+    "name_en": "Dakop"
+   },
+   {
+    "id": 214,
+    "name_bn": "কয়রা",
+    "name_en": "Koyra"
+   }
+  ]
+ },
+ {
+  "id": 45,
+  "slug": "kishoreganj",
+  "name_bn": "কিশোরগঞ্জ",
+  "name_en": "Kishoreganj",
+  "lat": 24.4449,
+  "lon": 90.7766,
+  "upazilas": [
+   {
+    "id": 345,
+    "name_bn": "ইটনা",
+    "name_en": "Itna"
+   },
+   {
+    "id": 346,
+    "name_bn": "কটিয়াদী",
+    "name_en": "Katiadi"
+   },
+   {
+    "id": 347,
+    "name_bn": "ভৈরব",
+    "name_en": "Bhairab"
+   },
+   {
+    "id": 348,
+    "name_bn": "তাড়াইল",
+    "name_en": "Tarail"
+   },
+   {
+    "id": 349,
+    "name_bn": "হোসেনপুর",
+    "name_en": "Hossainpur"
+   },
+   {
+    "id": 350,
+    "name_bn": "পাকুন্দিয়া",
+    "name_en": "Pakundia"
+   },
+   {
+    "id": 351,
+    "name_bn": "কুলিয়ারচর",
+    "name_en": "Kuliarchar"
+   },
+   {
+    "id": 352,
+    "name_bn": "কিশোরগঞ্জ সদর",
+    "name_en": "Kishoreganj Sadar"
+   },
+   {
+    "id": 353,
+    "name_bn": "করিমগঞ্জ",
+    "name_en": "Karimgonj"
+   },
+   {
+    "id": 354,
+    "name_bn": "বাজিতপুর",
+    "name_en": "Bajitpur"
+   },
+   {
+    "id": 355,
+    "name_bn": "অষ্টগ্রাম",
+    "name_en": "Austagram"
+   },
+   {
+    "id": 356,
+    "name_bn": "মিঠামইন",
+    "name_en": "Mithamoin"
+   },
+   {
+    "id": 357,
+    "name_bn": "নিকলী",
+    "name_en": "Nikli"
+   }
+  ]
+ },
+ {
+  "id": 60,
+  "slug": "kurigram",
+  "name_bn": "কুড়িগ্রাম",
+  "name_en": "Kurigram",
+  "lat": 25.8054,
+  "lon": 89.6362,
+  "upazilas": [
+   {
+    "id": 448,
+    "name_bn": "কুড়িগ্রাম সদর",
+    "name_en": "Kurigram Sadar"
+   },
+   {
+    "id": 449,
+    "name_bn": "নাগেশ্বরী",
+    "name_en": "Nageshwari"
+   },
+   {
+    "id": 450,
+    "name_bn": "ভুরুঙ্গামারী",
+    "name_en": "Bhurungamari"
+   },
+   {
+    "id": 451,
+    "name_bn": "ফুলবাড়ী",
+    "name_en": "Phulbari"
+   },
+   {
+    "id": 452,
+    "name_bn": "রাজারহাট",
+    "name_en": "Rajarhat"
+   },
+   {
+    "id": 453,
+    "name_bn": "উলিপুর",
+    "name_en": "Ulipur"
+   },
+   {
+    "id": 454,
+    "name_bn": "চিলমারী",
+    "name_en": "Chilmari"
+   },
+   {
+    "id": 455,
+    "name_bn": "রৌমারী",
+    "name_en": "Rowmari"
+   },
+   {
+    "id": 456,
+    "name_bn": "চর রাজিবপুর",
+    "name_en": "Charrajibpur"
+   }
+  ]
+ },
+ {
+  "id": 25,
+  "slug": "kushtia",
+  "name_bn": "কুষ্টিয়া",
+  "name_en": "Kushtia",
+  "lat": 23.9013,
+  "lon": 89.1205,
+  "upazilas": [
+   {
+    "id": 196,
+    "name_bn": "কুষ্টিয়া সদর",
+    "name_en": "Kushtia Sadar"
+   },
+   {
+    "id": 197,
+    "name_bn": "কুমারখালী",
+    "name_en": "Kumarkhali"
+   },
+   {
+    "id": 198,
+    "name_bn": "খোকসা",
+    "name_en": "Khoksa"
+   },
+   {
+    "id": 199,
+    "name_bn": "মিরপুর",
+    "name_en": "Mirpur"
+   },
+   {
+    "id": 200,
+    "name_bn": "দৌলতপুর",
+    "name_en": "Daulatpur"
+   },
+   {
+    "id": 201,
+    "name_bn": "ভেড়ামারা",
+    "name_en": "Bheramara"
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "slug": "lakshmipur",
+  "name_bn": "লক্ষ্মীপুর",
+  "name_en": "Lakshmipur",
+  "lat": 22.9425,
+  "lon": 90.8412,
+  "upazilas": [
+   {
+    "id": 60,
+    "name_bn": "লক্ষ্মীপুর সদর",
+    "name_en": "Lakshmipur Sadar"
+   },
+   {
+    "id": 61,
+    "name_bn": "কমলনগর",
+    "name_en": "Kamalnagar"
+   },
+   {
+    "id": 62,
+    "name_bn": "রায়পুর",
+    "name_en": "Raipur"
+   },
+   {
+    "id": 63,
+    "name_bn": "রামগতি",
+    "name_en": "Ramgati"
+   },
+   {
+    "id": 64,
+    "name_bn": "রামগঞ্জ",
+    "name_en": "Ramganj"
+   }
+  ]
+ },
+ {
+  "id": 55,
+  "slug": "lalmonirhat",
+  "name_bn": "লালমনিরহাট",
+  "name_en": "Lalmonirhat",
+  "lat": 25.9165,
+  "lon": 89.4532,
+  "upazilas": [
+   {
+    "id": 417,
+    "name_bn": "লালমনিরহাট সদর",
+    "name_en": "Lalmonirhat Sadar"
+   },
+   {
+    "id": 418,
+    "name_bn": "কালীগঞ্জ",
+    "name_en": "Kaliganj"
+   },
+   {
+    "id": 419,
+    "name_bn": "হাতীবান্ধা",
+    "name_en": "Hatibandha"
+   },
+   {
+    "id": 420,
+    "name_bn": "পাটগ্রাম",
+    "name_en": "Patgram"
+   },
+   {
+    "id": 421,
+    "name_bn": "আদিতমারী",
+    "name_en": "Aditmari"
+   }
+  ]
+ },
+ {
+  "id": 50,
+  "slug": "madaripur",
+  "name_bn": "মাদারীপুর",
+  "name_en": "Madaripur",
+  "lat": 23.1641,
+  "lon": 90.1897,
+  "upazilas": [
+   {
+    "id": 381,
+    "name_bn": "মাদারীপুর সদর",
+    "name_en": "Madaripur Sadar"
+   },
+   {
+    "id": 382,
+    "name_bn": "শিবচর",
+    "name_en": "Shibchar"
+   },
+   {
+    "id": 383,
+    "name_bn": "কালকিনি",
+    "name_en": "Kalkini"
+   },
+   {
+    "id": 384,
+    "name_bn": "রাজৈর",
+    "name_en": "Rajoir"
+   },
+   {
+    "id": 494,
+    "name_bn": "ডাসার",
+    "name_en": "Dasar"
+   }
+  ]
+ },
+ {
+  "id": 26,
+  "slug": "magura",
+  "name_bn": "মাগুরা",
+  "name_en": "Magura",
+  "lat": 23.4873,
+  "lon": 89.42,
+  "upazilas": [
+   {
+    "id": 202,
+    "name_bn": "শালিখা",
+    "name_en": "Shalikha"
+   },
+   {
+    "id": 203,
+    "name_bn": "শ্রীপুর",
+    "name_en": "Sreepur"
+   },
+   {
+    "id": 204,
+    "name_bn": "মাগুরা সদর",
+    "name_en": "Magura Sadar"
+   },
+   {
+    "id": 205,
+    "name_bn": "মহম্মদপুর",
+    "name_en": "Mohammadpur"
+   }
+  ]
+ },
+ {
+  "id": 46,
+  "slug": "manikganj",
+  "name_bn": "মানিকগঞ্জ",
+  "name_en": "Manikganj",
+  "lat": 23.8602,
+  "lon": 90.0018,
+  "upazilas": [
+   {
+    "id": 358,
+    "name_bn": "হরিরামপুর",
+    "name_en": "Harirampur"
+   },
+   {
+    "id": 359,
+    "name_bn": "সাটুরিয়া",
+    "name_en": "Saturia"
+   },
+   {
+    "id": 360,
+    "name_bn": "মানিকগঞ্জ সদর",
+    "name_en": "Manikganj Sadar"
+   },
+   {
+    "id": 361,
+    "name_bn": "ঘিওর",
+    "name_en": "Gior"
+   },
+   {
+    "id": 362,
+    "name_bn": "শিবালয়",
+    "name_en": "Shibaloy"
+   },
+   {
+    "id": 363,
+    "name_bn": "দৌলতপুর",
+    "name_en": "Doulatpur"
+   },
+   {
+    "id": 364,
+    "name_bn": "সিংগাইর",
+    "name_en": "Singiar"
+   }
+  ]
+ },
+ {
+  "id": 22,
+  "slug": "meherpur",
+  "name_bn": "মেহেরপুর",
+  "name_en": "Meherpur",
+  "lat": 23.7622,
+  "lon": 88.6318,
+  "upazilas": [
+   {
+    "id": 186,
+    "name_bn": "মুজিবনগর",
+    "name_en": "Mujibnagar"
+   },
+   {
+    "id": 187,
+    "name_bn": "মেহেরপুর সদর",
+    "name_en": "Meherpur Sadar"
+   },
+   {
+    "id": 188,
+    "name_bn": "গাংনী",
+    "name_en": "Gangni"
+   }
+  ]
+ },
+ {
+  "id": 37,
+  "slug": "moulvibazar",
+  "name_bn": "মৌলভীবাজার",
+  "name_en": "Moulvibazar",
+  "lat": 24.4829,
+  "lon": 91.7774,
+  "upazilas": [
+   {
+    "id": 285,
+    "name_bn": "বড়লেখা",
+    "name_en": "Barlekha"
+   },
+   {
+    "id": 286,
+    "name_bn": "কমলগঞ্জ",
+    "name_en": "Kamolganj"
+   },
+   {
+    "id": 287,
+    "name_bn": "কুলাউড়া",
+    "name_en": "Kulaura"
+   },
+   {
+    "id": 288,
+    "name_bn": "মৌলভীবাজার সদর",
+    "name_en": "Moulvibazar Sadar"
+   },
+   {
+    "id": 289,
+    "name_bn": "রাজনগর",
+    "name_en": "Rajnagar"
+   },
+   {
+    "id": 290,
+    "name_bn": "শ্রীমঙ্গল",
+    "name_en": "Sreemangal"
+   },
+   {
+    "id": 291,
+    "name_bn": "জুড়ী",
+    "name_en": "Juri"
+   }
+  ]
+ },
+ {
+  "id": 48,
+  "slug": "munshiganj",
+  "name_bn": "মুন্সিগঞ্জ",
+  "name_en": "Munshiganj",
+  "lat": 23.5436,
+  "lon": 90.5354,
+  "upazilas": [
+   {
+    "id": 370,
+    "name_bn": "মুন্সিগঞ্জ সদর",
+    "name_en": "Munshiganj Sadar"
+   },
+   {
+    "id": 371,
+    "name_bn": "শ্রীনগর",
+    "name_en": "Sreenagar"
+   },
+   {
+    "id": 372,
+    "name_bn": "সিরাজদিখান",
+    "name_en": "Sirajdikhan"
+   },
+   {
+    "id": 373,
+    "name_bn": "লৌহজং",
+    "name_en": "Louhajanj"
+   },
+   {
+    "id": 374,
+    "name_bn": "গজারিয়া",
+    "name_en": "Gajaria"
+   },
+   {
+    "id": 375,
+    "name_bn": "টংগীবাড়ি",
+    "name_en": "Tongibari"
+   }
+  ]
+ },
+ {
+  "id": 62,
+  "slug": "mymensingh",
+  "name_bn": "ময়মনসিংহ",
+  "name_en": "Mymensingh",
+  "lat": 24.7466,
+  "lon": 90.4072,
+  "upazilas": [
+   {
+    "id": 462,
+    "name_bn": "ফুলবাড়ীয়া",
+    "name_en": "Fulbaria"
+   },
+   {
+    "id": 463,
+    "name_bn": "ত্রিশাল",
+    "name_en": "Trishal"
+   },
+   {
+    "id": 464,
+    "name_bn": "ভালুকা",
+    "name_en": "Bhaluka"
+   },
+   {
+    "id": 465,
+    "name_bn": "মুক্তাগাছা",
+    "name_en": "Muktagacha"
+   },
+   {
+    "id": 466,
+    "name_bn": "ময়মনসিংহ সদর",
+    "name_en": "Mymensingh Sadar"
+   },
+   {
+    "id": 467,
+    "name_bn": "ধোবাউড়া",
+    "name_en": "Dhobaura"
+   },
+   {
+    "id": 468,
+    "name_bn": "ফুলপুর",
+    "name_en": "Phulpur"
+   },
+   {
+    "id": 469,
+    "name_bn": "হালুয়াঘাট",
+    "name_en": "Haluaghat"
+   },
+   {
+    "id": 470,
+    "name_bn": "গৌরীপুর",
+    "name_en": "Gouripur"
+   },
+   {
+    "id": 471,
+    "name_bn": "গফরগাঁও",
+    "name_en": "Gafargaon"
+   },
+   {
+    "id": 472,
+    "name_bn": "ঈশ্বরগঞ্জ",
+    "name_en": "Iswarganj"
+   },
+   {
+    "id": 473,
+    "name_bn": "নান্দাইল",
+    "name_en": "Nandail"
+   },
+   {
+    "id": 474,
+    "name_bn": "তারাকান্দা",
+    "name_en": "Tarakanda"
+   }
+  ]
+ },
+ {
+  "id": 19,
+  "slug": "naogaon",
+  "name_bn": "নওগাঁ",
+  "name_en": "Naogaon",
+  "lat": 24.8326,
+  "lon": 88.9249,
+  "upazilas": [
+   {
+    "id": 160,
+    "name_bn": "মহাদেবপুর",
+    "name_en": "Mohadevpur"
+   },
+   {
+    "id": 161,
+    "name_bn": "বদলগাছী",
+    "name_en": "Badalgachi"
+   },
+   {
+    "id": 162,
+    "name_bn": "পত্নিতলা",
+    "name_en": "Patnitala"
+   },
+   {
+    "id": 163,
+    "name_bn": "ধামইরহাট",
+    "name_en": "Dhamoirhat"
+   },
+   {
+    "id": 164,
+    "name_bn": "নিয়ামতপুর",
+    "name_en": "Niamatpur"
+   },
+   {
+    "id": 165,
+    "name_bn": "মান্দা",
+    "name_en": "Manda"
+   },
+   {
+    "id": 166,
+    "name_bn": "আত্রাই",
+    "name_en": "Atrai"
+   },
+   {
+    "id": 167,
+    "name_bn": "রাণীনগর",
+    "name_en": "Raninagar"
+   },
+   {
+    "id": 168,
+    "name_bn": "নওগাঁ সদর",
+    "name_en": "Naogaon Sadar"
+   },
+   {
+    "id": 169,
+    "name_bn": "পোরশা",
+    "name_en": "Porsha"
+   },
+   {
+    "id": 170,
+    "name_bn": "সাপাহার",
+    "name_en": "Sapahar"
+   }
+  ]
+ },
+ {
+  "id": 23,
+  "slug": "narail",
+  "name_bn": "নড়াইল",
+  "name_en": "Narail",
+  "lat": 23.1725,
+  "lon": 89.5127,
+  "upazilas": [
+   {
+    "id": 189,
+    "name_bn": "নড়াইল সদর",
+    "name_en": "Narail Sadar"
+   },
+   {
+    "id": 190,
+    "name_bn": "লোহাগড়া",
+    "name_en": "Lohagara"
+   },
+   {
+    "id": 191,
+    "name_bn": "কালিয়া",
+    "name_en": "Kalia"
+   }
+  ]
+ },
+ {
+  "id": 43,
+  "slug": "narayanganj",
+  "name_bn": "নারায়ণগঞ্জ",
+  "name_en": "Narayanganj",
+  "lat": 23.6337,
+  "lon": 90.4965,
+  "upazilas": [
+   {
+    "id": 328,
+    "name_bn": "আড়াইহাজার",
+    "name_en": "Araihazar"
+   },
+   {
+    "id": 329,
+    "name_bn": "বন্দর",
+    "name_en": "Bandar"
+   },
+   {
+    "id": 330,
+    "name_bn": "নারায়নগঞ্জ সদর",
+    "name_en": "Narayanganj Sadar"
+   },
+   {
+    "id": 331,
+    "name_bn": "রূপগঞ্জ",
+    "name_en": "Rupganj"
+   },
+   {
+    "id": 332,
+    "name_bn": "সোনারগাঁ",
+    "name_en": "Sonargaon"
+   }
+  ]
+ },
+ {
+  "id": 40,
+  "slug": "narsingdi",
+  "name_bn": "নরসিংদী",
+  "name_en": "Narsingdi",
+  "lat": 23.9322,
+  "lon": 90.7154,
+  "upazilas": [
+   {
+    "id": 311,
+    "name_bn": "বেলাবো",
+    "name_en": "Belabo"
+   },
+   {
+    "id": 312,
+    "name_bn": "মনোহরদী",
+    "name_en": "Monohardi"
+   },
+   {
+    "id": 313,
+    "name_bn": "নরসিংদী সদর",
+    "name_en": "Narsingdi Sadar"
+   },
+   {
+    "id": 314,
+    "name_bn": "পলাশ",
+    "name_en": "Palash"
+   },
+   {
+    "id": 315,
+    "name_bn": "রায়পুরা",
+    "name_en": "Raipura"
+   },
+   {
+    "id": 316,
+    "name_bn": "শিবপুর",
+    "name_en": "Shibpur"
+   }
+  ]
+ },
+ {
+  "id": 16,
+  "slug": "natore",
+  "name_bn": "নাটোর",
+  "name_en": "Natore",
+  "lat": 24.4206,
+  "lon": 89.0003,
+  "upazilas": [
+   {
+    "id": 143,
+    "name_bn": "নাটোর সদর",
+    "name_en": "Natore Sadar"
+   },
+   {
+    "id": 144,
+    "name_bn": "সিংড়া",
+    "name_en": "Singra"
+   },
+   {
+    "id": 145,
+    "name_bn": "বড়াইগ্রাম",
+    "name_en": "Baraigram"
+   },
+   {
+    "id": 146,
+    "name_bn": "বাগাতিপাড়া",
+    "name_en": "Bagatipara"
+   },
+   {
+    "id": 147,
+    "name_bn": "লালপুর",
+    "name_en": "Lalpur"
+   },
+   {
+    "id": 148,
+    "name_bn": "গুরুদাসপুর",
+    "name_en": "Gurudaspur"
+   },
+   {
+    "id": 149,
+    "name_bn": "নলডাঙ্গা",
+    "name_en": "Naldanga"
+   }
+  ]
+ },
+ {
+  "id": 64,
+  "slug": "netrokona",
+  "name_bn": "নেত্রকোণা",
+  "name_en": "Netrokona",
+  "lat": 24.871,
+  "lon": 90.7279,
+  "upazilas": [
+   {
+    "id": 482,
+    "name_bn": "বারহাট্টা",
+    "name_en": "Barhatta"
+   },
+   {
+    "id": 483,
+    "name_bn": "দুর্গাপুর",
+    "name_en": "Durgapur"
+   },
+   {
+    "id": 484,
+    "name_bn": "কেন্দুয়া",
+    "name_en": "Kendua"
+   },
+   {
+    "id": 485,
+    "name_bn": "আটপাড়া",
+    "name_en": "Atpara"
+   },
+   {
+    "id": 486,
+    "name_bn": "মদন",
+    "name_en": "Madan"
+   },
+   {
+    "id": 487,
+    "name_bn": "খালিয়াজুরী",
+    "name_en": "Khaliajuri"
+   },
+   {
+    "id": 488,
+    "name_bn": "কলমাকান্দা",
+    "name_en": "Kalmakanda"
+   },
+   {
+    "id": 489,
+    "name_bn": "মোহনগঞ্জ",
+    "name_en": "Mohongonj"
+   },
+   {
+    "id": 490,
+    "name_bn": "পূর্বধলা",
+    "name_en": "Purbadhala"
+   },
+   {
+    "id": 491,
+    "name_bn": "নেত্রকোণা সদর",
+    "name_en": "Netrokona Sadar"
+   }
+  ]
+ },
+ {
+  "id": 56,
+  "slug": "nilphamari",
+  "name_bn": "নীলফামারী",
+  "name_en": "Nilphamari",
+  "lat": 25.9318,
+  "lon": 88.856,
+  "upazilas": [
+   {
+    "id": 422,
+    "name_bn": "সৈয়দপুর",
+    "name_en": "Syedpur"
+   },
+   {
+    "id": 423,
+    "name_bn": "ডোমার",
+    "name_en": "Domar"
+   },
+   {
+    "id": 424,
+    "name_bn": "ডিমলা",
+    "name_en": "Dimla"
+   },
+   {
+    "id": 425,
+    "name_bn": "জলঢাকা",
+    "name_en": "Jaldhaka"
+   },
+   {
+    "id": 426,
+    "name_bn": "কিশোরগঞ্জ",
+    "name_en": "Kishorganj"
+   },
+   {
+    "id": 427,
+    "name_bn": "নীলফামারী সদর",
+    "name_en": "Nilphamari Sadar"
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "slug": "noakhali",
+  "name_bn": "নোয়াখালী",
+  "name_en": "Noakhali",
+  "lat": 22.8696,
+  "lon": 91.0994,
+  "upazilas": [
+   {
+    "id": 43,
+    "name_bn": "নোয়াখালী সদর",
+    "name_en": "Noakhali Sadar"
+   },
+   {
+    "id": 44,
+    "name_bn": "কোম্পানীগঞ্জ",
+    "name_en": "Companiganj"
+   },
+   {
+    "id": 45,
+    "name_bn": "বেগমগঞ্জ",
+    "name_en": "Begumganj"
+   },
+   {
+    "id": 46,
+    "name_bn": "হাতিয়া",
+    "name_en": "Hatia"
+   },
+   {
+    "id": 47,
+    "name_bn": "সুবর্ণচর",
+    "name_en": "Subarnachar"
+   },
+   {
+    "id": 48,
+    "name_bn": "কবিরহাট",
+    "name_en": "Kabirhat"
+   },
+   {
+    "id": 49,
+    "name_bn": "সেনবাগ",
+    "name_en": "Senbug"
+   },
+   {
+    "id": 50,
+    "name_bn": "চাটখিল",
+    "name_en": "Chatkhil"
+   },
+   {
+    "id": 51,
+    "name_bn": "সোনাইমুড়ী",
+    "name_en": "Sonaimori"
+   }
+  ]
+ },
+ {
+  "id": 13,
+  "slug": "pabna",
+  "name_bn": "পাবনা",
+  "name_en": "Pabna",
+  "lat": 23.9985,
+  "lon": 89.2336,
+  "upazilas": [
+   {
+    "id": 113,
+    "name_bn": "সুজানগর",
+    "name_en": "Sujanagar"
+   },
+   {
+    "id": 114,
+    "name_bn": "ঈশ্বরদী",
+    "name_en": "Ishurdi"
+   },
+   {
+    "id": 115,
+    "name_bn": "ভাঙ্গুড়া",
+    "name_en": "Bhangura"
+   },
+   {
+    "id": 116,
+    "name_bn": "পাবনা সদর",
+    "name_en": "Pabna Sadar"
+   },
+   {
+    "id": 117,
+    "name_bn": "বেড়া",
+    "name_en": "Bera"
+   },
+   {
+    "id": 118,
+    "name_bn": "আটঘরিয়া",
+    "name_en": "Atghoria"
+   },
+   {
+    "id": 119,
+    "name_bn": "চাটমোহর",
+    "name_en": "Chatmohar"
+   },
+   {
+    "id": 120,
+    "name_bn": "সাঁথিয়া",
+    "name_en": "Santhia"
+   },
+   {
+    "id": 121,
+    "name_bn": "ফরিদপুর",
+    "name_en": "Faridpur"
+   }
+  ]
+ },
+ {
+  "id": 53,
+  "slug": "panchagarh",
+  "name_bn": "পঞ্চগড়",
+  "name_en": "Panchagarh",
+  "lat": 26.3411,
+  "lon": 88.5542,
+  "upazilas": [
+   {
+    "id": 399,
+    "name_bn": "পঞ্চগড় সদর",
+    "name_en": "Panchagarh Sadar"
+   },
+   {
+    "id": 400,
+    "name_bn": "দেবীগঞ্জ",
+    "name_en": "Debiganj"
+   },
+   {
+    "id": 401,
+    "name_bn": "বোদা",
+    "name_en": "Boda"
+   },
+   {
+    "id": 402,
+    "name_bn": "আটোয়ারী",
+    "name_en": "Atwari"
+   },
+   {
+    "id": 403,
+    "name_bn": "তেতুলিয়া",
+    "name_en": "Tetulia"
+   }
+  ]
+ },
+ {
+  "id": 31,
+  "slug": "patuakhali",
+  "name_bn": "পটুয়াখালী",
+  "name_en": "Patuakhali",
+  "lat": 22.3596,
+  "lon": 90.3299,
+  "upazilas": [
+   {
+    "id": 234,
+    "name_bn": "বাউফল",
+    "name_en": "Bauphal"
+   },
+   {
+    "id": 235,
+    "name_bn": "পটুয়াখালী সদর",
+    "name_en": "Patuakhali Sadar"
+   },
+   {
+    "id": 236,
+    "name_bn": "দুমকি",
+    "name_en": "Dumki"
+   },
+   {
+    "id": 237,
+    "name_bn": "দশমিনা",
+    "name_en": "Dashmina"
+   },
+   {
+    "id": 238,
+    "name_bn": "কলাপাড়া",
+    "name_en": "Kalapara"
+   },
+   {
+    "id": 239,
+    "name_bn": "মির্জাগঞ্জ",
+    "name_en": "Mirzaganj"
+   },
+   {
+    "id": 240,
+    "name_bn": "গলাচিপা",
+    "name_en": "Galachipa"
+   },
+   {
+    "id": 241,
+    "name_bn": "রাঙ্গাবালী",
+    "name_en": "Rangabali"
+   }
+  ]
+ },
+ {
+  "id": 32,
+  "slug": "pirojpur",
+  "name_bn": "পিরোজপুর",
+  "name_en": "Pirojpur",
+  "lat": 22.5781,
+  "lon": 89.9984,
+  "upazilas": [
+   {
+    "id": 242,
+    "name_bn": "পিরোজপুর সদর",
+    "name_en": "Pirojpur Sadar"
+   },
+   {
+    "id": 243,
+    "name_bn": "নাজিরপুর",
+    "name_en": "Nazirpur"
+   },
+   {
+    "id": 244,
+    "name_bn": "কাউখালী",
+    "name_en": "Kawkhali"
+   },
+   {
+    "id": 245,
+    "name_bn": "জিয়ানগর",
+    "name_en": "Zianagar"
+   },
+   {
+    "id": 246,
+    "name_bn": "ভান্ডারিয়া",
+    "name_en": "Bhandaria"
+   },
+   {
+    "id": 247,
+    "name_bn": "মঠবাড়ীয়া",
+    "name_en": "Mathbaria"
+   },
+   {
+    "id": 248,
+    "name_bn": "নেছারাবাদ",
+    "name_en": "Nesarabad"
+   }
+  ]
+ },
+ {
+  "id": 49,
+  "slug": "rajbari",
+  "name_bn": "রাজবাড়ী",
+  "name_en": "Rajbari",
+  "lat": 23.7574,
+  "lon": 89.6445,
+  "upazilas": [
+   {
+    "id": 376,
+    "name_bn": "রাজবাড়ী সদর",
+    "name_en": "Rajbari Sadar"
+   },
+   {
+    "id": 377,
+    "name_bn": "গোয়ালন্দ",
+    "name_en": "Goalanda"
+   },
+   {
+    "id": 378,
+    "name_bn": "পাংশা",
+    "name_en": "Pangsa"
+   },
+   {
+    "id": 379,
+    "name_bn": "বালিয়াকান্দি",
+    "name_en": "Baliakandi"
+   },
+   {
+    "id": 380,
+    "name_bn": "কালুখালী",
+    "name_en": "Kalukhali"
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "slug": "rajshahi",
+  "name_bn": "রাজশাহী",
+  "name_en": "Rajshahi",
+  "lat": 24.3723,
+  "lon": 88.5631,
+  "upazilas": [
+   {
+    "id": 134,
+    "name_bn": "পবা",
+    "name_en": "Paba"
+   },
+   {
+    "id": 135,
+    "name_bn": "দুর্গাপুর",
+    "name_en": "Durgapur"
+   },
+   {
+    "id": 136,
+    "name_bn": "মোহনপুর",
+    "name_en": "Mohonpur"
+   },
+   {
+    "id": 137,
+    "name_bn": "চারঘাট",
+    "name_en": "Charghat"
+   },
+   {
+    "id": 138,
+    "name_bn": "পুঠিয়া",
+    "name_en": "Puthia"
+   },
+   {
+    "id": 139,
+    "name_bn": "বাঘা",
+    "name_en": "Bagha"
+   },
+   {
+    "id": 140,
+    "name_bn": "গোদাগাড়ী",
+    "name_en": "Godagari"
+   },
+   {
+    "id": 141,
+    "name_bn": "তানোর",
+    "name_en": "Tanore"
+   },
+   {
+    "id": 142,
+    "name_bn": "বাগমারা",
+    "name_en": "Bagmara"
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "slug": "rangamati",
+  "name_bn": "রাঙ্গামাটি",
+  "name_en": "Rangamati",
+  "lat": 22.6556,
+  "lon": 92.1754,
+  "upazilas": [
+   {
+    "id": 33,
+    "name_bn": "রাঙ্গামাটি সদর",
+    "name_en": "Rangamati Sadar"
+   },
+   {
+    "id": 34,
+    "name_bn": "কাপ্তাই",
+    "name_en": "Kaptai"
+   },
+   {
+    "id": 35,
+    "name_bn": "কাউখালী",
+    "name_en": "Kawkhali"
+   },
+   {
+    "id": 36,
+    "name_bn": "বাঘাইছড়ি",
+    "name_en": "Baghaichari"
+   },
+   {
+    "id": 37,
+    "name_bn": "বরকল",
+    "name_en": "Barkal"
+   },
+   {
+    "id": 38,
+    "name_bn": "লংগদু",
+    "name_en": "Langadu"
+   },
+   {
+    "id": 39,
+    "name_bn": "রাজস্থলী",
+    "name_en": "Rajasthali"
+   },
+   {
+    "id": 40,
+    "name_bn": "বিলাইছড়ি",
+    "name_en": "Belaichari"
+   },
+   {
+    "id": 41,
+    "name_bn": "জুরাছড়ি",
+    "name_en": "Juraichari"
+   },
+   {
+    "id": 42,
+    "name_bn": "নানিয়ারচর",
+    "name_en": "Naniarchar"
+   }
+  ]
+ },
+ {
+  "id": 59,
+  "slug": "rangpur",
+  "name_bn": "রংপুর",
+  "name_en": "Rangpur",
+  "lat": 25.7558,
+  "lon": 89.2445,
+  "upazilas": [
+   {
+    "id": 440,
+    "name_bn": "রংপুর সদর",
+    "name_en": "Rangpur Sadar"
+   },
+   {
+    "id": 441,
+    "name_bn": "গংগাচড়া",
+    "name_en": "Gangachara"
+   },
+   {
+    "id": 442,
+    "name_bn": "তারাগঞ্জ",
+    "name_en": "Taragonj"
+   },
+   {
+    "id": 443,
+    "name_bn": "বদরগঞ্জ",
+    "name_en": "Badargonj"
+   },
+   {
+    "id": 444,
+    "name_bn": "মিঠাপুকুর",
+    "name_en": "Mithapukur"
+   },
+   {
+    "id": 445,
+    "name_bn": "পীরগঞ্জ",
+    "name_en": "Pirgonj"
+   },
+   {
+    "id": 446,
+    "name_bn": "কাউনিয়া",
+    "name_en": "Kaunia"
+   },
+   {
+    "id": 447,
+    "name_bn": "পীরগাছা",
+    "name_en": "Pirgacha"
+   }
+  ]
+ },
+ {
+  "id": 21,
+  "slug": "satkhira",
+  "name_bn": "সাতক্ষীরা",
+  "name_en": "Satkhira",
+  "lat": 22.7181,
+  "lon": 89.0687,
+  "upazilas": [
+   {
+    "id": 179,
+    "name_bn": "আশাশুনি",
+    "name_en": "Assasuni"
+   },
+   {
+    "id": 180,
+    "name_bn": "দেবহাটা",
+    "name_en": "Debhata"
+   },
+   {
+    "id": 181,
+    "name_bn": "কলারোয়া",
+    "name_en": "Kalaroa"
+   },
+   {
+    "id": 182,
+    "name_bn": "সাতক্ষীরা সদর",
+    "name_en": "Satkhira Sadar"
+   },
+   {
+    "id": 183,
+    "name_bn": "শ্যামনগর",
+    "name_en": "Shyamnagar"
+   },
+   {
+    "id": 184,
+    "name_bn": "তালা",
+    "name_en": "Tala"
+   },
+   {
+    "id": 185,
+    "name_bn": "কালিগঞ্জ",
+    "name_en": "Kaliganj"
+   }
+  ]
+ },
+ {
+  "id": 42,
+  "slug": "shariatpur",
+  "name_bn": "শরীয়তপুর",
+  "name_en": "Shariatpur",
+  "lat": 23.206,
+  "lon": 90.3478,
+  "upazilas": [
+   {
+    "id": 322,
+    "name_bn": "শরিয়তপুর সদর",
+    "name_en": "Shariatpur Sadar"
+   },
+   {
+    "id": 323,
+    "name_bn": "নড়িয়া",
+    "name_en": "Naria"
+   },
+   {
+    "id": 324,
+    "name_bn": "জাজিরা",
+    "name_en": "Zajira"
+   },
+   {
+    "id": 325,
+    "name_bn": "গোসাইরহাট",
+    "name_en": "Gosairhat"
+   },
+   {
+    "id": 326,
+    "name_bn": "ভেদরগঞ্জ",
+    "name_en": "Bhedarganj"
+   },
+   {
+    "id": 327,
+    "name_bn": "ডামুড্যা",
+    "name_en": "Damudya"
+   }
+  ]
+ },
+ {
+  "id": 61,
+  "slug": "sherpur",
+  "name_bn": "শেরপুর",
+  "name_en": "Sherpur",
+  "lat": 25.0205,
+  "lon": 90.0153,
+  "upazilas": [
+   {
+    "id": 457,
+    "name_bn": "শেরপুর সদর",
+    "name_en": "Sherpur Sadar"
+   },
+   {
+    "id": 458,
+    "name_bn": "নালিতাবাড়ী",
+    "name_en": "Nalitabari"
+   },
+   {
+    "id": 459,
+    "name_bn": "শ্রীবরদী",
+    "name_en": "Sreebordi"
+   },
+   {
+    "id": 460,
+    "name_bn": "নকলা",
+    "name_en": "Nokla"
+   },
+   {
+    "id": 461,
+    "name_bn": "ঝিনাইগাতী",
+    "name_en": "Jhenaigati"
+   }
+  ]
+ },
+ {
+  "id": 12,
+  "slug": "sirajganj",
+  "name_bn": "সিরাজগঞ্জ",
+  "name_en": "Sirajganj",
+  "lat": 24.4534,
+  "lon": 89.7007,
+  "upazilas": [
+   {
+    "id": 104,
+    "name_bn": "বেলকুচি",
+    "name_en": "Belkuchi"
+   },
+   {
+    "id": 105,
+    "name_bn": "চৌহালি",
+    "name_en": "Chauhali"
+   },
+   {
+    "id": 106,
+    "name_bn": "কামারখন্দ",
+    "name_en": "Kamarkhand"
+   },
+   {
+    "id": 107,
+    "name_bn": "কাজীপুর",
+    "name_en": "Kazipur"
+   },
+   {
+    "id": 108,
+    "name_bn": "রায়গঞ্জ",
+    "name_en": "Raigonj"
+   },
+   {
+    "id": 109,
+    "name_bn": "শাহজাদপুর",
+    "name_en": "Shahjadpur"
+   },
+   {
+    "id": 110,
+    "name_bn": "সিরাজগঞ্জ সদর",
+    "name_en": "Sirajganj Sadar"
+   },
+   {
+    "id": 111,
+    "name_bn": "তাড়াশ",
+    "name_en": "Tarash"
+   },
+   {
+    "id": 112,
+    "name_bn": "উল্লাপাড়া",
+    "name_en": "Ullapara"
+   }
+  ]
+ },
+ {
+  "id": 39,
+  "slug": "sunamganj",
+  "name_bn": "সুনামগঞ্জ",
+  "name_en": "Sunamganj",
+  "lat": 25.0658,
+  "lon": 91.395,
+  "upazilas": [
+   {
+    "id": 300,
+    "name_bn": "সুনামগঞ্জ সদর",
+    "name_en": "Sunamganj Sadar"
+   },
+   {
+    "id": 301,
+    "name_bn": "দক্ষিণ সুনামগঞ্জ",
+    "name_en": "South Sunamganj"
+   },
+   {
+    "id": 302,
+    "name_bn": "বিশ্বম্ভরপুর",
+    "name_en": "Bishwambarpur"
+   },
+   {
+    "id": 303,
+    "name_bn": "ছাতক",
+    "name_en": "Chhatak"
+   },
+   {
+    "id": 304,
+    "name_bn": "জগন্নাথপুর",
+    "name_en": "Jagannathpur"
+   },
+   {
+    "id": 305,
+    "name_bn": "দোয়ারাবাজার",
+    "name_en": "Dowarabazar"
+   },
+   {
+    "id": 306,
+    "name_bn": "তাহিরপুর",
+    "name_en": "Tahirpur"
+   },
+   {
+    "id": 307,
+    "name_bn": "ধর্মপাশা",
+    "name_en": "Dharmapasha"
+   },
+   {
+    "id": 308,
+    "name_bn": "জামালগঞ্জ",
+    "name_en": "Jamalganj"
+   },
+   {
+    "id": 309,
+    "name_bn": "শাল্লা",
+    "name_en": "Shalla"
+   },
+   {
+    "id": 310,
+    "name_bn": "দিরাই",
+    "name_en": "Derai"
+   },
+   {
+    "id": 493,
+    "name_bn": "মধ্যনগর",
+    "name_en": "Madhyanagar"
+   }
+  ]
+ },
+ {
+  "id": 36,
+  "slug": "sylhet",
+  "name_bn": "সিলেট",
+  "name_en": "Sylhet",
+  "lat": 24.8898,
+  "lon": 91.8698,
+  "upazilas": [
+   {
+    "id": 272,
+    "name_bn": "বালাগঞ্জ",
+    "name_en": "Balaganj"
+   },
+   {
+    "id": 273,
+    "name_bn": "বিয়ানীবাজার",
+    "name_en": "Beanibazar"
+   },
+   {
+    "id": 274,
+    "name_bn": "বিশ্বনাথ",
+    "name_en": "Bishwanath"
+   },
+   {
+    "id": 275,
+    "name_bn": "কোম্পানীগঞ্জ",
+    "name_en": "Companiganj"
+   },
+   {
+    "id": 276,
+    "name_bn": "ফেঞ্চুগঞ্জ",
+    "name_en": "Fenchuganj"
+   },
+   {
+    "id": 277,
+    "name_bn": "গোলাপগঞ্জ",
+    "name_en": "Golapganj"
+   },
+   {
+    "id": 278,
+    "name_bn": "গোয়াইনঘাট",
+    "name_en": "Gowainghat"
+   },
+   {
+    "id": 279,
+    "name_bn": "জৈন্তাপুর",
+    "name_en": "Jaintiapur"
+   },
+   {
+    "id": 280,
+    "name_bn": "কানাইঘাট",
+    "name_en": "Kanaighat"
+   },
+   {
+    "id": 281,
+    "name_bn": "সিলেট সদর",
+    "name_en": "Sylhet Sadar"
+   },
+   {
+    "id": 282,
+    "name_bn": "জকিগঞ্জ",
+    "name_en": "Zakiganj"
+   },
+   {
+    "id": 283,
+    "name_bn": "দক্ষিণ সুরমা",
+    "name_en": "Dakshinsurma"
+   },
+   {
+    "id": 284,
+    "name_bn": "ওসমানী নগর",
+    "name_en": "Osmaninagar"
+   }
+  ]
+ },
+ {
+  "id": 44,
+  "slug": "tangail",
+  "name_bn": "টাঙ্গাইল",
+  "name_en": "Tangail",
+  "lat": 24.2641,
+  "lon": 89.918,
+  "upazilas": [
+   {
+    "id": 333,
+    "name_bn": "বাসাইল",
+    "name_en": "Basail"
+   },
+   {
+    "id": 334,
+    "name_bn": "ভুয়াপুর",
+    "name_en": "Bhuapur"
+   },
+   {
+    "id": 335,
+    "name_bn": "দেলদুয়ার",
+    "name_en": "Delduar"
+   },
+   {
+    "id": 336,
+    "name_bn": "ঘাটাইল",
+    "name_en": "Ghatail"
+   },
+   {
+    "id": 337,
+    "name_bn": "গোপালপুর",
+    "name_en": "Gopalpur"
+   },
+   {
+    "id": 338,
+    "name_bn": "মধুপুর",
+    "name_en": "Madhupur"
+   },
+   {
+    "id": 339,
+    "name_bn": "মির্জাপুর",
+    "name_en": "Mirzapur"
+   },
+   {
+    "id": 340,
+    "name_bn": "নাগরপুর",
+    "name_en": "Nagarpur"
+   },
+   {
+    "id": 341,
+    "name_bn": "সখিপুর",
+    "name_en": "Sakhipur"
+   },
+   {
+    "id": 342,
+    "name_bn": "টাঙ্গাইল সদর",
+    "name_en": "Tangail Sadar"
+   },
+   {
+    "id": 343,
+    "name_bn": "কালিহাতী",
+    "name_en": "Kalihati"
+   },
+   {
+    "id": 344,
+    "name_bn": "ধনবাড়ী",
+    "name_en": "Dhanbari"
+   }
+  ]
+ },
+ {
+  "id": 58,
+  "slug": "thakurgaon",
+  "name_bn": "ঠাকুরগাঁও",
+  "name_en": "Thakurgaon",
+  "lat": 26.0337,
+  "lon": 88.4617,
+  "upazilas": [
+   {
+    "id": 435,
+    "name_bn": "ঠাকুরগাঁও সদর",
+    "name_en": "Thakurgaon Sadar"
+   },
+   {
+    "id": 436,
+    "name_bn": "পীরগঞ্জ",
+    "name_en": "Pirganj"
+   },
+   {
+    "id": 437,
+    "name_bn": "রাণীশংকৈল",
+    "name_en": "Ranisankail"
+   },
+   {
+    "id": 438,
+    "name_bn": "হরিপুর",
+    "name_en": "Haripur"
+   },
+   {
+    "id": 439,
+    "name_bn": "বালিয়াডাঙ্গী",
+    "name_en": "Baliadangi"
+   }
+  ]
+ }
+]

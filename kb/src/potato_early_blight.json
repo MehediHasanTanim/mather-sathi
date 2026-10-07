@@ -1,0 +1,36 @@
+{
+  "status": "draft",
+  "medicine": [
+    {
+      "name_bn": "<অনুমোদিত নাম>",
+      "active_ingredient": "<verified>",
+      "dose_bn": "<verified dose>",
+      "interval_bn": "<verified interval>",
+      "pre_harvest_interval_days": null
+    }
+  ],
+  "source": "DEV SEED: not reviewed, never ship",
+  "reviewed_by": "",
+  "reviewed_at": "",
+  "id": "potato_early_blight",
+  "crop": "potato",
+  "name_bn": "আলুর আর্লি ব্লাইট",
+  "name_en": "Potato early blight",
+  "ai_hint_en": "Round brown spots with concentric rings (target pattern) on older leaves first; leaves yellow and drop.",
+  "description_bn": "আর্লি ব্লাইট আলুর পাতায় বাদামি দাগ তৈরি করে। পুরোনো পাতা আগে আক্রান্ত হয়।",
+  "symptoms_bn": [
+    "পুরোনো পাতায় গোল বাদামি দাগ",
+    "দাগের ভেতরে বৃত্তের মতো ছাপ",
+    "আক্রান্ত পাতা হলুদ হয়ে ঝরে পড়ে"
+  ],
+  "cause_bn": "অল্টারনারিয়া নামের ছত্রাক। গাছ দুর্বল হলে ও পুষ্টির অভাব থাকলে রোগ বাড়ে।",
+  "urgency": "medium",
+  "immediate_bn": [
+    "আক্রান্ত পাতা সরিয়ে ফেলুন"
+  ],
+  "prevention_bn": [
+    "ফসলের পর্যায়ক্রম মেনে চাষ করুন",
+    "সুষম সার ও পর্যাপ্ত সেচ দিন"
+  ],
+  "see_expert": false
+}

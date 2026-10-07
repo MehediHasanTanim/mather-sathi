@@ -1,0 +1,30 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{db}/documents {
+    function signedIn() { return request.auth != null; }
+
+    match /users/{uid}/history/{id} {
+      allow read, write: if signedIn() && request.auth.uid == uid;
+    }
+    match /reports/{id} {
+      allow create: if signedIn()
+        && id.matches(request.auth.uid + '_.*')
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.createdAt == request.time
+        // the TTL clock is client-supplied, so cap it: a far-future expireAt would keep a report forever. The app sends
+        // now+30d; the slack absorbs a phone clock that runs fast. A past value is harmless (the report just expires early).
+        && request.resource.data.expireAt is timestamp
+        && request.resource.data.expireAt <= request.time + duration.value(62, 'd')
+        // exactly these fields: none missing, none extra
+        && request.resource.data.keys().hasAll(
+             ['uid','district','upazila','crop','diseaseId','week','createdAt','expireAt'])
+        && request.resource.data.keys().hasOnly(
+             ['uid','district','upazila','crop','diseaseId','week','createdAt','expireAt']);
+      allow read, update, delete: if false;
+    }
+    match /alerts/{id}     { allow read: if signedIn(); }
+    match /weather/{d}     { allow read: if signedIn(); }
+    match /kb_versions/{d} { allow read: if signedIn(); }
+    // everything else (quotas, config, reporters) is denied by default
+  }
+}

@@ -1,0 +1,260 @@
+{
+  "@@locale": "bn",
+  "appName": "কৃষি সহায়",
+  "tabScan": "রোগ শনাক্ত",
+  "tabHistory": "ইতিহাস",
+  "tabAlerts": "সতর্কতা",
+  "tabSettings": "সেটিংস",
+  "homeTitle": "ছবি তুলে রোগ শনাক্ত করুন",
+  "historyTitle": "ইতিহাস",
+  "alertsTitle": "আপনার এলাকায় সাম্প্রতিক রোগবালাই",
+  "settingsTitle": "সেটিংস",
+  "comingSoon": "শীঘ্রই আসছে",
+  "tryAgain": "আবার চেষ্টা করুন",
+  "loadError": "কিছু ভুল হয়েছে। আবার চেষ্টা করুন",
+  "next": "পরবর্তী",
+  "back": "আগের",
+  "start": "শুরু করুন",
+  "onboardingSlide1": "স্বাগতম! ফসলের রোগ এখন ঘরে বসেই শনাক্ত করুন",
+  "onboardingSlide2": "শুধু ছবি তুলুন — এআই বাকি কাজ করবে",
+  "onboardingSlide3": "সহজ বাংলায় চিকিৎসার পরামর্শ পান",
+  "onboardingSlide4": "আপনার জেলা বেছে নিন",
+  "selectDistrict": "জেলা বেছে নিন",
+  "selectUpazila": "উপজেলা বেছে নিন",
+  "selectDistrictFirst": "আগে জেলা বেছে নিন",
+  "selectCrop": "প্রধান ফসল বেছে নিন",
+  "searchHint": "খুঁজুন",
+  "noResults": "কিছু পাওয়া যায়নি",
+  "consentTitle": "আপনার তথ্য ও গোপনীয়তা",
+  "consentReports": "এলাকার রোগ সতর্কতায় অংশ নিন",
+  "consentReportsDesc": "আপনার জেলা, উপজেলা, ফসল ও রোগের নাম বেনামে জানানো হবে। কোনো ছবি, নাম বা ফোন নম্বর যাবে না।",
+  "consentBackup": "ছবি ক্লাউডে ব্যাকআপ রাখুন",
+  "consentBackupDesc": "চালু করলে ছবি ৩০ দিন পর্যন্ত নিরাপদে জমা থাকবে।",
+  "consentContribute": "অ্যাপ উন্নত করতে আমার ছবি ব্যবহারের অনুমতি",
+  "consentContributeDesc": "চালু করলে আপনার ছবি দিয়ে ভবিষ্যতে রোগ শনাক্তকরণ আরও ভালো করা হতে পারে।",
+  "aiDisclosure": "ইন্টারনেট থাকলে রোগ শনাক্ত করার সময় আপনার ছবিটি ছোট করে একটি এআই সেবায় পাঠানো হয়। ইন্টারনেট না থাকলে ছবি ফোনেই থাকে।",
+  "cropRice": "ধান",
+  "cropJute": "পাট",
+  "cropPotato": "আলু",
+  "cropTomato": "টমেটো",
+  "cropBrinjal": "বেগুন",
+  "cropChili": "মরিচ",
+  "cropOnion": "পেঁয়াজ",
+  "cropMustard": "সরিষা",
+  "banglaCheckTitle": "বাংলা লেখা পরীক্ষা",
+  "banglaCheckSample": "ক্ষেত্র, শস্য, দৃষ্টি, বৃষ্টি, ধ্বংস, কর্তৃপক্ষ, গ্রন্থ, ব্রাহ্মণবাড়িয়া, স্প্রে, ঝাঁঝালো",
+  "banglaCheckDigits": "সংখ্যা: {digits}",
+  "@banglaCheckDigits": {
+    "placeholders": {
+      "digits": {
+        "type": "String"
+      }
+    }
+  },
+  "takePhoto": "ছবি তুলুন",
+  "pickFromGallery": "গ্যালারি থেকে নিন",
+  "otherCrop": "অন্যান্য ফসল",
+  "otherCropHint": "ফসলের নাম লিখুন",
+  "cancel": "বাতিল",
+  "ok": "ঠিক আছে",
+  "guidanceTitle": "ছবি তুলুন",
+  "guidanceClose": "পাতার কাছ থেকে তুলুন",
+  "guidanceLight": "আলো যেন ভালো থাকে",
+  "guidanceFrame": "রোগাক্রান্ত অংশ ফ্রেমে রাখুন",
+  "guidanceBlur": "ঝাপসা ছবি দেবেন না",
+  "previewTitle": "ছবি দেখুন",
+  "preparing": "ছবি প্রস্তুত করা হচ্ছে…",
+  "retake": "আবার তুলুন",
+  "analyze": "বিশ্লেষণ করুন",
+  "selectCropFirst": "আগে ফসল বেছে নিন",
+  "photoReady": "ছবি ঠিক আছে",
+  "pickError": "ছবি নেওয়া যায়নি। আবার চেষ্টা করুন",
+  "tipBlurry": "ছবিটি একটু ঝাপসা — আবার চেষ্টা করুন",
+  "tipTooDark": "আলো কম — আলোতে গিয়ে আবার ছবি তুলুন",
+  "tipTooSmall": "ছবির মান কম — আরও কাছ থেকে তুলুন",
+  "tipNotAPlant": "এটি গাছের ছবি বলে মনে হচ্ছে না — রোগাক্রান্ত পাতা ফ্রেমে রাখুন",
+  "tipWrongCrop": "এটি {crop} বলে মনে হচ্ছে না — ফসল ঠিক আছে?",
+  "@tipWrongCrop": {
+    "placeholders": {
+      "crop": {
+        "type": "String"
+      }
+    }
+  },
+  "analyzing": "বিশ্লেষণ করা হচ্ছে…",
+  "resultTitle": "ফলাফল",
+  "resultHealthy": "আপনার ফসলে কোনো পরিচিত রোগ দেখা যায়নি 🌿",
+  "resultUnknown": "নিশ্চিত হওয়া যায়নি",
+  "resultUnknownHint": "ছবিটি ভালো মানের হলে আবার চেষ্টা করুন, অথবা কৃষি কর্মকর্তার সাথে যোগাযোগ করুন",
+  "confHigh": "নিশ্চিতমাত্রা বেশি ✅",
+  "confMedium": "সম্ভাব্য রোগ ⚠️ — বিশেষজ্ঞকে দেখান",
+  "confLow": "ছবি থেকে নিশ্চিত হওয়া যায়নি — আরও কাছ থেকে ছবি তুলুন",
+  "urgentTreatment": "জরুরি চিকিৎসা দরকার",
+  "sectionDescription": "রোগের বিবরণ",
+  "sectionSymptoms": "লক্ষণসমূহ",
+  "sectionPrevention": "প্রতিরোধ",
+  "seeExpert": "কৃষি কর্মকর্তার পরামর্শ নিন",
+  "aiDisclaimer": "এটি এআই-ভিত্তিক পরামর্শ; চূড়ান্ত সিদ্ধান্তের আগে কৃষি কর্মকর্তার সাথে কথা বলুন",
+  "draftKbBanner": "এটি পরীক্ষামূলক ও যাচাই না করা তথ্য। এর ভিত্তিতে কোনো ওষুধ প্রয়োগ করবেন না।",
+  "needsInternet": "এই ফসলের জন্য ইন্টারনেট দরকার",
+  "offlineModelMissing": "ইন্টারনেট চালু করে আবার চেষ্টা করুন",
+  "dailyCapReached": "আজকের সীমা শেষ — আগামীকাল আবার চেষ্টা করুন",
+  "diagnosisFailed": "বিশ্লেষণ করা যায়নি। আবার চেষ্টা করুন",
+  "listen": "শুনুন",
+  "pauseListening": "থামান",
+  "resumeListening": "আবার শুনুন",
+  "stopListening": "বন্ধ করুন",
+  "ttsUnavailableTitle": "বাংলা কণ্ঠস্বর পাওয়া যাচ্ছে না",
+  "ttsUnavailableBody": "শুনতে হলে ফোনের সেটিংসে ‘Google টেক্সট-টু-স্পিচ’ অ্যাপে বাংলা ভাষার ভয়েস ডাউনলোড করুন।",
+  "ttsDiseaseName": "রোগের নাম",
+  "ttsImmediate": "এখনই যা করবেন",
+  "sectionTreatment": "চিকিৎসা",
+  "immediateLabel": "এখনই করুন",
+  "medicineLabel": "ওষুধ",
+  "doseLabel": "মাত্রা",
+  "intervalLabel": "কতদিন পর পর",
+  "preHarvestLabel": "ফসল তোলার আগে বিরতি",
+  "preHarvestDays": "{days} দিন",
+  "@preHarvestDays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "safetyLine": "স্প্রের সময় মাস্ক ও গ্লাভস পরুন, ওষুধের মোড়কের নির্দেশনা পড়ুন",
+  "urgencyMedium": "দ্রুত নজর দিন",
+  "urgencyLow": "প্রতিরোধমূলক ব্যবস্থা নিন",
+  "wasCorrect": "ফলাফলটি কি সঠিক ছিল?",
+  "yes": "হ্যাঁ",
+  "no": "না",
+  "whatWasIt": "আসল রোগ কী ছিল?",
+  "dontKnow": "জানি না",
+  "feedbackThanks": "ধন্যবাদ, আপনার মতামত সংরক্ষিত হয়েছে",
+  "kbUpdated": "তথ্য হালনাগাদ হয়েছে",
+  "kbEntryGone": "এই রোগের বিস্তারিত তথ্য আর পাওয়া যাচ্ছে না",
+  "callExpert": "কর্মকর্তার নম্বর",
+  "changeCrop": "ফসল বদলান",
+  "healthyTipsTitle": "প্রতিরোধের পরামর্শ",
+  "resultNotFound": "ফলাফল পাওয়া যায়নি",
+  "generalAdviceTitle": "সাধারণ পরামর্শ",
+  "savingResult": "ফলাফল সংরক্ষণ করা হচ্ছে…",
+  "historyEmpty": "এখনও কোনো ছবি পরীক্ষা করা হয়নি",
+  "historyHealthy": "সুস্থ",
+  "historyUnknown": "নিশ্চিত হওয়া যায়নি",
+  "badgeUrgent": "জরুরি",
+  "badgeWatch": "নজর রাখুন",
+  "badgePrevent": "প্রতিরোধ",
+  "offlineMode": "অফলাইন মোড",
+  "offlineCaveat": "ইন্টারনেট চালু করে আরও নিখুঁত ফলাফল পান",
+  "alertsDistrict": "{district} জেলা",
+  "@alertsDistrict": {
+    "placeholders": {
+      "district": {
+        "type": "String"
+      }
+    }
+  },
+  "alertsEmpty": "আপনার জেলায় এখন কোনো সতর্কতা নেই",
+  "alertsNoDistrict": "সতর্কতা দেখতে সেটিংসে আপনার জেলা বেছে নিন",
+  "alertUpazila": "{upazila} উপজেলা",
+  "@alertUpazila": {
+    "placeholders": {
+      "upazila": {
+        "type": "String"
+      }
+    }
+  },
+  "alertReporters": "{count} জন কৃষক রিপোর্ট করেছেন",
+  "@alertReporters": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "agoJustNow": "এইমাত্র",
+  "agoHours": "{n} ঘণ্টা আগে",
+  "@agoHours": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "agoDays": "{n} দিন আগে",
+  "@agoDays": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherDismiss": "বন্ধ করুন",
+  "pushOpen": "খুলুন",
+  "settingsSectionLocation": "এলাকা ও ফসল",
+  "settingsSectionPrivacy": "গোপনীয়তা",
+  "settingsSectionVoice": "কণ্ঠস্বর",
+  "settingsSectionAbout": "অ্যাপ সম্পর্কে",
+  "settingsNotifications": "নোটিফিকেশন",
+  "settingsNotificationsDesc": "আপনার জেলার রোগবালাই ও আবহাওয়ার বার্তা পাবেন।",
+  "settingsLocationHint": "জেলা বদলালে সেই জেলার সতর্কতা পাবেন।",
+  "ttsSpeedLabel": "পড়ে শোনানোর গতি",
+  "ttsSlow": "ধীরে",
+  "ttsNormal": "স্বাভাবিক",
+  "ttsFast": "দ্রুত",
+  "ttsTry": "শুনে দেখুন",
+  "ttsTrySample": "এই গতিতে আপনাকে পড়ে শোনানো হবে।",
+  "aboutApp": "অ্যাপের সংস্করণ: {version}",
+  "@aboutApp": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutKb": "তথ্যভান্ডারের সংস্করণ: {version}",
+  "@aboutKb": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteHistory": "ইতিহাস মুছুন",
+  "deleteHistoryDesc": "আপনার সব ডায়াগনোসিস, ছবি ও রিপোর্ট এই ফোন ও সার্ভার থেকে মুছে যাবে।",
+  "deleteConfirmTitle": "সব ইতিহাস মুছবেন?",
+  "deleteConfirmBody": "মুছে ফেললে আর ফেরানো যাবে না।",
+  "deleteConfirm": "মুছুন",
+  "deleting": "মোছা হচ্ছে…",
+  "deleteDone": "ইতিহাস মুছে ফেলা হয়েছে।",
+  "deleteFailed": "মোছা যায়নি। ইন্টারনেট সংযোগ দেখে আবার চেষ্টা করুন।",
+  "expertTitle": "কৃষি সহায়তা",
+  "expertOpenNow": "এখন খোলা",
+  "expertClosedNow": "এখন বন্ধ",
+  "expertHours": "সময়: {text}",
+  "@expertHours": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "expertCallNow": "কল করুন",
+  "expertCallFailed": "কল করা যায়নি। নম্বরটি হলো {number}",
+  "@expertCallFailed": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "expertShareTitle": "ছবি ও ফলাফল শেয়ার করুন",
+  "expertShareDesc": "আপনার পছন্দের যেকোনো অ্যাপে পাঠাতে পারবেন।",
+  "shareResult": "শেয়ার করুন",
+  "shareFailed": "শেয়ার করা যায়নি।",
+  "shareCardTagline": "কৃষি সহায় অ্যাপ থেকে পাঠানো",
+  "shareActionLabel": "করণীয়",
+  "updateAvailable": "অ্যাপের নতুন সংস্করণ এসেছে। হালনাগাদ করলে নতুন তথ্য ও উন্নতি পাবেন।",
+  "updateAction": "হালনাগাদ করুন"
+}

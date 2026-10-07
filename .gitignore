@@ -46,3 +46,32 @@ app.*.map.json
 
 # Widget Preview related
 .widget_preview/
+
+# Project extras
+node_modules/
+functions/lib/
+coverage/
+.firebase/
+*-debug.log
+.runtimeconfig.json
+*.jks
+*.keystore
+android/key.properties
+.env*
+build/symbols/
+tools/eval/reports/
+tools/eval/testset/
+functions/.secret.local
+functions/.env.local
+firebase-debug.log
+ui-debug.log
+firestore-debug.log
+functions/lib/
+
+# Release signing (docs/release/release-checklist.md)
+android/key.properties
+*.jks
+*.keystore
+
+# Obfuscation symbols: keep, but upload to Crashlytics, never commit
+build/symbols/

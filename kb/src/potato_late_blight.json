@@ -1,0 +1,38 @@
+{
+  "status": "draft",
+  "medicine": [
+    {
+      "name_bn": "<অনুমোদিত নাম>",
+      "active_ingredient": "<verified>",
+      "dose_bn": "<verified dose>",
+      "interval_bn": "<verified interval>",
+      "pre_harvest_interval_days": null
+    }
+  ],
+  "source": "DEV SEED: not reviewed, never ship",
+  "reviewed_by": "",
+  "reviewed_at": "",
+  "id": "potato_late_blight",
+  "crop": "potato",
+  "name_bn": "আলুর লেট ব্লাইট",
+  "name_en": "Potato late blight",
+  "ai_hint_en": "Water-soaked pale green patches on leaves turning brown-black quickly, white mould on the underside in humid weather, dark stem lesions, rotting tubers.",
+  "description_bn": "লেট ব্লাইট আলুর সবচেয়ে ক্ষতিকর রোগ। ঠান্ডা ও মেঘলা আবহাওয়ায় কয়েক দিনেই পুরো ক্ষেত নষ্ট হতে পারে।",
+  "symptoms_bn": [
+    "পাতায় পানিভেজা ফ্যাকাশে সবুজ দাগ, যা দ্রুত বাদামি-কালো হয়",
+    "পাতার নিচে সাদা ছত্রাকের মতো আবরণ",
+    "কাণ্ডে কালো দাগ ও আলু পচে যাওয়া"
+  ],
+  "cause_bn": "ফাইটোফথোরা নামের জীবাণু। বেশি আর্দ্রতা ও কুয়াশায় দ্রুত ছড়ায়।",
+  "urgency": "high",
+  "immediate_bn": [
+    "আক্রান্ত গাছ তুলে ক্ষেত থেকে দূরে পুঁতে ফেলুন",
+    "দ্রুত কৃষি কর্মকর্তার সাথে যোগাযোগ করুন"
+  ],
+  "prevention_bn": [
+    "রোগমুক্ত বীজ আলু ব্যবহার করুন",
+    "ক্ষেতে পানি জমতে দেবেন না",
+    "আবহাওয়া মেঘলা হলে ক্ষেত নিয়মিত দেখুন"
+  ],
+  "see_expert": true
+}

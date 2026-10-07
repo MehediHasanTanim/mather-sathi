@@ -1,0 +1,15 @@
+{
+  "name": "krishi-rules-tests",
+  "private": true,
+  "scripts": {
+    "test": "node --test --test-concurrency=1 test/*.test.js",
+    "test:e2e": "npx --yes firebase-tools@latest emulators:exec --only functions,firestore,auth --project demo-krishi \"node test/e2e/alerts_e2e.js\"",
+    "test:e2e:drills": "npx --yes firebase-tools@latest emulators:exec --only functions,firestore,auth,storage --project demo-krishi \"node test/e2e/drills_e2e.js\"",
+    "test:e2e:delete": "npx --yes firebase-tools@latest emulators:exec --only functions,firestore,auth,storage --project demo-krishi \"node test/e2e/delete_e2e.js\"",
+    "test:emulated": "npx --yes firebase-tools@latest emulators:exec --only firestore,storage --project demo-krishi \"npm test\""
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "^4.0.1",
+    "firebase": "^11.0.0"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "status": "draft",
+  "medicine": [
+    {
+      "name_bn": "<অনুমোদিত নাম>",
+      "active_ingredient": "<verified>",
+      "dose_bn": "<verified dose>",
+      "interval_bn": "<verified interval>",
+      "pre_harvest_interval_days": null
+    }
+  ],
+  "source": "DEV SEED: not reviewed, never ship",
+  "reviewed_by": "",
+  "reviewed_at": "",
+  "id": "rice_brown_spot",
+  "crop": "rice",
+  "name_bn": "ধানের বাদামি দাগ রোগ",
+  "name_en": "Rice brown spot",
+  "ai_hint_en": "Many small oval brown spots on leaves, often with a yellow halo; discoloured, partly empty grains.",
+  "description_bn": "বাদামি দাগ রোগে ধানের পাতায় ছোট ছোট বাদামি দাগ পড়ে। মাটিতে পুষ্টির অভাব থাকলে রোগ বেশি হয়।",
+  "symptoms_bn": [
+    "পাতায় ডিমের মতো ছোট বাদামি দাগ",
+    "দাগের চারপাশে হলদে বলয়",
+    "আক্রান্ত দানা বিবর্ণ ও চিটা হয়"
+  ],
+  "cause_bn": "হেলমিনথোস্পোরিয়াম নামের ছত্রাক। পুষ্টির ঘাটতি ও পানির অভাবে রোগ বাড়ে।",
+  "urgency": "medium",
+  "immediate_bn": [
+    "জমিতে যেন পানির ঘাটতি না হয় তা দেখুন"
+  ],
+  "prevention_bn": [
+    "সুস্থ ও পরিষ্কার বীজ ব্যবহার করুন",
+    "মাটি পরীক্ষা করে সুষম সার দিন"
+  ],
+  "see_expert": false
+}
