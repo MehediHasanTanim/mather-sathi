@@ -1119,6 +1119,18 @@ abstract class AppLocalizations {
   /// In bn, this message translates to:
   /// **'করণীয়'**
   String get shareActionLabel;
+
+  /// No description provided for @updateAvailable.
+  ///
+  /// In bn, this message translates to:
+  /// **'অ্যাপের নতুন সংস্করণ এসেছে। হালনাগাদ করলে নতুন তথ্য ও উন্নতি পাবেন।'**
+  String get updateAvailable;
+
+  /// No description provided for @updateAction.
+  ///
+  /// In bn, this message translates to:
+  /// **'হালনাগাদ করুন'**
+  String get updateAction;
 }
 
 class _AppLocalizationsDelegate

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/flags/remote_flags.dart';
 import '../../../core/l10n/gen/app_localizations.dart';
 import '../../capture/presentation/preview_screen.dart' show issueTip;
 import '../../capture/providers/capture_provider.dart';
@@ -13,10 +14,10 @@ import '../providers/diagnosis_providers.dart';
 
 const kAnalyzingRoute = '/analyzing';
 
-String failureMessage(AppLocalizations l, DiagnosisFailure f) => switch (f) {
+String failureMessage(AppLocalizations l, DiagnosisFailure f, {String capText = ''}) => switch (f) {
       NeedsInternet() => l.needsInternet,
       OfflineModelMissing() => l.offlineModelMissing,
-      DailyCapReached() => l.dailyCapReached,
+      DailyCapReached() => capText.isNotEmpty ? capText : l.dailyCapReached,
       CloudTimeout() || ServiceRejected() || ServerError() => l.diagnosisFailed,
     };
 
@@ -98,7 +99,7 @@ class AnalyzingScreen extends ConsumerWidget {
               ),
             FlowFailed(:final failure) => _Problem(
                 icon: Icons.cloud_off,
-                text: failureMessage(l, failure),
+                text: failureMessage(l, failure, capText: ref.watch(remoteFlagsProvider).dailyCapDisplay),
                 actions: [
                   if (canRetry(failure))
                     FilledButton(key: const Key('retry'), onPressed: notifier.retry, child: Text(l.tryAgain)),

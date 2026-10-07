@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/errors/error_reporter.dart';
+import '../diagnosis/providers/diagnosis_providers.dart' show authGateProvider;
 import 'data/kb_repository.dart';
 import 'data/kb_updater.dart';
 import 'domain/kb_models.dart';
@@ -26,6 +27,7 @@ final kbUpdaterProvider = Provider<KbUpdater>((ref) => KbUpdater(
       reporter: ref.watch(errorReporterProvider),
       currentSeq: () => ref.read(kbProvider).value?.seq ?? 0,
       allowDrafts: ref.watch(allowDraftKbProvider),
+      auth: ref.watch(authGateProvider),
     ));
 
 /// Checks for a newer KB and, if one was installed, reloads it so open screens show the new content.

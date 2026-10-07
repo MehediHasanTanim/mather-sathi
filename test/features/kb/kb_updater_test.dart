@@ -161,6 +161,21 @@ void main() {
     expect(kb['rice_blast'], isNotNull);
   });
 
+  test('it signs in first (the rules need it) and does nothing quietly when sign-in is impossible', () async {
+    source.publish(kbJson(seq: 2));
+    final auth = FakeAuth();
+    final u = KbUpdater(source: source, reporter: reporter, currentSeq: () => current, auth: auth, localFile: () async => live);
+    expect(await u.check(), KbUpdateResult.updated);
+    expect(auth.calls, 1);
+
+    live.deleteSync();
+    final offline = KbUpdater(source: source, reporter: reporter, currentSeq: () => current, auth: FakeAuth()..throws = Exception('offline'), localFile: () async => live);
+    source.downloads = 0;
+    expect(await offline.check(), KbUpdateResult.failed);
+    expect(source.downloads, 0);
+    expect(reporter.reports, isEmpty, reason: 'being offline on a fresh install is not a crash-worthy event');
+  });
+
   test('KnowledgeBase parse is what vets the file (schema newer than supported)', () {
     expect(() => KnowledgeBase.parse(kbJson(seq: 2, schema: 9)), throwsA(anything));
   });

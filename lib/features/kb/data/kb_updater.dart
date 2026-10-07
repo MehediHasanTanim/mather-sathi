@@ -10,6 +10,7 @@ import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 
 import '../../../core/errors/error_reporter.dart';
+import '../../diagnosis/diagnosis_service.dart' show AuthGate;
 import '../domain/kb_models.dart';
 
 /// `kb_versions/current`, written only by the publish tool (clients can read it, never write it).
@@ -54,7 +55,7 @@ enum KbUpdateResult { updated, upToDate, skipped, failed }
 /// next to the live file and renamed into place, so a crash or a bad file can never leave the app without a KB.
 /// This is also how a bad entry is hidden without an app release: publish a new `seq` where it is not published.
 class KbUpdater {
-  KbUpdater({required this.source, required this.reporter, required this.currentSeq, this.allowDrafts = false, Future<File> Function()? localFile})
+  KbUpdater({required this.source, required this.reporter, required this.currentSeq, this.allowDrafts = false, this.auth, Future<File> Function()? localFile})
       : _localFile = localFile ?? _defaultFile;
 
   static const maxBytes = 2 * 1024 * 1024;
@@ -65,6 +66,9 @@ class KbUpdater {
   /// The `seq` of the KB the app is using now.
   final int Function() currentSeq;
   final bool allowDrafts;
+
+  /// The rules need a signed-in user, and sign-in is lazy: do it first. No network means no update, quietly.
+  final AuthGate? auth;
   final Future<File> Function() _localFile;
 
   static Future<File> _defaultFile() async => File(p.join((await getApplicationDocumentsDirectory()).path, 'kb', 'kb.json'));
@@ -72,6 +76,11 @@ class KbUpdater {
   /// Never throws: an update is an improvement, not a requirement.
   Future<KbUpdateResult> check() async {
     try {
+      try {
+        await auth?.ensureSignedIn();
+      } catch (_) {
+        return KbUpdateResult.failed;
+      }
       final pointer = await source.current();
       if (pointer == null) return KbUpdateResult.upToDate; // no pointer published, or an unreadable one
       if (pointer.seq <= currentSeq()) return KbUpdateResult.upToDate;

@@ -11,6 +11,10 @@ service cloud.firestore {
         && id.matches(request.auth.uid + '_.*')
         && request.resource.data.uid == request.auth.uid
         && request.resource.data.createdAt == request.time
+        // the TTL clock is client-supplied, so cap it: a far-future expireAt would keep a report forever. The app sends
+        // now+30d; the slack absorbs a phone clock that runs fast. A past value is harmless (the report just expires early).
+        && request.resource.data.expireAt is timestamp
+        && request.resource.data.expireAt <= request.time + duration.value(62, 'd')
         // exactly these fields: none missing, none extra
         && request.resource.data.keys().hasAll(
              ['uid','district','upazila','crop','diseaseId','week','createdAt','expireAt'])

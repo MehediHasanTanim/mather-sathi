@@ -3,9 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../profile/providers/profile_provider.dart';
 import '../data/weather_source.dart';
 import '../domain/weather_info.dart';
+import '../../diagnosis/providers/diagnosis_providers.dart' show authGateProvider;
 
 final weatherSourceProvider = Provider<WeatherSource>(
-  (ref) => FirestoreWeatherSource(),
+  (ref) => FirestoreWeatherSource(auth: ref.watch(authGateProvider)),
 );
 final weatherDismissStoreProvider = Provider<WeatherDismissStore>(
   (ref) => PrefsWeatherDismissStore(),

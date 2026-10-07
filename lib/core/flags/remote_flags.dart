@@ -24,6 +24,7 @@ class RemoteFlags {
     this.helplineNote = '',
     this.helplineSchedule = '',
     this.minAppVersion = '',
+    this.dailyCapDisplay = '',
   });
 
   static const defaults = RemoteFlags();
@@ -45,6 +46,9 @@ class RemoteFlags {
   /// Empty or unparsable = unknown, and the badge is not shown.
   final String helplineSchedule;
   final String minAppVersion;
+
+  /// Message text only (the server cap is authoritative); empty = the built-in Bangla text.
+  final String dailyCapDisplay;
 
   /// Builds flags from raw key/value pairs, falling back to the default for
   /// any missing or malformed value.
@@ -82,13 +86,14 @@ class RemoteFlags {
       helplineNote: str('helpline_note', d.helplineNote),
       helplineSchedule: str('helpline_schedule', d.helplineSchedule),
       minAppVersion: str('min_app_version', d.minAppVersion),
+      dailyCapDisplay: str('daily_cap_display', d.dailyCapDisplay),
     );
   }
 
   List<Object> get _fields => [
         cloudDiagnosisEnabled, confHigh, confMedium, minCropMass, blurThreshold,
         darkThreshold, ttsRateSlow, ttsRateNormal, ttsRateFast, helplineNumber,
-        helplineHoursText, helplineNote, helplineSchedule, minAppVersion,
+        helplineHoursText, helplineNote, helplineSchedule, minAppVersion, dailyCapDisplay,
       ];
 
   @override
@@ -103,7 +108,7 @@ class RemoteFlags {
     'cloud_diagnosis_enabled', 'conf_high', 'conf_medium', 'min_crop_mass',
     'blur_threshold', 'dark_threshold', 'tts_rate_slow', 'tts_rate_normal',
     'tts_rate_fast', 'helpline_number', 'helpline_hours_text', 'helpline_note',
-    'helpline_schedule', 'min_app_version',
+    'helpline_schedule', 'min_app_version', 'daily_cap_display',
   ];
 }
 

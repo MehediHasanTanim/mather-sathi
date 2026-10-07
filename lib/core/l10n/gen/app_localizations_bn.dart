@@ -560,4 +560,11 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get shareActionLabel => 'করণীয়';
+
+  @override
+  String get updateAvailable =>
+      'অ্যাপের নতুন সংস্করণ এসেছে। হালনাগাদ করলে নতুন তথ্য ও উন্নতি পাবেন।';
+
+  @override
+  String get updateAction => 'হালনাগাদ করুন';
 }

@@ -10,6 +10,7 @@ import '../../capture/domain/crop_selection.dart';
 import '../../capture/presentation/capture_actions.dart';
 import '../../capture/providers/capture_provider.dart';
 import '../../crops/crop.dart';
+import '../../update/app_update.dart';
 import '../../weather/presentation/weather_banner.dart';
 
 /// Crop selection (8 launch crops + "other") and the entry to capture.
@@ -55,6 +56,7 @@ class _ScanHomeScreenState extends ConsumerState<ScanHomeScreen> {
       appBar: AppBar(title: Text(l.appName)),
       body: Column(
         children: [
+          const UpdateBanner(),
           const WeatherBannerView(),
           Expanded(
             child: ListView(

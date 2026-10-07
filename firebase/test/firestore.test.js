@@ -57,6 +57,13 @@ test.describe('reports: create-once, never readable', () => {
     await assertSucceeds(setDoc(doc(asUser('alice'), `reports/${reportId('alice')}`), report('alice')));
   });
 
+  test('expireAt is capped: a far-future TTL is denied, a normal or slightly fast-clock one is allowed', async () => {
+    const db = asUser('alice');
+    await assertFails(setDoc(doc(db, `reports/${reportId('alice')}`), report('alice', { expireAt: Timestamp.fromMillis(Date.now() + 365 * 864e5) })));
+    await assertFails(setDoc(doc(db, `reports/${reportId('alice')}`), report('alice', { expireAt: 'never' })));
+    await assertSucceeds(setDoc(doc(db, `reports/${reportId('alice')}`), report('alice', { expireAt: Timestamp.fromMillis(Date.now() + 45 * 864e5) })));
+  });
+
   test('a second report for the same install, week, crop and disease is denied (the dedupe)', async () => {
     const db = asUser('alice');
     await assertSucceeds(setDoc(doc(db, `reports/${reportId('alice')}`), report('alice')));

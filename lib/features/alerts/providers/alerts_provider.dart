@@ -2,9 +2,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/alerts_source.dart';
 import '../domain/alert.dart';
+import '../../diagnosis/providers/diagnosis_providers.dart' show authGateProvider;
 
 final alertsSourceProvider = Provider<AlertsSource>(
-  (ref) => FirestoreAlertsSource(),
+  (ref) => FirestoreAlertsSource(auth: ref.watch(authGateProvider)),
 );
 
 /// Live alerts for one district. Auto-disposes when the Alerts tab is not on screen.

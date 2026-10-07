@@ -254,5 +254,7 @@
   "shareResult": "শেয়ার করুন",
   "shareFailed": "শেয়ার করা যায়নি।",
   "shareCardTagline": "কৃষি সহায় অ্যাপ থেকে পাঠানো",
-  "shareActionLabel": "করণীয়"
+  "shareActionLabel": "করণীয়",
+  "updateAvailable": "অ্যাপের নতুন সংস্করণ এসেছে। হালনাগাদ করলে নতুন তথ্য ও উন্নতি পাবেন।",
+  "updateAction": "হালনাগাদ করুন"
 }
