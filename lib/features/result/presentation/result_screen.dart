@@ -3,15 +3,18 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/l10n/bn_numerals.dart';
 import '../../../core/l10n/gen/app_localizations.dart';
 import '../../crops/crop.dart';
 import '../../diagnosis/domain/diagnosis_models.dart';
+import '../../expert/expert_screen.dart';
 import '../../history/domain/diagnosis_record.dart';
 import '../../history/providers/history_provider.dart';
 import '../../kb/domain/kb_models.dart';
 import '../../kb/kb_provider.dart';
+import '../../share/share_button.dart';
 import '../../tts/listen_button.dart';
 import '../../tts/tts_script.dart';
 import 'feedback_row.dart';
@@ -142,7 +145,10 @@ class _Body extends ConsumerWidget {
         ]),
       ),
       const SizedBox(height: 12),
-      ListenButton(script: () => buildDiseaseScript(l, d)),
+      Wrap(spacing: 8, runSpacing: 8, crossAxisAlignment: WrapCrossAlignment.center, children: [
+        ListenButton(script: () => buildDiseaseScript(l, d)),
+        ShareButton(disease: d),
+      ]),
       section(l.sectionDescription, [d.descriptionBn], bullets: false),
       section(l.sectionSymptoms, d.symptomsBn),
       if (d.immediateBn.isNotEmpty || showMedicine) ...[
@@ -320,10 +326,9 @@ class _ExpertButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l = AppLocalizations.of(context);
-    // The helpline screen arrives in Phase 8 (task 8.4).
     return OutlinedButton.icon(
       key: const Key('expert_button'),
-      onPressed: () => ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(l.comingSoon))),
+      onPressed: () => context.push(kExpertRoute),
       icon: const Icon(Icons.call),
       label: Text(l.callExpert),
     );

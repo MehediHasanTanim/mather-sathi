@@ -17,6 +17,9 @@ abstract interface class HistoryStore {
   Future<void> markPhotoSynced(String id);
   Future<void> setFeedback(String id, String feedback, {String? actual});
   Future<List<String>> enforceRetention({int keep});
+
+  /// Removes every row and returns the local photo paths, so the caller can delete the files.
+  Future<List<String>> deleteAll();
 }
 
 class HistoryDao implements HistoryStore {
@@ -88,6 +91,13 @@ class HistoryDao implements HistoryStore {
 
   Future<void> _set(String id, Map<String, Object?> values) =>
       _db.update('diagnosis_history', values, where: 'id = ?', whereArgs: [id]).then((_) {});
+
+  @override
+  Future<List<String>> deleteAll() => _db.transaction((txn) async {
+        final rows = await txn.query('diagnosis_history', columns: ['photo_path']);
+        await txn.delete('diagnosis_history');
+        return [for (final r in rows) if (r['photo_path'] != null) r['photo_path']! as String];
+      });
 
   /// Deletes every row beyond the newest [keep] and returns the local photo
   /// paths of the deleted rows, so the caller can delete the files.

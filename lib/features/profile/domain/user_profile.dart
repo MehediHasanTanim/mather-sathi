@@ -35,10 +35,11 @@ class UserProfile {
     bool? notifications,
     String? ttsSpeed,
     bool? onboardingDone,
+    bool clearUpazila = false,
   }) =>
       UserProfile(
         district: district ?? this.district,
-        upazila: upazila ?? this.upazila,
+        upazila: clearUpazila ? null : (upazila ?? this.upazila),
         defaultCrop: defaultCrop ?? this.defaultCrop,
         shareReports: shareReports ?? this.shareReports,
         photoBackup: photoBackup ?? this.photoBackup,

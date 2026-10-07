@@ -53,6 +53,13 @@ class InMemoryHistoryStore implements HistoryStore {
   }
 
   @override
+  Future<List<String>> deleteAll() async {
+    final paths = [for (final r in rows.values) if (r.photoPath != null) r.photoPath!];
+    rows.clear();
+    return paths;
+  }
+
+  @override
   Future<List<String>> enforceRetention({int keep = 50}) async {
     final stale = _sorted.skip(keep).toList();
     for (final r in stale) {

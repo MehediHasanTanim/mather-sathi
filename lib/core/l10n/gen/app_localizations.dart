@@ -909,6 +909,216 @@ abstract class AppLocalizations {
   /// In bn, this message translates to:
   /// **'খুলুন'**
   String get pushOpen;
+
+  /// No description provided for @settingsSectionLocation.
+  ///
+  /// In bn, this message translates to:
+  /// **'এলাকা ও ফসল'**
+  String get settingsSectionLocation;
+
+  /// No description provided for @settingsSectionPrivacy.
+  ///
+  /// In bn, this message translates to:
+  /// **'গোপনীয়তা'**
+  String get settingsSectionPrivacy;
+
+  /// No description provided for @settingsSectionVoice.
+  ///
+  /// In bn, this message translates to:
+  /// **'কণ্ঠস্বর'**
+  String get settingsSectionVoice;
+
+  /// No description provided for @settingsSectionAbout.
+  ///
+  /// In bn, this message translates to:
+  /// **'অ্যাপ সম্পর্কে'**
+  String get settingsSectionAbout;
+
+  /// No description provided for @settingsNotifications.
+  ///
+  /// In bn, this message translates to:
+  /// **'নোটিফিকেশন'**
+  String get settingsNotifications;
+
+  /// No description provided for @settingsNotificationsDesc.
+  ///
+  /// In bn, this message translates to:
+  /// **'আপনার জেলার রোগবালাই ও আবহাওয়ার বার্তা পাবেন।'**
+  String get settingsNotificationsDesc;
+
+  /// No description provided for @settingsLocationHint.
+  ///
+  /// In bn, this message translates to:
+  /// **'জেলা বদলালে সেই জেলার সতর্কতা পাবেন।'**
+  String get settingsLocationHint;
+
+  /// No description provided for @ttsSpeedLabel.
+  ///
+  /// In bn, this message translates to:
+  /// **'পড়ে শোনানোর গতি'**
+  String get ttsSpeedLabel;
+
+  /// No description provided for @ttsSlow.
+  ///
+  /// In bn, this message translates to:
+  /// **'ধীরে'**
+  String get ttsSlow;
+
+  /// No description provided for @ttsNormal.
+  ///
+  /// In bn, this message translates to:
+  /// **'স্বাভাবিক'**
+  String get ttsNormal;
+
+  /// No description provided for @ttsFast.
+  ///
+  /// In bn, this message translates to:
+  /// **'দ্রুত'**
+  String get ttsFast;
+
+  /// No description provided for @ttsTry.
+  ///
+  /// In bn, this message translates to:
+  /// **'শুনে দেখুন'**
+  String get ttsTry;
+
+  /// No description provided for @ttsTrySample.
+  ///
+  /// In bn, this message translates to:
+  /// **'এই গতিতে আপনাকে পড়ে শোনানো হবে।'**
+  String get ttsTrySample;
+
+  /// No description provided for @aboutApp.
+  ///
+  /// In bn, this message translates to:
+  /// **'অ্যাপের সংস্করণ: {version}'**
+  String aboutApp(String version);
+
+  /// No description provided for @aboutKb.
+  ///
+  /// In bn, this message translates to:
+  /// **'তথ্যভান্ডারের সংস্করণ: {version}'**
+  String aboutKb(String version);
+
+  /// No description provided for @deleteHistory.
+  ///
+  /// In bn, this message translates to:
+  /// **'ইতিহাস মুছুন'**
+  String get deleteHistory;
+
+  /// No description provided for @deleteHistoryDesc.
+  ///
+  /// In bn, this message translates to:
+  /// **'আপনার সব ডায়াগনোসিস, ছবি ও রিপোর্ট এই ফোন ও সার্ভার থেকে মুছে যাবে।'**
+  String get deleteHistoryDesc;
+
+  /// No description provided for @deleteConfirmTitle.
+  ///
+  /// In bn, this message translates to:
+  /// **'সব ইতিহাস মুছবেন?'**
+  String get deleteConfirmTitle;
+
+  /// No description provided for @deleteConfirmBody.
+  ///
+  /// In bn, this message translates to:
+  /// **'মুছে ফেললে আর ফেরানো যাবে না।'**
+  String get deleteConfirmBody;
+
+  /// No description provided for @deleteConfirm.
+  ///
+  /// In bn, this message translates to:
+  /// **'মুছুন'**
+  String get deleteConfirm;
+
+  /// No description provided for @deleting.
+  ///
+  /// In bn, this message translates to:
+  /// **'মোছা হচ্ছে…'**
+  String get deleting;
+
+  /// No description provided for @deleteDone.
+  ///
+  /// In bn, this message translates to:
+  /// **'ইতিহাস মুছে ফেলা হয়েছে।'**
+  String get deleteDone;
+
+  /// No description provided for @deleteFailed.
+  ///
+  /// In bn, this message translates to:
+  /// **'মোছা যায়নি। ইন্টারনেট সংযোগ দেখে আবার চেষ্টা করুন।'**
+  String get deleteFailed;
+
+  /// No description provided for @expertTitle.
+  ///
+  /// In bn, this message translates to:
+  /// **'কৃষি সহায়তা'**
+  String get expertTitle;
+
+  /// No description provided for @expertOpenNow.
+  ///
+  /// In bn, this message translates to:
+  /// **'এখন খোলা'**
+  String get expertOpenNow;
+
+  /// No description provided for @expertClosedNow.
+  ///
+  /// In bn, this message translates to:
+  /// **'এখন বন্ধ'**
+  String get expertClosedNow;
+
+  /// No description provided for @expertHours.
+  ///
+  /// In bn, this message translates to:
+  /// **'সময়: {text}'**
+  String expertHours(String text);
+
+  /// No description provided for @expertCallNow.
+  ///
+  /// In bn, this message translates to:
+  /// **'কল করুন'**
+  String get expertCallNow;
+
+  /// No description provided for @expertCallFailed.
+  ///
+  /// In bn, this message translates to:
+  /// **'কল করা যায়নি। নম্বরটি হলো {number}'**
+  String expertCallFailed(String number);
+
+  /// No description provided for @expertShareTitle.
+  ///
+  /// In bn, this message translates to:
+  /// **'ছবি ও ফলাফল শেয়ার করুন'**
+  String get expertShareTitle;
+
+  /// No description provided for @expertShareDesc.
+  ///
+  /// In bn, this message translates to:
+  /// **'আপনার পছন্দের যেকোনো অ্যাপে পাঠাতে পারবেন।'**
+  String get expertShareDesc;
+
+  /// No description provided for @shareResult.
+  ///
+  /// In bn, this message translates to:
+  /// **'শেয়ার করুন'**
+  String get shareResult;
+
+  /// No description provided for @shareFailed.
+  ///
+  /// In bn, this message translates to:
+  /// **'শেয়ার করা যায়নি।'**
+  String get shareFailed;
+
+  /// No description provided for @shareCardTagline.
+  ///
+  /// In bn, this message translates to:
+  /// **'কৃষি সহায় অ্যাপ থেকে পাঠানো'**
+  String get shareCardTagline;
+
+  /// No description provided for @shareActionLabel.
+  ///
+  /// In bn, this message translates to:
+  /// **'করণীয়'**
+  String get shareActionLabel;
 }
 
 class _AppLocalizationsDelegate

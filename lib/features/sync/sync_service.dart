@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:flutter/foundation.dart';
 
@@ -12,6 +14,19 @@ import 'week_key.dart';
 
 abstract interface class SyncRunner {
   Future<void> flush();
+
+  /// Stops syncing and waits for a pass in flight to finish. Used while the farmer's data is being deleted, so a
+  /// running sync cannot write it back. Call [resume] afterwards.
+  Future<void> suspend();
+  void resume();
+}
+
+/// Reads a stored photo; null when it is gone.
+typedef PhotoReader = Future<Uint8List?> Function(String path);
+
+Future<Uint8List?> readPhotoFile(String path) async {
+  final f = File(path);
+  return await f.exists() ? f.readAsBytes() : null;
 }
 
 /// `report_state` values on a history row.
@@ -21,7 +36,8 @@ const kReportNotEligible = 2;
 
 /// Push-only backup (Design §10.4). SQLite stays the source of truth; Firestore holds history metadata and the
 /// anonymised regional reports. Every step is idempotent, so a retry after a timeout is always safe.
-/// Photo upload (backup/contribution) is added in task 8.2.
+/// Photos go up only when the farmer turned backup or contribution on before the diagnosis was saved (`photo_synced`
+/// is set at save time for everyone else), to `backups/` and/or `contrib/`.
 class SyncService implements SyncRunner {
   SyncService({
     required this.history,
@@ -30,8 +46,11 @@ class SyncService implements SyncRunner {
     required this.remote,
     required this.connectivity,
     this.opTimeout = const Duration(seconds: 10),
+    this.photoTimeout = const Duration(seconds: 30),
+    PhotoReader? readPhoto,
     DateTime Function()? now,
-  }) : _now = now ?? DateTime.now;
+  })  : _now = now ?? DateTime.now,
+        _readPhoto = readPhoto ?? readPhotoFile;
 
   final HistoryStore history;
   final ProfileStore profile;
@@ -39,28 +58,46 @@ class SyncService implements SyncRunner {
   final SyncRemote remote;
   final ConnectivityChecker connectivity;
   final Duration opTimeout;
+  final Duration photoTimeout;
+  final PhotoReader _readPhoto;
   final DateTime Function() _now;
 
-  bool _running = false;
+  Future<void>? _loop; // the pass in flight, if any
   bool _again = false;
+  bool _suspended = false;
 
   /// Pushes everything pending. Never throws. Calls made while a flush is running queue exactly one more pass.
   @override
   Future<void> flush() async {
-    if (_running) {
+    if (_suspended) return;
+    if (_loop != null) {
       _again = true;
       return;
     }
-    _running = true;
+    final run = _run();
+    _loop = run;
     try {
-      do {
-        _again = false;
-        await _flushOnce();
-      } while (_again);
+      await run;
     } finally {
-      _running = false;
+      _loop = null;
     }
   }
+
+  Future<void> _run() async {
+    do {
+      _again = false;
+      await _flushOnce();
+    } while (_again && !_suspended);
+  }
+
+  @override
+  Future<void> suspend() async {
+    _suspended = true;
+    await _loop;
+  }
+
+  @override
+  void resume() => _suspended = false;
 
   Future<void> _flushOnce() async {
     try {
@@ -68,6 +105,7 @@ class SyncService implements SyncRunner {
       final uid = await auth.ensureSignedIn(); // writes are rejected without auth
       final p = await profile.load() ?? UserProfile.initial;
       for (final r in await history.pending()) {
+        if (_suspended) return;
         await _syncRow(uid, p, r);
       }
     } catch (e) {
@@ -97,9 +135,32 @@ class SyncService implements SyncRunner {
           await history.markReported(r.id);
         }
       }
+      // 3. photo, only with explicit consent
+      if (!r.photoSynced && (p.photoBackup || p.photoContribute)) {
+        await _uploadPhoto(uid, p, r);
+        await history.markPhotoSynced(r.id);
+      }
     } catch (e) {
       // One bad row (timeout, offline) must not block the others; it stays pending.
       debugPrint('sync of ${r.id} failed: $e');
+    }
+  }
+
+  Future<void> _uploadPhoto(String uid, UserProfile p, DiagnosisRecord r) async {
+    final path = r.photoPath;
+    final bytes = path == null ? null : await _readPhoto(path);
+    if (bytes == null) return; // the file is gone: nothing to upload, and nothing to retry
+    if (p.photoBackup) {
+      final target = 'backups/$uid/${r.id}.jpg';
+      await remote.uploadPhoto(target, bytes).timeout(photoTimeout);
+      await remote.setPhotoUrl(uid, r.id, target).timeout(opTimeout);
+    }
+    if (p.photoContribute) {
+      try {
+        await remote.uploadPhoto('contrib/$uid/${r.id}.jpg', bytes).timeout(photoTimeout);
+      } on SyncDenied {
+        // contrib/ is write-once: a retry after a lost response finds the object already there.
+      }
     }
   }
 

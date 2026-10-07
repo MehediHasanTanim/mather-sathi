@@ -6,6 +6,7 @@ import '../../features/alerts/presentation/alerts_screen.dart';
 import '../../features/capture/presentation/preview_screen.dart';
 import '../../features/diagnosis/presentation/analyzing_screen.dart';
 import '../../features/result/presentation/result_screen.dart';
+import '../../features/expert/expert_screen.dart';
 import '../../features/history/presentation/history_screen.dart';
 import '../../features/home/presentation/home_shell.dart';
 import '../../features/home/presentation/scan_home_screen.dart';
@@ -36,6 +37,7 @@ final routerProvider = Provider<GoRouter>((ref) {
     ),
     routes: [
       GoRoute(path: '/onboarding', builder: (_, _) => const OnboardingScreen()),
+      GoRoute(path: kExpertRoute, builder: (_, _) => const ExpertScreen()),
       GoRoute(path: kAnalyzingRoute, builder: (_, _) => const AnalyzingScreen()),
       GoRoute(
         path: '/result/:id',

@@ -444,4 +444,120 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get pushOpen => 'খুলুন';
+
+  @override
+  String get settingsSectionLocation => 'এলাকা ও ফসল';
+
+  @override
+  String get settingsSectionPrivacy => 'গোপনীয়তা';
+
+  @override
+  String get settingsSectionVoice => 'কণ্ঠস্বর';
+
+  @override
+  String get settingsSectionAbout => 'অ্যাপ সম্পর্কে';
+
+  @override
+  String get settingsNotifications => 'নোটিফিকেশন';
+
+  @override
+  String get settingsNotificationsDesc =>
+      'আপনার জেলার রোগবালাই ও আবহাওয়ার বার্তা পাবেন।';
+
+  @override
+  String get settingsLocationHint => 'জেলা বদলালে সেই জেলার সতর্কতা পাবেন।';
+
+  @override
+  String get ttsSpeedLabel => 'পড়ে শোনানোর গতি';
+
+  @override
+  String get ttsSlow => 'ধীরে';
+
+  @override
+  String get ttsNormal => 'স্বাভাবিক';
+
+  @override
+  String get ttsFast => 'দ্রুত';
+
+  @override
+  String get ttsTry => 'শুনে দেখুন';
+
+  @override
+  String get ttsTrySample => 'এই গতিতে আপনাকে পড়ে শোনানো হবে।';
+
+  @override
+  String aboutApp(String version) {
+    return 'অ্যাপের সংস্করণ: $version';
+  }
+
+  @override
+  String aboutKb(String version) {
+    return 'তথ্যভান্ডারের সংস্করণ: $version';
+  }
+
+  @override
+  String get deleteHistory => 'ইতিহাস মুছুন';
+
+  @override
+  String get deleteHistoryDesc =>
+      'আপনার সব ডায়াগনোসিস, ছবি ও রিপোর্ট এই ফোন ও সার্ভার থেকে মুছে যাবে।';
+
+  @override
+  String get deleteConfirmTitle => 'সব ইতিহাস মুছবেন?';
+
+  @override
+  String get deleteConfirmBody => 'মুছে ফেললে আর ফেরানো যাবে না।';
+
+  @override
+  String get deleteConfirm => 'মুছুন';
+
+  @override
+  String get deleting => 'মোছা হচ্ছে…';
+
+  @override
+  String get deleteDone => 'ইতিহাস মুছে ফেলা হয়েছে।';
+
+  @override
+  String get deleteFailed =>
+      'মোছা যায়নি। ইন্টারনেট সংযোগ দেখে আবার চেষ্টা করুন।';
+
+  @override
+  String get expertTitle => 'কৃষি সহায়তা';
+
+  @override
+  String get expertOpenNow => 'এখন খোলা';
+
+  @override
+  String get expertClosedNow => 'এখন বন্ধ';
+
+  @override
+  String expertHours(String text) {
+    return 'সময়: $text';
+  }
+
+  @override
+  String get expertCallNow => 'কল করুন';
+
+  @override
+  String expertCallFailed(String number) {
+    return 'কল করা যায়নি। নম্বরটি হলো $number';
+  }
+
+  @override
+  String get expertShareTitle => 'ছবি ও ফলাফল শেয়ার করুন';
+
+  @override
+  String get expertShareDesc => 'আপনার পছন্দের যেকোনো অ্যাপে পাঠাতে পারবেন।';
+
+  @override
+  String get shareResult => 'শেয়ার করুন';
+
+  @override
+  String get shareFailed => 'শেয়ার করা যায়নি।';
+
+  @override
+  String get shareCardTagline => 'কৃষি সহায় অ্যাপ থেকে পাঠানো';
+
+  @override
+  String get shareActionLabel => 'করণীয়';
 }

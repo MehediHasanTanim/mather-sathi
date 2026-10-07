@@ -191,5 +191,68 @@
     }
   },
   "weatherDismiss": "বন্ধ করুন",
-  "pushOpen": "খুলুন"
+  "pushOpen": "খুলুন",
+  "settingsSectionLocation": "এলাকা ও ফসল",
+  "settingsSectionPrivacy": "গোপনীয়তা",
+  "settingsSectionVoice": "কণ্ঠস্বর",
+  "settingsSectionAbout": "অ্যাপ সম্পর্কে",
+  "settingsNotifications": "নোটিফিকেশন",
+  "settingsNotificationsDesc": "আপনার জেলার রোগবালাই ও আবহাওয়ার বার্তা পাবেন।",
+  "settingsLocationHint": "জেলা বদলালে সেই জেলার সতর্কতা পাবেন।",
+  "ttsSpeedLabel": "পড়ে শোনানোর গতি",
+  "ttsSlow": "ধীরে",
+  "ttsNormal": "স্বাভাবিক",
+  "ttsFast": "দ্রুত",
+  "ttsTry": "শুনে দেখুন",
+  "ttsTrySample": "এই গতিতে আপনাকে পড়ে শোনানো হবে।",
+  "aboutApp": "অ্যাপের সংস্করণ: {version}",
+  "@aboutApp": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutKb": "তথ্যভান্ডারের সংস্করণ: {version}",
+  "@aboutKb": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteHistory": "ইতিহাস মুছুন",
+  "deleteHistoryDesc": "আপনার সব ডায়াগনোসিস, ছবি ও রিপোর্ট এই ফোন ও সার্ভার থেকে মুছে যাবে।",
+  "deleteConfirmTitle": "সব ইতিহাস মুছবেন?",
+  "deleteConfirmBody": "মুছে ফেললে আর ফেরানো যাবে না।",
+  "deleteConfirm": "মুছুন",
+  "deleting": "মোছা হচ্ছে…",
+  "deleteDone": "ইতিহাস মুছে ফেলা হয়েছে।",
+  "deleteFailed": "মোছা যায়নি। ইন্টারনেট সংযোগ দেখে আবার চেষ্টা করুন।",
+  "expertTitle": "কৃষি সহায়তা",
+  "expertOpenNow": "এখন খোলা",
+  "expertClosedNow": "এখন বন্ধ",
+  "expertHours": "সময়: {text}",
+  "@expertHours": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "expertCallNow": "কল করুন",
+  "expertCallFailed": "কল করা যায়নি। নম্বরটি হলো {number}",
+  "@expertCallFailed": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "expertShareTitle": "ছবি ও ফলাফল শেয়ার করুন",
+  "expertShareDesc": "আপনার পছন্দের যেকোনো অ্যাপে পাঠাতে পারবেন।",
+  "shareResult": "শেয়ার করুন",
+  "shareFailed": "শেয়ার করা যায়নি।",
+  "shareCardTagline": "কৃষি সহায় অ্যাপ থেকে পাঠানো",
+  "shareActionLabel": "করণীয়"
 }

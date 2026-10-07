@@ -79,4 +79,8 @@ class NoopSync implements SyncRunner {
   int flushes = 0;
   @override
   Future<void> flush() async => flushes++;
+  @override
+  Future<void> suspend() async {}
+  @override
+  void resume() {}
 }

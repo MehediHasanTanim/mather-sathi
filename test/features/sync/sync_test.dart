@@ -1,3 +1,4 @@
+import 'dart:typed_data';
 import 'dart:async';
 
 import 'package:fake_async/fake_async.dart';
@@ -30,6 +31,22 @@ class FakeRemote implements SyncRemote {
     histories['$uid/$id'] = data;
   }
 
+  final urls = <String, String>{};
+  final uploads = <String, Uint8List>{};
+  Object? failUpload;
+  int uploadCalls = 0;
+
+  @override
+  Future<void> setPhotoUrl(String uid, String id, String storagePath) async => urls['$uid/$id'] = storagePath;
+
+  @override
+  Future<void> uploadPhoto(String storagePath, Uint8List jpeg) async {
+    uploadCalls++;
+    if (failUpload != null) throw failUpload!;
+    if (storagePath.startsWith('contrib/') && uploads.containsKey(storagePath)) throw const SyncDenied(); // write-once
+    uploads[storagePath] = jpeg;
+  }
+
   @override
   Future<void> setReport(String docId, Map<String, Object?> data) async {
     if (failReport != null) throw failReport!;
@@ -40,12 +57,12 @@ class FakeRemote implements SyncRemote {
 
 DiagnosisRecord rec(String id, {
   String? disease = 'rice_blast', String crop = 'rice', String? district = 'dhaka', String? upazila = '5',
-  DateTime? at, bool synced = false, int reportState = 0, String? feedback,
+  DateTime? at, bool synced = false, int reportState = 0, String? feedback, bool photoSynced = true, String? photo,
 }) =>
     DiagnosisRecord(
-      id: id, cropType: crop, diseaseId: disease, source: 'cloud', confidence: 'high', photoPath: '/p/$id.jpg',
+      id: id, cropType: crop, diseaseId: disease, source: 'cloud', confidence: 'high', photoPath: photo ?? '/p/$id.jpg',
       diagnosedAt: at ?? DateTime.utc(2026, 10, 6, 10), district: district, upazila: upazila,
-      isSynced: synced, reportState: reportState, feedback: feedback, photoSynced: true,
+      isSynced: synced, reportState: reportState, feedback: feedback, photoSynced: photoSynced,
     );
 
 class Env {
@@ -53,6 +70,7 @@ class Env {
     connectivity = FakeConnectivity(online);
     sync = SyncService(
       history: store, profile: FakeProfileStore(profile), auth: auth, remote: remote, connectivity: connectivity,
+      readPhoto: (p) async => p.contains('gone') ? null : Uint8List.fromList([0xff, 0xd8, 0xff]),
       now: () => DateTime.utc(2026, 10, 6),
     );
   }
@@ -237,6 +255,97 @@ void main() {
       await e.sync.flush();
       expect(e.remote.historyWrites, 0);
       expect(e.remote.reports, isEmpty);
+    });
+
+    group('photo upload (task 8.2)', () {
+      const backupOn = UserProfile(district: 'dhaka', upazila: '5', onboardingDone: true, photoBackup: true);
+      const contribOn = UserProfile(district: 'dhaka', upazila: '5', onboardingDone: true, photoContribute: true);
+      const bothOn = UserProfile(district: 'dhaka', upazila: '5', onboardingDone: true, photoBackup: true, photoContribute: true);
+
+      test('default (both off) uploads nothing', () async {
+        final e = Env()..store.rows['a'] = rec('a', photoSynced: false);
+        await e.sync.flush();
+        expect(e.remote.uploadCalls, 0);
+        expect(e.remote.urls, isEmpty);
+      });
+
+      test('backup on: uploads once to backups/{uid}/{id}.jpg and records photoUrl on the history doc', () async {
+        final e = Env(profile: backupOn)..store.rows['a'] = rec('a', photoSynced: false);
+        await e.sync.flush();
+        await e.sync.flush();
+        expect(e.remote.uploads.keys, ['backups/test-uid/a.jpg']);
+        expect(e.remote.uploadCalls, 1, reason: 'the row is marked done, so a second flush does not upload again');
+        expect(e.remote.urls['test-uid/a'], 'backups/test-uid/a.jpg');
+        expect(e.store.rows['a']!.photoSynced, isTrue);
+      });
+
+      test('contribution on, backup off: only contrib/, and no photoUrl (nothing the owner can read back)', () async {
+        final e = Env(profile: contribOn)..store.rows['a'] = rec('a', photoSynced: false);
+        await e.sync.flush();
+        expect(e.remote.uploads.keys, ['contrib/test-uid/a.jpg']);
+        expect(e.remote.urls, isEmpty);
+      });
+
+      test('both on: both folders', () async {
+        final e = Env(profile: bothOn)..store.rows['a'] = rec('a', photoSynced: false);
+        await e.sync.flush();
+        expect(e.remote.uploads.keys.toSet(), {'backups/test-uid/a.jpg', 'contrib/test-uid/a.jpg'});
+      });
+
+      test('a failed upload leaves the row pending and retries next time', () async {
+        final e = Env(profile: backupOn)..store.rows['a'] = rec('a', photoSynced: false);
+        e.remote.failUpload = Exception('offline');
+        await e.sync.flush();
+        expect(e.store.rows['a']!.photoSynced, isFalse);
+        e.remote.failUpload = null;
+        await e.sync.flush();
+        expect(e.store.rows['a']!.photoSynced, isTrue);
+        expect(e.remote.uploads.keys, ['backups/test-uid/a.jpg']);
+      });
+
+      test('contrib is write-once: a repeat after a lost response is treated as done, not as a failure', () async {
+        final e = Env(profile: contribOn)..store.rows['a'] = rec('a', photoSynced: false);
+        e.remote.uploads['contrib/test-uid/a.jpg'] = Uint8List(1); // a previous attempt got through
+        await e.sync.flush();
+        expect(e.store.rows['a']!.photoSynced, isTrue);
+      });
+
+      test('a missing local file is marked done instead of retrying forever', () async {
+        final e = Env(profile: backupOn)..store.rows['a'] = rec('a', photoSynced: false, photo: '/p/gone.jpg');
+        await e.sync.flush();
+        expect(e.remote.uploadCalls, 0);
+        expect(e.store.rows['a']!.photoSynced, isTrue);
+      });
+
+      test('a row saved while the toggles were off is never uploaded, even after the farmer turns backup on', () async {
+        final e = Env(profile: backupOn)..store.rows['a'] = rec('a', photoSynced: true); // save time marked it done
+        await e.sync.flush();
+        expect(e.remote.uploadCalls, 0);
+      });
+    });
+
+    group('suspend (used while deleting data)', () {
+      test('suspend waits for the pass in flight and blocks further flushes until resume', () async {
+        final e = Env()..store.rows['a'] = rec('a');
+        final hang = e.remote.hangHistory = Completer<void>();
+        final running = e.sync.flush();
+        await Future<void>.delayed(Duration.zero);
+        var suspended = false;
+        final s = e.sync.suspend().then((_) => suspended = true);
+        await Future<void>.delayed(Duration.zero);
+        expect(suspended, isFalse, reason: 'a write is still in flight');
+        hang.complete();
+        await Future.wait([running, s]);
+        expect(suspended, isTrue);
+
+        e.store.rows['b'] = rec('b');
+        e.remote.hangHistory = null;
+        await e.sync.flush();
+        expect(e.remote.histories.keys, ['test-uid/a'], reason: 'suspended: b is not pushed');
+        e.sync.resume();
+        await e.sync.flush();
+        expect(e.remote.histories.keys.toSet(), {'test-uid/a', 'test-uid/b'});
+      });
     });
   });
 }
