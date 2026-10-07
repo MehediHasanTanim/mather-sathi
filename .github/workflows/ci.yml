@@ -1,5 +1,8 @@
 name: ci
-on: [pull_request, push]
+# PAUSED: CI no longer runs on push or pull requests. It can still be started by hand (Actions tab -> ci -> Run workflow).
+# To resume, replace the line below with:  on: [pull_request, push]
+on:
+  workflow_dispatch:
 jobs:
   kb:
     runs-on: ubuntu-latest
