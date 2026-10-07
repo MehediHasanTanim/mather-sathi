@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "703080633691",
+    "project_id": "krishi-dev-fdea4",
+    "storage_bucket": "krishi-dev-fdea4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:703080633691:android:766ee33a9e2bad0d4cf67e",
+        "android_client_info": {
+          "package_name": "com.nextgenai.mather_sathi.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDoadTp8nZGzUHTsXMyNQhb1xSljjdIQ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
